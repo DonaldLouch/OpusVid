@@ -1,0 +1,59 @@
+[16-Sep-2018 23:32:03 UTC] PHP Parse error:  syntax error, unexpected '$param_username' (T_VARIABLE), expecting ',' or ')' in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 15
+[16-Sep-2018 23:33:07 UTC] PHP Parse error:  syntax error, unexpected '$_POST' (T_VARIABLE) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 23
+[16-Sep-2018 23:33:35 UTC] PHP Parse error:  syntax error, unexpected ''.$_POST["username"].'' (T_CONSTANT_ENCAPSED_STRING) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 23
+[16-Sep-2018 23:34:00 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 26
+[16-Sep-2018 23:34:19 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 26
+[16-Sep-2018 23:35:01 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 26
+[16-Sep-2018 23:35:54 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 26
+[16-Sep-2018 23:38:39 UTC] PHP Parse error:  syntax error, unexpected 'mailto' (T_STRING), expecting ',' or ';' in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 29
+[16-Sep-2018 23:39:02 UTC] PHP Parse error:  syntax error, unexpected '$param_username' (T_VARIABLE), expecting ',' or ')' in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 56
+[16-Sep-2018 23:40:22 UTC] PHP Parse error:  syntax error, unexpected 'mailto' (T_STRING), expecting ',' or ';' in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 64
+[16-Sep-2018 23:42:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function emty() in /home/opusvid/public_html/opus/resources/views/back-end/register.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 33
+[16-Sep-2018 23:43:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysli_prepare() in /home/opusvid/public_html/opus/resources/views/back-end/register.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 12
+[16-Sep-2018 23:49:31 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 25
+[16-Sep-2018 23:50:42 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 25
+[16-Sep-2018 23:50:58 UTC] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 23
+[16-Sep-2018 23:51:07 UTC] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 23
+[16-Sep-2018 23:51:15 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 25
+[16-Sep-2018 23:51:27 UTC] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 25
+[16-Sep-2018 23:51:48 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 25
+[17-Sep-2018 01:11:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function ifset() in /home/opusvid/public_html/opus/resources/views/back-end/index.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 9
+[17-Sep-2018 01:11:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function ifset() in /home/opusvid/public_html/opus/resources/views/back-end/index.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 30
+[17-Sep-2018 01:19:26 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 30
+[17-Sep-2018 01:22:47 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/opusvid/public_html/opus/resources/views/back-end/index.php:2) in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 3
+[17-Sep-2018 02:33:08 UTC] PHP Warning:  mysqli_prepare() expects parameter 1 to be mysqli, null given in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 19
+[17-Sep-2018 02:33:08 UTC] PHP Warning:  mysqli_stmt_close() expects parameter 1 to be mysqli_stmt, null given in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 42
+[17-Sep-2018 02:33:08 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, null given in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 92
+[17-Sep-2018 02:34:12 UTC] PHP Warning:  mysqli_prepare() expects parameter 1 to be mysqli, null given in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 19
+[17-Sep-2018 02:34:12 UTC] PHP Warning:  mysqli_stmt_close() expects parameter 1 to be mysqli_stmt, null given in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 42
+[17-Sep-2018 02:34:12 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, null given in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 92
+[17-Sep-2018 02:34:23 UTC] PHP Parse error:  syntax error, unexpected 're' (T_STRING), expecting ',' or ';' in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 3
+[17-Sep-2018 02:34:50 UTC] PHP Warning:  mysqli_prepare() expects parameter 1 to be mysqli, null given in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 19
+[17-Sep-2018 02:34:50 UTC] PHP Warning:  mysqli_stmt_close() expects parameter 1 to be mysqli_stmt, null given in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 42
+[17-Sep-2018 02:34:50 UTC] PHP Warning:  mysqli_close() expects parameter 1 to be mysqli, null given in /home/opusvid/public_html/opus/resources/views/back-end/register.php on line 92
+[17-Sep-2018 04:48:11 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/opusvid/public_html/opus/resources/views/back-end/login.php on line 51
+[17-Sep-2018 04:48:26 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/opusvid/public_html/opus/resources/page-templates/header.php:1) in /home/opusvid/public_html/opus/resources/views/back-end/login.php on line 1
+[17-Sep-2018 23:16:17 UTC] PHP Parse error:  syntax error, unexpected 'login' (T_STRING), expecting ',' or ';' in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 21
+[17-Sep-2018 23:52:26 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opusvid/public_html/opus/resources/page-templates/head.php:1) in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 21
+[17-Sep-2018 23:52:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opusvid/public_html/opus/resources/page-templates/head.php:1) in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 21
+[17-Sep-2018 23:53:01 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opusvid/public_html/opus/resources/page-templates/head.php:1) in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 21
+[17-Sep-2018 23:55:09 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opusvid/public_html/opus/resources/page-templates/head.php:1) in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 22
+[17-Sep-2018 23:55:47 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opusvid/public_html/opus/resources/page-templates/head.php:1) in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 21
+[17-Sep-2018 23:59:05 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 9
+[17-Sep-2018 23:59:33 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 9
+[18-Sep-2018 00:00:04 UTC] PHP Parse error:  syntax error, unexpected 'include' (T_INCLUDE), expecting ',' or ';' in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 9
+[18-Sep-2018 00:44:32 UTC] PHP Parse error:  syntax error, unexpected 'username' (T_STRING), expecting ',' or ';' in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 35
+[18-Sep-2018 00:44:52 UTC] PHP Parse error:  syntax error, unexpected 'username' (T_STRING), expecting ',' or ';' in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 35
+[18-Sep-2018 00:45:16 UTC] PHP Parse error:  syntax error, unexpected 'uName' (T_STRING), expecting ',' or ';' in /home/opusvid/public_html/opus/resources/views/back-end/index.php on line 35

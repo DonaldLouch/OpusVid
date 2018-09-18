@@ -1,0 +1,583 @@
+/*
+=====================================================================
+CSS Rest
+=====================================================================
+*/
+
+*, body, html, p, h1, h2, h3, header, nav, a, img, footer, ol, li, section, div, abbr, button, input, form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    width: auto;
+    text-decoration: none;
+}
+
+/*
+=====================================================================
+Body
+=====================================================================
+*/
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 100%;
+  color: #333333;
+}
+
+body {
+/*background: linear-gradient(171deg, rgba(48,46,145,1) 0%, rgba(83,109,254,0.9626051104035365) 25%, rgba(53,100,145,0.94) 50%, rgba(229,115,115,0.92) 75%, rgba(255,157,47,0.81) 89%);*/
+}
+
+h1, h2, h3 {
+  text-shadow: 1px 1px 8px rgba(148, 150, 150, 0.57);
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0.2em 0 0.6em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin: 0.6em 0 -0.2em;
+}
+
+h3 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+p {
+  font-size: 18px;
+  margin: 10px 0px 10px;
+  text-shadow: 1px 1px 8px rgba(148, 150, 150, 0.57);
+}
+
+a:link, a:visited {
+    color: #302E91;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #FF9D2F;
+}
+
+hr {
+	margin: 1em 1.5em;
+	border: 0.5px solid #302E91;
+}
+
+ul, ol {
+    margin: 0 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li {
+  font-size: 1.3em;
+  margin: 0;
+  font-weight: 500;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+q {
+	font-weight: bold;
+	font-style: italic;
+}
+
+blockquote {
+	border-left: 2px solid #302E91;
+	margin: 1em 0 1em 2em;
+	padding: 0.1em 0 0.1em 1em;
+}
+
+cite {
+	display: block;
+	font-style: italic;
+	font-weight: bold;
+	margin: 1em;
+}
+
+pre {
+	background-color: #eee;
+	padding: 1em;
+	font-family: "Source Code Pro";
+	font-weight: 300;
+	overflow: auto;
+}
+
+code,
+var {
+	font-family: "Source Code Pro";
+	font-weight: 300;
+	color: #0078ff;
+}
+
+abbr {
+    border-bottom: 2px solid #302E91;
+    font-weight: 500;
+}
+
+/*
+=====================================================================
+Header
+=====================================================================
+*/
+
+header {
+    display: grid;
+    /*grid-template-columns: 30% 70%;*/
+    grid-template-columns: 18% 82%;
+    box-shadow: -2px 7px 18px 3px rgba(0, 0, 0, 0.5);
+    padding: 0.05em 0.3em;
+    background-color: #fff;
+    position: fixed;
+    height: 3.6em;
+    z-index: 100;
+    width: 98.7%;
+    top: 1.2vh;
+    left: 0.4vw;
+}
+
+header img {
+    margin: 0.22em 0;
+    width: 100%;
+    max-width: 245px;
+    height: auto;
+}
+
+#menu-main {
+    text-align: right;
+    margin: 0.4em;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#menu-main a,
+.logoutNav button {
+    font-size: 1.2em;
+    display: inline-block;
+    margin: 0.39em 0.1em;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.19);
+    border-bottom: solid #536DFE;
+    background: none;
+    font-weight: 500;
+    color: #302E91;
+  }
+
+  #menu-main a:hover,
+  .logoutNav button:hover {
+    color: #FF9D2F !important;
+    border-bottom: solid #FF9D2F !important;
+    }
+
+  .activePg {
+    color: #E57373 !important;
+    border-bottom: solid #E57373 !important;
+}
+
+.logoutNav {
+    display: inline;
+}
+
+  /*
+  =====================================================================
+  Page
+  =====================================================================
+  */
+
+.wrapper {
+  margin: 5em 1em 1em;
+  padding: 1em;
+}
+
+.card, .dashWrapper {
+  margin: 5em 14% 1em;
+  padding: 1em 2em;
+  background: radial-gradient(ellipse at center, #fcfcfc 0%,#fafafa 36%,#f5f7f9 100%);
+  box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+}
+
+.dashWrapper {
+  margin: 5em 1em 1em;
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+
+#dashNav a,
+#dashNav button {
+    display: block;
+    margin: 1em 0;
+    padding: 1em;
+    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+    text-align: center;
+    background-color: #302E91;
+    color: #fff;
+}
+
+#dashNav button {
+    width: 100%;
+    font-weight: 500;
+}
+
+.dashNavSub a {
+    background: none !important;
+    color: #302E91 !important;
+    box-shadow: none !important;
+    text-align: left !important;
+    font-size: 0.9em;
+    margin: 2em 1em !important;
+    padding: 0 !important;
+    border-bottom: solid;
+}
+
+#dashNav a:hover,
+#dashNav button:hover,
+.dashActive {
+  background-color: #E57373;
+  box-shadow: none !important;
+}
+
+.dashActive {
+  background-color: #E57373 !important;
+  box-shadow: none !important;
+}
+
+.dashNavSub a:hover {
+  background: none !important;
+  color: #E57373 !important;
+  border-bottom-color: #E57373 !important;
+}
+
+#dashContent {
+    margin: 0em -1em 0 2em;
+    padding: 1em 2em;
+    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+}
+
+a.button {
+  background-color: #302E91;
+  padding: 0.5em;
+  color: #fff !important;
+  text-shadow: none;
+  font-size: 0.9em;
+  box-shadow: 5px 3px 7px 1px rgba(83, 109, 254, 0.4);
+}
+
+#download {
+  margin: 2em;
+}
+
+a.button:hover {
+  background: none;
+  box-shadow: none;
+  color: #302E91 !important;
+}
+
+/*
+=====================================================================
+  Video Player
+=====================================================================
+*/
+
+.vidEmbed {
+    display: block;
+    margin: auto;
+}
+
+video {
+    width: 90%;
+    height: auto;
+    box-shadow: 3px 5px 20px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 0.4em;
+}
+
+#vidCon {
+    margin: -3.5em 0em 1.2em;
+		text-align: center;
+}
+
+#description {
+    padding: 0.5em 1.5em;
+    box-shadow: 3px 5px 20px 6px rgba(0, 0, 0, 0.5);
+    margin: 1.4em 0;
+}
+
+#description h1 {
+    color: #536DFE;
+    font-size: 4em;
+}
+
+#description h2 {
+	margin: -0.3em 0 0;
+	font-size: 3em;
+	color: #356491;
+}
+
+#fDescription {
+    padding: 0.5em 1em 0;
+}
+
+#fDescription p {
+    font-weight: 300 !important;
+}
+
+/*
+=====================================================================
+  Columns
+=====================================================================
+*/
+.columns {
+  display: grid;
+  text-align: center;
+  margin: 0 0em;
+  padding: 0;
+}
+
+  .columns.\32 {
+    grid-template-columns: 50% 50%;
+  }
+
+.columns.\36 {
+    grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+    color: #fff;
+}
+
+.column {
+    margin: 0.5em;
+    width: 98%;
+}
+
+.nm.column {
+  width: 96%;
+  margin: 0;
+}
+
+#colour1 {
+    background-color: #302E91;
+}
+
+#colour2 {
+    background-color: #FF9D2F;
+}
+
+#colour3 {
+    background-color: #536DFE;
+}
+
+#colour4 {
+    background-color: #356491;
+}
+
+#colour5 {
+    background-color: #E57373;
+}
+
+#colour6 {
+    background-color: #333333;
+}
+
+/*
+=====================================================================
+Toggles
+		- Creates the toggles/accordions (JavaScript Needed)
+=====================================================================
+*/
+
+.toggleButton {
+    font-weight: 700;
+    color: #302E91;
+    font-size: 1.4em;
+    border-bottom: solid #E57373;
+    padding: 0 1em 0.1em;
+}
+
+.toggleButton:hover {
+    border-bottom: solid #403D3C;
+}
+
+.panel {
+	display: none;
+}
+
+/*
+=====================================================================
+	Tabs
+		- Creates the tabs (JavaScript Needed)
+=====================================================================
+*/
+
+#tabs {
+    margin: 0 -2em 2em;
+    font-weight: 300;
+    width: auto;
+}
+
+/* Nav */
+#tabs nav {
+	text-align: center;
+	border-bottom: solid 1px #536DFE;
+}
+
+#tabs nav ul {
+	padding: 0;
+	width: 100%;
+	margin: 0;
+	list-style: none;
+	display: inline-block;
+}
+
+#tabs nav ul li {
+	margin: 0 0.25em;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+#tabs nav li.tab-current {
+	z-index: 100;
+}
+
+#tabs nav a {
+	display: inline-block;
+	font-size: 1.5em;
+	line-height: 2.5;
+	padding: 0 1.25em;
+}
+
+#tabs nav a:hover {
+	color: #FF9D2F;
+}
+
+#tabs .tab-current {
+    font-weight: bold;
+    color: #E57373;
+}
+
+/* Content */
+.tabContent section {
+  font-size: 1.4em;
+  padding: 1em 2em;
+  display: none;
+  margin: 0 auto;
+}
+
+.tabContent img {
+    width: 100%;
+}
+
+/* Fallback example */
+.no-js .tabContent section {
+	display: block;
+	padding-bottom: 2em;
+	border-bottom: 1px solid #302E91;
+}
+
+.tabContent section.content-current {
+	display: block;
+}
+
+/*
+=====================================================================
+	Contact Form
+=====================================================================
+*/
+
+.submitButton {
+  background-color: #302E91;
+  border: none;
+  color: #fff;
+  padding: 0.5em;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin: 0 1em;
+  font-weight: 500;
+  box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+}
+
+.submitButton:hover {
+  color: #E57373;
+  box-shadow: none;
+  background: none;
+}
+
+form section{
+	height: 1em;
+    margin: 3em 0 5em;
+    box-shadow: none;
+    padding: 1em;
+} /* Adds margins to the form sections */
+
+select, input, textarea {
+	  font-size: 0.7em; /* Use this to change the font size of the form fields */
+    padding: 1em;
+    margin: 1em;
+    width: 96%;
+    box-sizing: border-box;
+    border-top: hidden;
+    border-left: hidden;
+    border-bottom: solid #302E91 1.9px; /* Use this to change the colour of the bottom line on the form */
+    border-right: hidden;
+    background: none;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+input:focus, .textarea:focus {
+	border-color: #E57373;  /* Use this to change the border colour when clicked on to the field */
+}
+
+/*
+=====================================================================
+	Footer
+=====================================================================
+*/
+
+footer {
+    box-shadow: 0px 12px 16px rgba(26, 9, 66, 0);
+    padding: 1.5em;
+    text-shadow: 42px 40px 47px #979090;
+    background: linear-gradient(50deg, #45484d 0%,#000000 100%);
+    color: #ffffff;
+    font-size: 0.9em;
+    width: 100%;
+    margin: 0;
+ } /* Responsive */
+
+footer a{
+	color: #e71b1b !important;
+	font-weight: 600;
+}
+
+footer a:hover {
+	color: lightgrey;
+} /* Links in the footer */
