@@ -11,7 +11,7 @@ console.log('video.js Working');
 =====================================================================
 	Video Player
 =====================================================================
-
+*/
 
 console.log('video.js Working');
 
@@ -19,10 +19,7 @@ console.log('video.js Working');
 
 var video = document.querySelector("video");
 video.controls = ""; // Hide the browser's default controls
-	var tracks = [
-	"../media/videos/PechaKuchaDonald.mp4",
-	"../media/videos/2017DonaldLouchIntro720.mp4",
-	"../media/videos/2017DonaldLouchIntro.mp4"
+/*	var tracks = [
 	]; //Video Sources
 
 var current =  0; // Finds what arry number the current video is playing
@@ -45,7 +42,7 @@ function next(){
 //Previous Video Button
 var prevbtn = document.createElement("button"); // Adds new button to the DOM
 prevbtn.className = "prevBTN"; // Adds the classname "prevBTN"
-prevbtn.style.backgroundImage = "url(../../media/videoUI/previousVideoButton.png)"; // Image of the button
+prevbtn.style.backgroundImage = "url(../../../../storage/ui/video-ui/previousVideoButton.png)"; // Image of the button
 prevbtn.title = "Click to play the previous video"; // Adds a title to the button in the DOM (Semantic)
 prevbtn.addEventListener("click", prev);  // Once the button has been clicked it will fire the "prev" function
 function prev(){
@@ -58,39 +55,38 @@ function prev(){
 	video.play(); //Plays the new video
 	console.log("Previous Video");
 }
-document.getElementById("vidCon").appendChild(prevbtn); // Adds the DOM content to HTML; Very forgetable to add in code ;)
+document.getElementById("vidCon").appendChild(prevbtn); // Adds the DOM content to HTML; Very forgetable to add in code ;)*/
 
 //Play/Pause Button
 
 var playbtn = document.createElement("button"); // Adds new button to the DOM
-playbtn.style.backgroundImage = "url(../../media/videoUI/playButton.png)"; // Initial image of the button
+playbtn.style.backgroundImage = "url(../../../../storage/ui/video-ui/playButton.png)"; // Initial image of the button
 playbtn.className = "playBTN"; // Adds the classname "playBTN"
 playbtn.title = "Click to play the video"; // Adds a title to the button in the DOM (Semantic)
 playbtn.addEventListener("click", playclick); // Once the button has been clicked it will fire the "playclick" function
 function playclick(){
 	if (video.paused) {
 		video.play(); // Starts off with "Play" and will start the video
-		playbtn.style.background = "url(../../media/videoUI/pauseButton.png)"; // Chaanges the button to the "pause" image
+		playbtn.style.background = "url(../../../../storage/ui/video-ui/pauseButton.png)"; // Chaanges the button to the "pause" image
 		console.log("You played the video");
 		}else{
 		video.pause(); // Once button is clicked it will pause the video
-		playbtn.style.background = "url(../../media/videoUI/playButton.png)"; // Changes the button to the "play" image
+		playbtn.style.background = "url(../../../../storage/ui/video-ui/playButton.png)"; // Changes the button to the "play" image
 		console.log("You paused the video");
 		}
 }
 document.getElementById("vidCon").appendChild(playbtn); // Adds the DOM content to HTML
 
-//Next Video Button
+/*//Next Video Button
 
 var nextbtn = document.createElement("button"); // Adds new button to the DOM
 nextbtn.className = "nextBTN"; // Adds the classname "nextBTN"
-nextbtn.style.backgroundImage = "url(../../media/videoUI/nextVideoButton.png)"; // Image of the button
+nextbtn.style.backgroundImage = "url(../../../../storage/ui/video-ui/nextVideoButton.png)"; // Image of the button
 nextbtn.title = "Click to play the next video"; // Adds a title to the button in the DOM (Semantic)
 nextbtn.addEventListener("click", next);  // Once the button has been clicked it will fire the "next" function;
-document.getElementById("vidCon").appendChild(nextbtn); // Adds the DOM content to HTML
+document.getElementById("vidCon").appendChild(nextbtn); // Adds the DOM content to HTML*/
 
 //Slider
-
 var seekBar = document.createElement("input"); //Adds new input slider to the DOM
 seekBar.className = "slider"; // Adds the classaname "slider"
 seekBar.title = "Seekbar"; //Adds a title to the button in the DOM (Semantic)
@@ -134,17 +130,17 @@ document.getElementById("vidCon").appendChild(counter); // Adds the DOM content 
 
 var mutebtn = document.createElement("button"); //Adds new button to the DOM
 mutebtn.className = "muteBTN"; // Adds the classname "muteBTN"
-mutebtn.style.backgroundImage = "url(../../media/videoUI/muteButton.png)"; //Initial iamge of the button
+mutebtn.style.backgroundImage = "url(../../../../storage/ui/video-ui/muteButton.png)"; //Initial iamge of the button
 mutebtn.title = "Click to mute the audio"; //Adds a title to the button in the DOM (Semantic)
 mutebtn.addEventListener("click", videoMute);  // Once the button has been clicked it will fire the "videoMute" function
 function videoMute(){
 if(video.muted){
 	video.muted = false; // Video audio is NOT muted
-	mutebtn.style.backgroundImage = "url(../../media/videoUI/muteButton.png)"; // Changes the button to the "mute" image
+	mutebtn.style.backgroundImage = "url(../../../../storage/ui/video-ui/muteButton.png)"; // Changes the button to the "mute" image
 	console.log("You unmuted the video");
 } else {
 	video.muted = true; // Video audio IS muted
-	mutebtn.style.backgroundImage = "url(../../media/videoUI/unmuteButton.png)"; // Changes the button to the "unmute" image
+	mutebtn.style.backgroundImage = "url(../../../../storage/ui/video-ui/unmuteButton.png)"; // Changes the button to the "unmute" image
 	console.log("You muted the video");
 }
 }
@@ -152,7 +148,7 @@ document.getElementById("vidCon").appendChild(mutebtn); // Adds the DOM content 
 
 var fullbtn = document.createElement("button"); //Adds new button to the DOM
 fullbtn.className = "fullBTN"; // Adds the classname "fullBTN"
-fullbtn.style.backgroundImage = "url(../../media/videoUI/fullscreenButton.png)"; //Image of the button
+fullbtn.style.backgroundImage = "url(../../../../storage/ui/video-ui/fullscreenButton.png)"; //Image of the button
 fullbtn.title = "Click to make the video fullscreen"; //Adds a title to the button in the DOM (Semantic)
 fullbtn.addEventListener("click", toggleFullScreen);  // Once the button has been clicked it will fire the "fullScreen" function
 function toggleFullScreen(){

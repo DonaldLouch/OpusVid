@@ -1,4 +1,24 @@
-option -MultiViews
 RewriteEngine On
+
+#Redirects URL to "https://*" if "http://*" has been typed
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://opusvid.com/$1 [R,L]
+
+#Removes the file extensions
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]
+
+#Back-end redirects
+RewriteRule ^login$ resources/views/back-end/login.php [NC]
+RewriteRule ^dashboard$ resources/views/back-end/index.php [NC]
+RewriteRule ^dashboard/upload$ resources/views/back-end/video_upload.php [NC]
+RewriteRule ^dashboard/manage$ resources/views/back-end/manage_videos.php [NC]
+RewriteRule ^dashboard/edit$ resources/views/back-end/edit_video.php [NC]
+
+#Front-end redirects
+RewriteRule ^home$ resources/views/front-end/index.php [NC]
+RewriteRule ^player$ resources/views/front-end/player.php [NC]
+
+RewriteRule ^sitemap$ sitemap.php [NC]
