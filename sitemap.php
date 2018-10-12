@@ -7,7 +7,7 @@ session_start();
      <html lang="en">
        <head>
            <meta charset="UTF-8">
-           <title>Opus Vid Page</title>
+           <title>Sitemap | Opus Vid</title>
            <link rel="stylesheet" type="text/css" href="resources/css/stylesheet.css"/>
            <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -36,24 +36,36 @@ session_start();
         </section>
 
         <section id="views">
-          <h3>Views</h3>
+          <h3>resources/views</h3>
             <h4>Back-End</h4>
             <ul>
               <li><a href="dashboard" class="button">Dashboard (Index)</a></li>
               <li><a href="login" class="button">Login</a></li>
               <li><a href="dashboard/upload" class="button">Video Upload</a></li>
               <li><a href="dashboard/manage" class="button">Manage Videos</a></li>
+              <li><a href="dashboard/settingsP" class="button">*NEW (2)* Edit Profile</a></li>
+              <li><a href="dashboard/settingsA" class="button">*NEW (2)* Edit Account</a></li>
+              <li><a href="dashboard/manage_collections" class="button">*NEW (2)* Manage Opus Collections: BEING CONSTRUCTED</a></li>
             </ul>
+
             <h4>Front-End</h4>
             <ul>
               <li><a href="home" class="button">Home -> Will Be Index</a></li>
               <li><a href="player" class="button">Player Templete - > Go To Home and Selece Video</a></li>
               <li><a href="player?id=5ba85682d768f" class="button">Example Player Page</a></li>
+              <li><a href="profile" class="button">Profile Page</a></li>
+              <li><a href="profile?id=DonaldLouch" class="button">Example Profile Page</a></li>
+              <li><a href="categories" class="button">*NEW (2)* Categories</a></li>
+              <li><a href="category" class="button">*NEW (2)* Category Page</a></li>
+              <li><a href="category?type=Animation" class="button">*NEW (2)* Example Category Page</a></li>
             </ul>
         </section>
       </div>
     </body>
   </html>
+
+  <!-- IF logged out -->
+
   <?php } else { ?>
     <!DOCTYPE html>
      <html lang="en">

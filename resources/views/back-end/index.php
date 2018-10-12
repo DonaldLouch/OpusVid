@@ -2,38 +2,33 @@
 
 session_start();
 
-  if (isset ($_SESSION['uID'])) {
-    //Displays Page!
-  } else {
-   header("Location: login");
-   exit();
- }
-?>
-
-<?php include '../../page-templates/head.php'; ?>
+if (isset ($_SESSION['uID'])) {
+   include '../../page-templates/head.php'; ?>
 <body>
-  <?php include '../../page-templates/header.php'; ?>
-  <div class="dashWrapper">
-    <nav id="dashNav">
-      <a href="dashboard">Dashboard</a>
-      <a href="dashboard/manage">Videos</a>
-        <nav class="dashNavSub">
-          <a href="dashboard/upload">Upload New Video</a>
-          <a href="dashboard/manage" class="dashActive">Manage Videos</a>
-          <a href="#">Manage Opus Collections</a>
-        </nav>
-      <a href="#">Settings</a>
-        <nav class="dashNavSub">
-          <a href="#">Profile</a>
-          <a href="#">Account</a>
-        </nav>
-      <form action="database/db_logout.php" method="post">
-        <button class="dashNav" type="submit" name="submit">Logout</button>
-      </form>
-    </nav>
-    <section id="dashContent">
+  <script>
+    document.title = "Dashboard | Opus Vid";
+  </script>
+  <?php
+    include '../../page-templates/header.php';
+    include '../../page-templates/dash_nav.php';
+    if(isset($_GET['login'])){
+      $loginError = $_GET['login'];
+      if($loginError == "success"){ ?>
+        <div class="successMessage">
+          <p>Successfully logged in!</p>
+        </div>
+    <?php }
+    }
+    ?>
       <h3>Hi, <?php echo $_SESSION['uName']; ?> you have been logged in!</h3>
+      <p>Your user level is <?php echo $_SESSION['uLevel']; ?></p>
       <a class="button" href="sitemap.php">View Sitemap!</a>
     </section>
   </div>
 <?php include '../../page-templates/footer.php'; ?>
+
+<?php } else {
+ header("Location: login");
+ exit();
+}
+?>

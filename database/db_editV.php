@@ -28,10 +28,7 @@ if (isset($_POST['submit'])) {
 
   $results = mysqli_query($mySQL, $updateSQL);
 
-  if ($_FILES["thumbnailFile"]["error"] > 0) {
-    echo "Return Code: " . $_FILES["thumbnailFile"]["error"];
-  } else {
-    move_uploaded_file($_FILES["thumbnailFile"]["tmp_name"], "upload/thumbnails/" . $uploadID . "." . $fileThumbExtension);
-  }
-  header("Location: ../dashboard/manage.php");
+  move_uploaded_file($_FILES["thumbnailFile"]["tmp_name"], "upload/thumbnails/" . $uploadID . "." . $fileThumbExtension);
+
+  header("Location: ../dashboard/manage?edited=success");
 }

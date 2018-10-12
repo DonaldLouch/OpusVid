@@ -3,23 +3,9 @@
 session_start();
 
 if (isset($_POST['submit'])) {
-  $db_Server = "localhost";
-  $db_Username = "opusvid_cms";
-  $db_Password = "n,rl!DVdGwTa}&8Usl";
-  $db_Name = "opusvid_cms";
+  include 'db_connect.php';
 
-  $mySQL = mysqli_connect($db_Server, $db_Username, $db_Password, $db_Name) or die("Connecting to MySQL failed");
-
-  $target_file_video = $_FILES["videoFile"]["name"];
-  $fileVideoExtension = strtolower(pathinfo($target_file_video,PATHINFO_EXTENSION));
-  $target_file_thumb = $_FILES["thumbnailFile"]["name"];
-  $fileThumbExtension = strtolower(pathinfo($target_file_thumb,PATHINFO_EXTENSION));
   $uniqeID = uniqid();
-  $vidPath = "../../../database/upload/videos/" . $uniqeID . '.' . $fileVideoExtension;
-  $thumbPath = "../../../database/upload/thumbnails/" . $uniqeID . '.' . $fileThumbExtension;
-
-  //nl2br();
-  //mysqli_real_escape_string($mySQL,
 
   $uploadID = nl2br($uniqeID);
   $uploadPath = nl2br($vidPath);
@@ -43,7 +29,10 @@ if (isset($_POST['submit'])) {
   $uploadPrivacy = nl2br($_POST['privacy']);
   $uploadThumbPath = nl2br($thumbPath);
 
-  if (empty($uploadPath) || empty($uploadTitle) || empty($uploadSDescription) || empty($uploadDescription) || empty($uploadCategory) || empty($uploadTags) || empty($uploadMusicCredit) || empty($uploadPrivacy) || empty($uploadThumbPath)){
+  //nl2br();
+  //mysqli_real_escape_string($mySQL,
+
+  if (empty($uploadTitle) || empty($uploadSDescription) || empty($uploadDescription) || empty($uploadCategory) || empty($uploadTags) || empty($uploadMusicCredit) || empty($uploadPrivacy)){
     echo 'All Fields are Required!';
   } elseif(!$mySQL) {
     die("Connection failed: " . mysqli_connect_error());
@@ -70,25 +59,73 @@ if (isset($_POST['submit'])) {
     echo '<p>20 Privacy:' . $uploadPrivacy . '</p>';
     echo '<p>21 Thumbnail Path:' . $uploadThumbPath . '</p>';*/
 
-    $sqlInsert = "INSERT INTO videos (id, video_path, video_title, opus_creator, uploaded_on, short_description, description, category, tags, music_credit, filmed_date, filmed_at, filmed_on, filmed_by, audio_by, audio_with, edited_by, edited_on, staring, privacy, thumbnail_path) VALUES ('$uploadID', '$uploadPath', '$uploadTitle', '$uploadOC', '$uploadDate', '$uploadSDescription', '$uploadDescription', '$uploadCategory', '$uploadTags', '$uploadMusicCredit', '$uploadFilmedOn', '$uploadFilmedAt', '$uploadFilmedWith', '$uploadFilmedBy', '$uploadAudioBy', '$uploadAudioWith', '$uploadEditedBy', '$uploadEditedOn', '$uploadStaring', '$uploadPrivacy', '$uploadThumbPath')";
+    //Video File
+      $video = $_FILES['videoFile'];
+
+      $videoName = $_FILES['videoFile']['name']; //Takes the file name
+      $videoTemp = $_FILES['videoFile']['tmp_name']; //Takes the temp name of the file
+      $videoSize = $_FILES['videoFile']['size']; //Takes the file size
+      $videoError = $_FILES['videoFile']['error']; //Takes the file error status
+      $videoType = $_FILES['videoFile']['type']; //Takes the file types
+
+      $videoExplode = explode('.', $videoName); //Explodes the file name (name . extention)
+      $videoExtention = strtolower(end($videoExplode)); //Changes the file extention into a lowercase name
+
+      $videoExtAllow = array('mp4', 'mov', 'avi', 'mkv'); //Allow the following extentions
+
+      if (in_array($videoExtention, $videoExtAllow)) { //In Array
+        if ($videoError === 0) { //Error Check
+          if ($videoSize < 5000000) { //File Size -> Upload
+            $videoNewName = $uniqeID.".".$videoExtention;
+
+            $videoDestination = '../storage/videos/'.$videoNewName;
+
+            move_uploaded_file($videoTemp, $videoDestination);
+          } else {
+            echo "Your video is too big!";
+          } //End else "File Size/Upload"
+        } else {
+          echo "There was an error uploading your video. Please try again!";
+        } //End else "Error Check"
+      } else {
+        echo "Please only upload video files with the extention mp4, mov, avi, or mkv!";
+      } //End else "In Array"
+
+    //Thumb File
+      $thumb = $_FILES['thumbnailFile'];
+
+      $thumbName = $_FILES['thumbnailFile']['name']; //Takes the file name
+      $thumbTemp = $_FILES['thumbnailFile']['tmp_name']; //Takes the temp name of the file
+      $thumbSize = $_FILES['thumbnailFile']['size']; //Takes the file size
+      $thumbError = $_FILES['thumbnailFile']['error']; //Takes the file error status
+      $thumbType = $_FILES['thumbnailFile']['type']; //Takes the file types
+
+      $thumbExplode = explode('.', $thumbName); //Explodes the file name (name . extention)
+      $thumbExtention = strtolower(end($thumbExplode)); //Changes the file extention into a lowercase name
+
+      $thumbExtAllow = array('jpg', 'jpeg', 'png', 'pdf'); //Allow the following extentions
+
+      if (in_array($thumbExtention, $thumbExtAllow)) { //In Array
+        if ($thumbError === 0) { //Error Check
+          if ($thumbSize < 5000000) { //File Size -> Upload
+            $thumbNewName = $uniqeID.".".$thumbExtention;
+
+            $thumbDestination = '../storage/thumbnail/'.$thumbNewName;
+
+            move_uploaded_file($thumbTemp, $thumbDestination);
+          } else {
+            echo "Your thumbnail is too big!";
+          } //End else "File Size/Upload"
+        } else {
+          echo "There was an error uploading your thumbnail. Please try again!";
+        } //End else "Error Check"
+      } else {
+        echo "Please only upload image files with the extention jpg, jpeg, png, OR pdf!";
+      } //End else "In Array"
+
+    $sqlInsert = "INSERT INTO videos (id, video_path, video_title, opus_creator, uploaded_on, short_description, description, category, tags, music_credit, filmed_date, filmed_at, filmed_on, filmed_by, audio_by, audio_with, edited_by, edited_on, staring, privacy, thumbnail_path, views) VALUES ('$uploadID', '$videoDestination', '$uploadTitle', '$uploadOC', '$uploadDate', '$uploadSDescription', '$uploadDescription', '$uploadCategory', '$uploadTags', '$uploadMusicCredit', '$uploadFilmedOn', '$uploadFilmedAt', '$uploadFilmedWith', '$uploadFilmedBy', '$uploadAudioBy', '$uploadAudioWith', '$uploadEditedBy', '$uploadEditedOn', '$uploadStaring', '$uploadPrivacy', '$thumbDestination', 0)";
 
     $results = mysqli_query($mySQL, $sqlInsert);
-
-
-    //Upload Video to Server
-    if ($_FILES["videoFile"]["error"] > 0) {
-      echo "Return Code: " . $_FILES["videoFile"]["error"];
-    } else {
-      move_uploaded_file($_FILES["videoFile"]["tmp_name"], "upload/videos/" . $uniqeID . "." . $fileVideoExtension);
-    }
-
-      //Thumbnail Upload
-      if ($_FILES["thumbnailFile"]["error"] > 0) {
-        echo "Return Code: " . $_FILES["thumbnailFile"]["error"];
-      } else {
-        move_uploaded_file($_FILES["thumbnailFile"]["tmp_name"], "upload/thumbnails/" . $uniqeID . "." . $fileThumbExtension);
-      }
-      header("Location: ../player?id=$uniqeID");
+    header("Location: ../player?id=$uniqeID");
    }
   }
-?>

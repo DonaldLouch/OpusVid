@@ -35,7 +35,9 @@ if (isset($_POST['submit'])) {
           $_SESSION['uILast'] = $row['last_name'];
           $_SESSION['uName'] = $row['username'];
           $_SESSION['uEmail'] = $row['email'];
-          header("Location: ../dashboard");
+          $_SESSION['uAvatar'] = $row['avatar'];
+          $_SESSION['uLevel'] = $row['userlevel'];
+          header("Location: ../dashboard?login=success");
           exit();
         }
       }

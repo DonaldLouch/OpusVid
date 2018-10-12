@@ -1,64 +1,71 @@
 <?php
-
   if (isset($_POST['submit'])) {
 
     include 'db_connect.php';
-
-    /*$target_file = $_FILES["avatarFile"]["name"];
-    $fileExtension = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    */
 
     $firstname = mysqli_real_escape_string($mySQL, $_POST['signupFirstName']);
     $lastname = mysqli_real_escape_string($mySQL, $_POST['signupLastName']);
     $username = mysqli_real_escape_string($mySQL, $_POST['signupUsername']);
     $password = mysqli_real_escape_string($mySQL, $_POST['signupPassword']);
     $email = mysqli_real_escape_string($mySQL, $_POST['signupEmail']);
-    //$avatarPath = "../../../database/upload/avatar/" . $username . '.' . $fileExtension;
+    $avatarPath = mysqli_real_escape_string($mySQL,"../storage/avatars/defaultAvatar.png");
+    $userlevel = mysqli_real_escape_string($mySQL, "user");
+    $view = mysqli_real_escape_string($mySQL, "0");
 
-    //Error
+    if (empty($firstname) || empty($lastname) || empty($username) || empty($password) || empty($email)) { //Checks for empty fields
+      header("Location: ../login?signup=empty&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
+      exit(); //End of Checks for Empty fields
 
-   if (empty($firstname) || empty($lastname) || empty($username) || empty($password) || empty($email)) { //Empty Fields
-      header("Location: ../login?signup=empty");
-      exit(); //End of Empty Fields
-    } else { //Checkes Input
-      //Username
-      if (!preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $lastname) || !preg_match("/^[a-zA-Z]*$/", $username)) {//Looks at the characters in the field to make sure there are vaild characters
-        header("Location: ../login?signup=invaild");
+    } elseif (!preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $lastname)) {//Looks at the characters in the first and last name fields to make sure they are vaild characters
+      header("Location: ../login?signup=invaild&username=".$username."&email=".$email."");
+      exit(); //End of Checkes Input: First and Last name
+
+    } elseif (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {//Looks at the characters in the username field to make sure they are vaild characters
+        header("Location: ../login?signup=invaild&name-first=".$firstname."&name-last=".$lastname."&email=".$email."");
         exit(); //End of Checkes Input: Username
+
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      header("Location: ../login?signup=email&name-first=".$firstname."&name-last=".$lastname."&username=".$username."");
+      exit(); //End of Checkes Input: Email
+    } else {// Checks for users that are already created
+      $sqlCheck = "SELECT * FROM users WHERE username=?";
+      $stmtCheck = mysqli_stmt_init($mySQL);
+    } if (!mysqli_stmt_prepare($stmtCheck, $sqlCheck)){
+        header("Location: ../login?signup=sql&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
+        exit();
       } else {
-        //Email
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          header("Location: ../login?signup=email");
-          exit(); //End of Checkes Input: Email
-        } else {// Checks for users that are already created
-          $sql = "SELECT * FROM users WHERE username='$username'";
-          $result = mysqli_query($mySQL, $sql);
-          $resultCheck = mysqli_num_rows($result);
+        mysqli_stmt_bind_param($stmtCheck, "s", $username);
+        mysqli_stmt_execute($stmtCheck);
+        mysqli_stmt_store_result($stmtCheck);
+        $resultCheck = mysqli_stmt_num_rows($stmtCheck);
 
-          if ($resultCheck > 0) {
-            header("Location: ../login?signup=userTaken");
-            exit(); // End Users Already Created
-          } else {
-            //Password Hash
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-           //Create User in database
-            $sqlCreate = "INSERT INTO users (first_name, last_name, username, email, user_password) VALUES ('$firstname', '$lastname', '$username', '$email', '$hashedPassword');";
-            $resultCreate = mysqli_query($mySQL, $sqlCreate);
+        if ($resultCheck > 0) {
+          header("Location: ../login?signup=userTaken&name-first=".$firstname."&name-last=".$lastname."&email=".$email."");
+          exit(); // End Users Already Created
+        } //End of Errors
 
-            /*if ($_FILES["avatarFile"]["error"] > 0) {
-              echo "Return Code: " . $_FILES["avatarFile"]["error"];
-            } else {
-              move_uploaded_file($_FILES["avatarFile"]["tmp_name"], "upload/avatar/" . $username . "." . $fileExtension);
-            }*/
+        else {
+        $sqlInsert = "INSERT INTO users (first_name, last_name, username, email, user_password, avatar, userlevel, views) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $insertStmt = mysqli_stmt_init($mySQL);
 
-            header("Location: ../login?signup=success");
-            exit(); //User Added to Database
-          }
+        if (!mysqli_stmt_prepare($insertStmt, $sqlInsert)){
+            header("Location: ../login?signup=sql&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
+            exit();
+
+        } else {
+          $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+          mysqli_stmt_bind_param($insertStmt, "ssssssss", $firstname, $lastname, $username, $email, $hashedPassword, $avatarPath, $userlevel, $view);
+          mysqli_stmt_execute($insertStmt);
         }
-      }
-    } //End of Errors
 
-  } else {
-    header("Location: ../login?signup=failed");
-    exit();
-  }
+        header("Location: ../login?signup=success");
+        exit();
+        }
+    }
+    mysqli_stmt_close($stmtCheck);
+    mysqli_stmt_close($insertStmt);
+    mysqli_close($mySQL);
+    } else {
+      header("Location: ../login?signup=failed");
+      exit();
+    }

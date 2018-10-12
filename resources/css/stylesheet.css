@@ -194,6 +194,13 @@ tr:nth-child(2n) a {
 	color: #fff;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+  box-sizing: border-box;
+  margin: auto !important;
+  font-size: 2em !important;
+}
+
 
 
 /*
@@ -205,7 +212,8 @@ Header
 header {
     display: grid;
     /*grid-template-columns: 30% 70%;*/
-    grid-template-columns: 18% 82%;
+    /* grid-template-columns: 18% 82%; */
+    grid-template-columns: 15% 60% 25%;
     box-shadow: -2px 7px 18px 3px rgba(0, 0, 0, 0.5);
     padding: 0.05em 0.3em;
     background-color: #fff;
@@ -224,7 +232,7 @@ header img {
     height: auto;
 }
 
-#menu-main {
+/* #menu-main {
     text-align: right;
     margin: 0.4em;
     overflow: auto;
@@ -256,7 +264,129 @@ header img {
 
 .logoutNav {
     display: inline;
+} */
+
+/* Dropdown */
+
+/* .dropDownMain {
+  display: none;
 }
+
+.dropdown:hover .dropDownMain {
+    display: block;
+} */
+
+nav#menu-main {
+    left: 81.5vw;
+    position: absolute;
+}
+
+.menuLogin {
+  margin-left: 6em;
+}
+
+nav#menu-main ul {
+  margin: 0.4em -2em;
+  /* overflow: auto;
+  white-space: nowrap;
+  text-align: right; */
+  float: left;
+}
+
+nav#menu-main li {
+  float: left;
+  position: relative;
+  list-style: none;
+}
+
+nav#menu-main a,
+.logoutNav button {
+    font-size: 1em;
+    display: block;
+    margin: 0.39em 0.1em;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.19);
+    border-bottom: solid #536DFE;
+    background: none;
+    font-weight: 500;
+    color: #302E91;
+}
+
+nav#menu-main ul li ul {
+  display: none;
+  position: absolute !important;
+  background: rgba(245,244,244,0.95);
+  margin: 1.7em -7em;
+  box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+  border-radius: 0.3em;
+  width: 340%;
+  overflow: hidden;
+}
+
+nav#menu-main ul li:hover ul {
+  display: block;
+}
+
+nav#menu-main ul li ul li  {
+  margin: 0.3em 0.5em;
+  text-align: center;
+}
+
+nav#menu-main ul li ul li a {
+  font-size: 0.7em;
+}
+
+.logoutNav button{
+  font-size: 0.7em;
+  display: block;
+  margin: 0.39em 0.1em;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.19);
+  border-bottom: solid #536DFE;
+  background: none;
+  font-weight: 500;
+  color: #302E91;
+}
+
+nav#menu-main ul li ul li a:hover,
+.logoutNav button:hover {
+  color: #FF9D2F !important;
+  border-bottom: solid #FF9D2F !important;
+}
+
+.logoutNav button {
+  float: left;
+}
+
+header .avatar {
+  width: 68% !important;
+  float: left;
+  box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+  border-radius: 0.3em;
+  margin: 0.1em -9.5em 0 0.5em;
+}
+
+form#searchForm {
+    margin-left: 6em;
+}
+
+#searchForm button {
+    margin: 0.2em 0;
+    padding: 0.5em;
+    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+    text-align: center;
+    background-color: #302E91;
+    color: #fff;
+}
+
+#searchForm button:hover {
+  background-color: #E57373;
+  box-shadow: none !important;
+}
+
+#searchForm input {
+  width: 85%;
+}
+
+
 
   /*
   =====================================================================
@@ -434,8 +564,8 @@ button.button.dashboard:hover {
 .thumbDash {
   width: 100%;
   border-radius: 0.3em;
-  grid-column: 1;
-  grid-row: 1/2;
+  /* grid-column: 1;
+  grid-row: 1/2; */
 }
 
 .videoWrapper h3 {
@@ -449,7 +579,169 @@ button.button.dashboard:hover {
   margin: -2.7em 0.7em 0;
 }
 
+.profileWrap {
+  margin: 9em 14% 1em !important;
+      border-radius: 0.4em;
+}
 
+.profileWrap h1 {
+    color: #536DFE;
+    margin: 0;
+}
+
+.profileWrap h3 {
+    color: #356491;
+    font-size: 1.4em;
+}
+
+span.fromSpan {
+    font-weight: 300;
+}
+
+.tags {
+  color: #302E91;
+  font-size: 0.9em;
+  margin: 0 !important;
+}
+
+.profileWrap p {
+    margin: 1em 0 2em;
+}
+
+.avatarProfile {
+  width: 10%;
+  box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+  border-radius: 0.4em;
+  margin: -4.5em auto 0;
+  text-align: center;
+  display: block;
+}
+
+.errorMessage,
+.successMessage {
+    background-color: #E57373;
+    padding: 1em;
+    color: #fff;
+    margin: 1em 0;
+    font-weight: 700;
+    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+}
+
+.errorMessage {
+  background-color: #E57373;
+}
+
+.successMessage {
+    background-color: #69B131;
+}
+
+img.avatarSearch {
+    width: 10%;
+    margin: 0;
+    display: inline;
+    vertical-align: middle;
+}
+
+.searchProfileWrap h3 {
+    display: inline;
+    margin-left: 1em;
+}
+
+.follow.profile button {
+    margin: 0.2em 0;
+    padding: 0.5em;
+    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+    text-align: center;
+    background-color: #302E91;
+    color: #fff;
+    position: absolute;
+    top: 16.5%;
+    right: 14.5vw;
+}
+
+.follow.profile button:hover {
+  background-color: #E57373;
+  box-shadow: none !important;
+}
+
+#pagination_controls {
+    margin: 2em 0 0;
+    text-align: center;
+}
+
+#pagination_controls a {
+    margin: 1em;
+    padding: 0.5em;
+    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+    text-align: center;
+    background-color: #302E91;
+    color: #fff;
+}
+
+#pagination_controls a:hover {
+  background-color: #E57373;
+  box-shadow: none !important;
+}
+
+.adminAccountProfileWrap {
+    display: grid;
+    grid-template-columns: 10% 50% 20% 20%
+}
+
+.adminAccountProfileWrap .avatarSearch {
+    width: 100%;
+}
+
+.adminAccountProfileWrap h3 {
+    margin: 7% 1em 0;
+    text-align: left;
+}
+
+.adminAccountProfileWrap a.button.dashboard, button.button.dashboard {
+    margin: 1em auto 5em;
+}
+
+.wrapper.CAT {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    color: #fff !important;
+    /* width: 25%; */
+  }
+
+.wrapper.CAT div{
+    margin: 1em;
+    padding: 5em;
+    background: linear-gradient(171deg, rgba(48,46,145,1) 0%, rgba(83,109,254,0.9626051104035365) 25%, rgba(53,100,145,0.94) 50%, rgba(229,115,115,0.92) 75%, rgba(255,157,47,0.81) 89%);
+    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+    border-radius: 0.3em;
+  }
+
+.wrapper.CAT a {
+  color: #fff !important;
+}
+
+.wrapper.CAT a:hover {
+  color: #333333 !important;
+}
+
+.videoWrapperCollection {
+  display: grid;
+  grid-template-columns: 3% 25% 65%;
+  text-align: left !important;
+  width: 100%;
+  box-shadow: 5px 3px 7px 1px rgba(83, 109, 254, 0.4);
+  margin: 0.5em 0;
+  border-radius: 0.3em;
+}
+
+.videoWrapperCollection .videoInfo {
+    margin: auto;
+    font-size: 1.4em;
+}
+
+form#newCollection {
+    font-size: 1.1em;
+}
 
 /*
 =====================================================================
@@ -470,7 +762,7 @@ button.button.dashboard:hover {
 .inner-container {
     display: inline-block;
     position: relative;
-    width: 86%;
+    width: 83%;
 }
 
 video {
@@ -481,61 +773,35 @@ video {
 }
 
 #vidCon {
-    margin: 1em 0em 1.2em;
-		text-align: center;
-
-    position: absolute;
-  top: 89%;
-  left: 7%;
+    display: grid;
+    width: 70%;
+    position: relative;
+    margin: 0.3em auto;
+    grid-template-columns: 5% 70% 15% 5% 5%;
+    padding: 0.4em 11em;
+    border-radius: 0.4em;
+    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
 }
 
-/*Buttons*/
-.playBTN {
-	background:url(../../storage/ui/video-ui/playButton.png);
-	border:none;
-	cursor:pointer;
-	height: 40px;
-	width: 40px;
-	margin: 5px 2px;
+.playBTN,
+.muteBTN,
+.fullBTN,
+.opusLogoBTN {
+  cursor: pointer;
+  width: 85%;
+  margin: auto;
 }
 
-.prevBTN {
-	background:url(../../storage/ui/video-ui/previousVideoButton.png);
-	border:none;
-	cursor:pointer;
-	height: 40px;
-	width: 40px;
-	margin: 5px 2px;
+.opusLogoBTN {
+  margin: 0.5em 0;
+  width: 80%;
 }
 
-.nextBTN {
-	background:url(../../storage/ui/video-ui/nextVideoButton.png);
-	border:none;
-	cursor:pointer;
-	height: 40px;
-	width: 40px;
-	margin: 5px 2px;
+.divSeek {
+  margin: auto 0;
 }
 
-.muteBTN {
-	background:url(../../storage/ui/video-ui/muteButton.png);
-	border:none;
-	cursor:pointer;
-	height: 40px;
-	width: 40px;
-	margin: 5px 2px;
-}
-
-.fullBTN {
-	background:url(../../storage/ui/video-ui/fullscreenButton.png);
-	border:none;
-	cursor:pointer;
-	height: 40px;
-	width: 40px;
-	margin: 5px 2px;
-}
-
-/*Time code and slider*/
+/* Time code and slider */
 .timeCode {
 	display: inline;
 	color: #FF9D2F;
@@ -546,7 +812,7 @@ input[type='range'] {
     -webkit-appearance: none;
     background: #FF9D2F;
     height: 0 !important;
-    width: 51.5vw;
+    width: 80%;
     padding: 0.3em;
     margin: auto;
     vertical-align: middle;
