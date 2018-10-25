@@ -14,9 +14,13 @@ include '../../page-templates/head.php';
     <?php include '../../page-templates/header.php';?>
 		<div class="wrapper">
       <div class="videoWrap">
-      <?php foreach ($players as $player){ ?>
+      <?php
+			/*if (isset($_SESSION['uID'])) {
+				echo "Your logged in: Fetching videos from followers!";
+			} else {*/
+			foreach ($players as $player){ ?>
         <article id="<?php echo $player['id']; ?>">
-          <a href="player.php?id=<?php echo $player['id']; ?>" class="noLink">
+          <a href="player?id=<?php echo $player['id']; ?>" class="noLink">
             <img src="<?php echo $player['thumbnail_path']; ?>" class="thumbnailHome" alt="Thumbnail <?php echo $player['id']; ?>">
           </a>
             <h3><?php echo $player['video_title']; ?></h3>
@@ -31,4 +35,4 @@ include '../../page-templates/head.php';
 			<?php echo $paginationControls; ?>
 		</div>
 	 </div>
-    <?php include '../../page-templates/footer.php'; ?>
+    <?php include '../../page-templates/footer.php';?>

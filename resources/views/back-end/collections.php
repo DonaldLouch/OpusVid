@@ -33,23 +33,22 @@ if (isset ($_SESSION['uID'])) {?>
     ?>
     <a href="new_collection" class="button">Add New Collection</a>
         <?php foreach ($opusCollections as $opusCollection){ ?>
-          <div class="videoWrapper">
-            <img class="thumbDash" src="<?php echo $opusCollection['thumbnail_path']; ?>" alt="Thumbnail <?php echo $opusCollection['id']; ?>">
+          <div class="videoWrapper collection">
 
             <div class="videoInfo">
-              <h3><?php echo $opusCollection['playlist_title']; ?></h3>
-              <p>Last Updated: <?php echo date('D M j, Y', $opusCollection['current_season']); ?></p>
+              <h3><?php echo $opusCollection['collection_title']; ?></h3>
+              <p>Created On: <?php echo date('D M j, Y', $opusCollection['created_on']); ?> | Last Updated: <?php echo date('D M j, Y', $opusCollection['last_updated']); ?></p>
             </div>
 
-            <a href="../player?id=<?php echo $opusCollection['id']; ?>" class="button dashboard">View Collection</a>
+            <a href="../collection?id=<?php echo $opusCollection['id']; ?>" class="button dashboard">View Collection</a>
 
-            <a href="edit?id=<?php echo $opusCollection['id']; ?>" class="button dashboard">Add Video(s)</a>
+            <a href="add_collection?id=<?php echo $opusCollection['id']; ?>" class="button dashboard">Add Video(s)</a>
 
             <a href="edit_collection?id=<?php echo $opusCollection['id']; ?>" class="button dashboard">Edit Collection</a>
 
-            <form method="post" action="../../../database/db_delete-video.php"  enctype="multipart/form-data">
-              <input hidden name="videoIDDel" value="<?php echo $opusCollection['id']; ?>">
-              <button class="button dashboard" type="submit" name="submit">Delete Playlist</button>
+            <form method="post" action="../../../database/db_collection_delete.php"  enctype="multipart/form-data">
+              <input hidden name="collectionIDDel" value="<?php echo $opusCollection['id']; ?>">
+              <button class="button dashboard" type="submit" name="submit">Delete Collection</button>
             </form>
           </div>
         <?php } ?>

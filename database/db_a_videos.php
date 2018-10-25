@@ -1,5 +1,20 @@
 <?php
-  include 'db_connect.php';
+/* db_a_videos.php | Version 1.0
+  By: OpusVid
+  User Level Required: 0
+
+  The file is to show administors a list of all the videos on Opus Vid in which they can then view/edit/delete a video!
+
+  Blades Inlcluded:
+    #db_connect: To connect to Database
+    #pagination_init: Initate the pagination
+    #pagination_control: Controls the control of the pagination
+
+  File used in:
+    #admin/videos
+*/
+
+  require 'db_connect.php';
 
   //Find out how many items are in the videos table
   $countSQL = "SELECT COUNT(order_number) FROM videos";

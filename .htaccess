@@ -12,8 +12,12 @@ RewriteRule ^(.+)$ $1.php [L,QSA]
 
 #Back-end redirects
 RewriteRule ^login$ resources/views/back-end/login.php [NC]
+RewriteRule ^password_reset$ resources/views/back-end/password_reset_start.php [NC]
+RewriteRule ^password_new$ resources/views/back-end/password_reset_new.php [NC]
+RewriteRule ^password_pending$ resources/views/back-end/password_reset_pending.php [NC]
 RewriteRule ^dashboard$ resources/views/back-end/index.php [NC]
-RewriteRule ^dashboard/upload$ resources/views/back-end/video_upload.php [NC]
+RewriteRule ^dashboard/upload$ resources/views/back-end/upload_s1.php [NC]
+RewriteRule ^dashboard/upload_s2$ resources/views/back-end/upload_s2.php [NC]
 RewriteRule ^dashboard/manage$ resources/views/back-end/manage_videos.php [NC]
 RewriteRule ^dashboard/edit$ resources/views/back-end/edit_video.php [NC]
 RewriteRule ^dashboard/settingsP$ resources/views/back-end/edit_profile.php [NC]
@@ -24,9 +28,10 @@ RewriteRule ^admin/accounts$ resources/views/back-end/admin_accounts.php [NC]
 RewriteRule ^admin/edit_account$ resources/views/back-end/admin_edit_account.php [NC]
 RewriteRule ^admin/new_user$ resources/views/back-end/admin_newuser.php [NC]
 RewriteRule ^dashboard/manage_collections$ resources/views/back-end/collections.php [NC]
-RewriteRule ^dashboard/new_collection$ resources/views/back-end/new_collection.php [NC]
+RewriteRule ^dashboard/new_collection$ resources/views/back-end/collection_new.php [NC]
 RewriteRule ^dashboard/edit_collection$ resources/views/back-end/collection_edit.php [NC]
 RewriteRule ^dashboard/add_collection$ resources/views/back-end/collection_add.php [NC]
+
 
 #Front-end redirects
 RewriteRule ^home$ resources/views/front-end/index.php [NC]
@@ -35,6 +40,8 @@ RewriteRule ^profile$ resources/views/front-end/profile.php [NC]
 RewriteRule ^search$ resources/views/front-end/search.php [NC]
 RewriteRule ^categories$ resources/views/front-end/categories.php [NC]
 RewriteRule ^category$ resources/views/front-end/category.php [NC]
+RewriteRule ^collection$ resources/views/front-end/collection.php [NC]
+RewriteRule ^test$ resources/views/front-end/test.php [NC]
 
 
 RewriteRule ^sitemap$ sitemap.php [NC]

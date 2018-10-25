@@ -12,7 +12,9 @@ if (isset ($_SESSION['uID'])) {?>
   </script>
   <?php
     include '../../page-templates/header_l2.php';
-    include '../../page-templates/dash_nav_l2.php';
+    include '../../page-templates/dash_nav_l2.php';?>
+    <h1>Manage Videos</h1>
+    <?php
     if(isset($_GET['edited']) || isset($_GET['delete'])){
       $editError = $_GET['edited'];
       $deleteError = $_GET['delete'];

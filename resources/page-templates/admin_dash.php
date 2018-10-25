@@ -5,7 +5,7 @@
       <nav class="dashNavSub">
         <a href="../dashboard/upload">Upload New Video</a>
         <a href="../dashboard/manage">Manage Videos</a>
-        <a href="#">Manage Opus Collections</a>
+        <a href="../dashboard/manage_collections">Manage Opus Collections</a>
       </nav>
     <a href="#">Settings</a>
       <nav class="dashNavSub">

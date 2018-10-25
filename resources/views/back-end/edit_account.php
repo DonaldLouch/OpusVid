@@ -33,9 +33,15 @@ if (isset ($_SESSION['uID'])) {
               <form id="videoUpload" method="post" action="../../../database/db_editA.php"  enctype="multipart/form-data">
                 <input type="text" hidden name="accountID" value="<?php echo $row['username']; ?>">
 
-                <input type="text" name="editEmail" value="<?php echo $row['email']; ?>">
+                <div class="field">
+                  <input type="text" name="editEmail" id="editEmail" value="<?php echo $row['email']; ?>" required>
+                  <label for="editEmail"><span class="required">*</span>Email</label>
+                </div>
 
-                <input type="password" name="editPassword" placeholder="New Password: LEAVE BLANK IF USING THE SAME PASSWORD">
+                <div class="field">
+                  <input type="password" name="editPassword" id="editPassword" placeholder="New Password: LEAVE BLANK IF USING THE SAME PASSWORD">
+                  <label for="editPassword">New Password: LEAVE BLANK IF USING THE SAME PASSWORD</label>
+                </div>
 
                 <button type="submit" name="submit" class="submitButton">Edit Account</button>
               </form>

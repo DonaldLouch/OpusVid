@@ -26,6 +26,9 @@ session_start();
     <body>
       <h1>Opus Vid Sitemap</h1>
       <h3>Note that these are the current active pages with the current URL addresses and may change over time!</h3>
+      <h4 style="margin: 1em 0; text-align:center;"><strong>BC</strong> = Being Consturcted (page may not be 100% functionable)</h4>
+      <h4 style="margin: 1em 0; text-align:center;"><strong>*(#)*</strong> = New page from a Bi-weekly Update</h4>
+
       <div id="pageTree">
         <section id="root">
           <h3>Root</h3>
@@ -41,24 +44,28 @@ session_start();
             <ul>
               <li><a href="dashboard" class="button">Dashboard (Index)</a></li>
               <li><a href="login" class="button">Login</a></li>
+              <lI><a href="password_reset" class="button"><strong>*NEW (3)*</strong> Password Reset</a></li>
               <li><a href="dashboard/upload" class="button">Video Upload</a></li>
               <li><a href="dashboard/manage" class="button">Manage Videos</a></li>
-              <li><a href="dashboard/settingsP" class="button">*NEW (2)* Edit Profile</a></li>
-              <li><a href="dashboard/settingsA" class="button">*NEW (2)* Edit Account</a></li>
-              <li><a href="dashboard/manage_collections" class="button">*NEW (2)* Manage Opus Collections: BEING CONSTRUCTED</a></li>
+              <li><a href="dashboard/settingsP" class="button"><strong>*(2)*</strong> Edit Profile</a></li>
+              <li><a href="dashboard/settingsA" class="button"><strong>*(2)*</strong> Edit Account</a></li>
+              <li><a href="dashboard/manage_collections" class="button"><strong>*(2)*</strong> Manage Opus Collections</a></li>
+              <li><a href="dashboard/new_collection" class="button"><strong>*(2)*</strong> New Opus Collections</a></li>
             </ul>
 
             <h4>Front-End</h4>
             <ul>
               <li><a href="home" class="button">Home -> Will Be Index</a></li>
               <li><a href="player" class="button">Player Templete - > Go To Home and Selece Video</a></li>
-              <li><a href="player?id=5ba85682d768f" class="button">Example Player Page</a></li>
+              <li><a href="player?id=5ba85682d768f" class="button">Example: Player Page</a></li>
               <li><a href="profile" class="button">Profile Page</a></li>
-              <li><a href="profile?id=DonaldLouch" class="button">Example Profile Page</a></li>
-              <li><a href="categories" class="button">*NEW (2)* Categories</a></li>
-              <li><a href="category" class="button">*NEW (2)* Category Page</a></li>
-              <li><a href="category?type=Animation" class="button">*NEW (2)* Example Category Page</a></li>
+              <li><a href="profile?id=DonaldLouch" class="button">Example: Profile Page</a></li>
+              <li><a href="categories" class="button"><strong>*(2)*</strong> Categories</a></li>
+              <li><a href="category" class="button"><strong>*(2)*</strong> Category Page</a></li>
+              <li><a href="category?type=Animation" class="button"><strong>*(2)*</strong> Example: Category Page</a></li>
+              <li><a href="collection?id=5bd0c13e75ecd" class="button"><strong>*NEW (3)*</strong> Example: View Opus Collections: <strong>BC</strong></a></li>
             </ul>
+
         </section>
       </div>
     </body>

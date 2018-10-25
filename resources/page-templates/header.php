@@ -1,5 +1,7 @@
 <header>
-  <img src="storage/logos/Opus_LogoTitle.png" alt="Opus Vid Title Logo">
+  <a href="home">
+    <img src="storage/logos/Opus_LogoTitle.png" alt="Opus Vid Title Logo">
+  </a>
   <?php include 'search_form.php'; ?>
   <?php
     if (isset ($_SESSION['uID'])) {

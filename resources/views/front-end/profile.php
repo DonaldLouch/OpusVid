@@ -2,6 +2,7 @@
   session_start();
   include '../../../database/db_connect.php';
   include '../../../database/db_profile.php';
+  include '../../../database/db_templates/follow.php';
 
   if ($userResult->num_rows > 0) {
         include '../../page-templates/head.php';
@@ -14,17 +15,21 @@
           <div class="profileWrap card">
             <img src="<?php echo $userRow['avatar']; ?>" class="avatarProfile" alt="<?php echo $userRow['username']; ?> Avatar">
 
-            <?php if ($followResult->num_rows > 0) { ?>
+            <?php if (in_array($userRow['id'], $followExpload) && isset($_SESSION['uID'])) {?>
               <form class="follow profile" method="post" action="../../database/db_follow.php">
-                <input name="followID" value="<php echo $userRow['id']; ?>" hidden>
+                <input name="followID" value="<?php echo $userRow['id']; ?>" hidden>
                 <button type="submit" name="unfollow">Unfollow Opus Creator</button>
               </form>
-            <?php } else { ?>
+            <?php } elseif (!in_array($userRow['id'], $followExpload) && isset($_SESSION['uID'])) { ?>
               <form class="follow profile" method="post" action="../../database/db_follow.php">
                 <input name="followID" value="<?php echo $userRow['id']; ?>" hidden>
                 <button type="submit" name="follow">Follow Opus Creator</button>
               </form>
-              <?php }?>
+            <?php } elseif (!isset($_SESSION['uID'])){ ?>
+              <form class="follow profile" method="post" action="login">
+                <button type="submit" name="follow">Follow: PLEASE LOGIN!</button>
+              </form>
+            <?php }?>
 
             <h1><?php echo $userRow['username']; ?></h1>
             <h3>(<?php echo $userRow['first_name']; ?> <?php echo $userRow['last_name']; ?>) <span class="fromSpan">From <?php echo $userRow['country']; ?></span></h3>

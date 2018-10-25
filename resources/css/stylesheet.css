@@ -30,14 +30,13 @@ html {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   margin: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  max-width: 100%;
   color: #333333;
 }
 
 body {
-/*background: linear-gradient(171deg, rgba(48,46,145,1) 0%, rgba(83,109,254,0.9626051104035365) 25%, rgba(53,100,145,0.94) 50%, rgba(229,115,115,0.92) 75%, rgba(255,157,47,0.81) 89%);*/
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -277,7 +276,8 @@ header img {
 } */
 
 nav#menu-main {
-    left: 81.5vw;
+    /* left: 78.5vw; */
+    right: 2%;
     position: absolute;
 }
 
@@ -554,6 +554,12 @@ button.button.dashboard:hover {
   box-shadow: 5px 3px 7px 1px rgba(83, 109, 254, 0.4);
   margin: 0.5em 0;
   border-radius: 0.3em;
+  text-align: center !important;
+  margin: 1em 0;
+}
+
+.videoInfo {
+    text-align: left;
 }
 
 .videoWrapper:nth-child(2n) {
@@ -684,8 +690,10 @@ img.avatarSearch {
 }
 
 .adminAccountProfileWrap {
-    display: grid;
-    grid-template-columns: 10% 50% 20% 20%
+  display: grid;
+  padding: 0;
+  grid-template-columns: 10% 60% 15% 15%;
+  text-align: center;
 }
 
 .adminAccountProfileWrap .avatarSearch {
@@ -693,12 +701,39 @@ img.avatarSearch {
 }
 
 .adminAccountProfileWrap h3 {
-    margin: 7% 1em 0;
+    margin: 6% 1em !important;
     text-align: left;
 }
 
 .adminAccountProfileWrap a.button.dashboard, button.button.dashboard {
-    margin: 1em auto 5em;
+  margin: 3em auto;
+}
+
+button.button.dashboard {
+    margin: 5em auto;
+}
+
+.videoWrapper.collection {
+    grid-template-columns: 44% 14% 14% 14% 14%;
+    text-align: center !important;
+}
+
+.videoWrapper.collection > .videoInfo {
+    margin: -1.5em auto;
+}
+
+.videoWrapper.collection > .videoInfo h3 {
+    text-align: center !important;
+}
+
+.videoWrapper.collection.videoWrapper p {
+    margin: -2.7em 0.7em 0;
+    font-size: 1em;
+}
+
+.videoWrapper.collection button.button.dashboard,
+.adminAccountProfileWrap button.button.dashboard {
+    margin: 3em 0;
 }
 
 .wrapper.CAT {
@@ -743,6 +778,78 @@ form#newCollection {
     font-size: 1.1em;
 }
 
+form#passwordReset {
+    font-size: 1.3em;
+}
+
+.wrapper.card.passwordReset {
+    margin: 20em 14% 25em;
+}
+
+progress#progressBar {
+    width: 200px;
+}
+
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin: 1em;
+}
+
+.field > label,
+.field > input {
+  transition: all 0.25s;
+  touch-action: manipulation;
+}
+
+.field> input:placeholder-shown + label {
+  cursor: text;
+  transform-origin: left bottom;
+  transform: translate(0, 2.125rem) scale(1.5);
+  margin: -1.5em;
+  font-size: 0.8em;
+  text-align: left !important;
+}
+
+.field > input::placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+
+.field > input:focus::placeholder {
+  opacity: 1;
+  color: rgba(255, 0, 0, 0.2);
+}
+
+.field > input:not(:placeholder-shown) + label,
+.field > input:focus + label {
+  transform: translate(0, 0) scale(1.2);
+  cursor: pointer;
+  color: #536DFE;
+  margin: -0.5em auto -0.3em;
+}
+
+label {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.required {
+    color: #990000;
+    vertical-align: middle;
+}
+
+#upload_form.card {
+    margin: 2em;
+}
+
+progress#progressBar {
+  width: 100%;
+  margin: 2em 0;
+  height: 20px;
+  box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+}
+
 /*
 =====================================================================
   Video Player
@@ -750,7 +857,7 @@ form#newCollection {
 */
 
 .playerWrap {
-  margin: 5em 1em 1em;
+  margin: 4em 1em 1em;
   padding: 1em;
 }
 
@@ -762,7 +869,7 @@ form#newCollection {
 .inner-container {
     display: inline-block;
     position: relative;
-    width: 83%;
+    width: 79%;
 }
 
 video {
@@ -773,20 +880,22 @@ video {
 }
 
 #vidCon {
-    display: grid;
-    width: 70%;
-    position: relative;
-    margin: 0.3em auto;
-    grid-template-columns: 5% 70% 15% 5% 5%;
-    padding: 0.4em 11em;
-    border-radius: 0.4em;
-    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+  display: grid;
+  width: 76.5%;
+  position: relative;
+  margin: 0.3em auto;
+  grid-template-columns: 5% 70% 15% 5% 5%;
+  padding: 0.4em 8em;
+  border-radius: 0.4em;
+  box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
 }
 
 .playBTN,
 .muteBTN,
 .fullBTN,
-.opusLogoBTN {
+.opusLogoBTN,
+.prevBTN,
+.nextBTN {
   cursor: pointer;
   width: 85%;
   margin: auto;
@@ -851,11 +960,21 @@ input[type='range'] {
     grid-template-columns: 25% 25% 25% 25%;
 }
 
-article {
+article,
+.collectionArticle {
     margin: 0.5em;
     padding: 1.5em;
     box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
     border-radius: 0.3em;
+}
+
+ul#playlist {
+    list-style: none;
+    margin: initial;
+}
+
+li.collectionArticle {
+      font-size: inherit;
 }
 
 .videoWrap h3 {
@@ -863,8 +982,8 @@ article {
 }
 
 .thumbnailHome {
-    width: 114%;
-    margin: -7% -7% 1em;
+  width: 117.5%;
+  margin: -8.5% -8.5% 1em;
     border-radius: 0.3em;
 }
 
@@ -873,6 +992,39 @@ a.noLink {
     font: inherit !important;
     cursor: inherit !important;
 }
+
+/*collections*/
+.outer-container.collection {
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.outer-container.collection > .inner-container {
+    width: 97%;
+}
+
+.collectionList {
+    overflow-y: scroll;
+    height: 45em;
+}
+
+.collectionList div {
+    padding: 1em;
+    background: linear-gradient(171deg, rgba(48,46,145,1) 0%, rgba(83,109,254,0.9626051104035365) 25%, rgba(53,100,145,0.94) 50%, rgba(229,115,115,0.92) 75%, rgba(255,157,47,0.81) 89%);
+    box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
+    border-radius: 0.3em;
+    color: #fff !important;
+}
+
+/* .outer-container.collection > .inner-container > nav#vidCon {
+    grid-template-columns: 5% 5% 5% 60% 15% 5% 5%;
+    width: 80%;
+    padding: 0.4em 7em;
+}
+
+.outer-container.collection  > .inner-container > nav#vidCon input[type='range'] {
+    width: 69%;
+} */
 
 /*
 =====================================================================
@@ -1100,3 +1252,334 @@ footer a{
 footer a:hover {
 	color: lightgrey;
 } /* Links in the footer */
+
+/*
+=====================================================================
+	Responsive Design
+=====================================================================
+*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 605px) {
+  body {
+    border: solid red;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  p {
+    font-size: 1.1em;
+  }
+  header {
+    display: block;
+    text-align: center !important;
+    /* width: 97vw; */
+    width: 94.8%;
+    margin: -0.3em 0;
+  }
+  header img {
+    width: 30%;
+  }
+  form#searchForm {
+    display: none;
+  }
+  nav#menu-main {
+    margin: -1em 2em;
+    width: 100%;
+    font-size: 0.7em;
+    position: initial;
+  }
+  .wrapper {
+    margin: 3em -2vw;
+    width: 99%;
+  }
+  .videoWrap {
+    display: block;
+  }
+  article {
+    margin: 1em 0.5em;
+    width: 75vw;
+  }
+  img.thumbnailHome {
+    width: 120%;
+    margin: -9.8% -9.9% 1em !important;
+  }
+  .videoWrap h3 {
+      font-size: 1.5em !important;
+  }
+  .videoWrap h5 {
+    margin: 0.5em 0 0;
+    font-size: 0.7em;
+  }
+  a.button {
+    font-size: 0.7em;
+  }
+  #pagination_controls {
+    font-size: 0.5em;
+    margin: 2em 0 -6em;
+  }
+  .wrapper.card {
+    margin: 5em 0.5em 0.5em;
+    width: 74%;
+  }
+  .columns {
+    display: block;
+  }
+  form#userSignup input {
+    text-align: center;
+    margin: 1em auto !important;
+  }
+  .outer-container {
+    margin: -1.3em -1em;
+  }
+  .inner-container {
+      width: 112%;
+  }
+  input[type='range'] {
+    display: none;
+  }
+  .playerWrap {
+    margin: 5em 1em 0;
+  }
+  #vidCon {
+    width: 89%;
+    grid-template-columns: 10% 46% 24% 10% 10%;
+    padding: 0.4em 1em;
+  }
+  #description {
+    margin: 1.5em -1.4em 0;
+  }
+  #description h1 {
+    font-size: 3em;
+    text-align: center;
+    font-weight: 900;
+  }
+  #description h2 {
+    font-size: 0.8em;
+  }
+  .toggleButton {
+    font-size: 1.1em;
+  }
+  article#meta {
+    width: 107%;
+    margin: 1em -2em;
+  }
+  .follow.profile button {
+    display: none;
+  }
+  .profileWrap.card {
+    margin: 6em 1em 0 !important;
+    padding: 3em 2em 0.5em;
+  }
+  .avatarProfile {
+    width: 20%;
+  }
+  .profileWrap h1 {
+    font-size: 2em;
+  }
+  .profileWrap h3 {
+    font-size: 1em;
+  }
+  .wrapper.CAT {
+    display: block;
+    margin: 3em -1em -1em;
+  }
+  header .avatar {
+    width: 36% !important;
+    margin-top: -1.2em;
+    clear: both;
+    position: relative;
+    left: 43vw;
+  }
+  nav#menu-main ul li ul {
+    margin: 1em -8.6em;
+    width: 100vw;
+  }
+  .dashWrapper {
+    grid-template-columns: 100%;
+  }
+  nav#dashNav {
+    grid-row: 2;
+  }
+  #dashContent {
+    margin: 0 -1.5em;
+  }
+  .videoWrapper {
+    display: block;
+    margin: 1em -1em;
+    width: 116%;
+    text-align: center !important;
+  }
+  .videoInfo {
+    margin: -3em 0 1em;
+    text-align: center;
+  }
+  button.button.dashboard {
+    margin: 1em 0;
+  }
+  #dashContent h2 {
+    font-weight: 900;
+    font-size: 2em;
+    text-align: center;
+  }
+  #upload_form.card {
+    margin: 1em -1em;
+  }
+  .videoWrapperCollection {
+    display: block;
+  }
+  footer {
+    width: 86vw;
+  }
+  #pageTree {
+    display: block;
+    font-size: 0.4em !important;
+  }
+  label {
+      word-break: break-word;
+      width: 97%;
+      margin: 0.1em 0 !important;
+  }
+  a.button {
+    font-size: 0.5em;
+    width: fit-content;
+    word-break: break-word;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up)*/
+@media only screen and (min-width: 350px) and (max-width: 605px) {
+  body {
+    border: solid green;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  header {
+    width: 96.5%;
+  }
+  header .avatar {
+    /* width: 54% !important;
+    /* margin: -1.38em -16vw;
+    left: 77vw;
+    margin-top: -2.2em; */
+    left: 59vw;
+    margin-top: -1.7em;
+  }
+  .wrapper {
+    margin: 3em 0;
+  }
+  img.thumbnailHome {
+    width: 118%;
+    margin: -8.8% -8.9% 1em !important;
+  }
+  #pagination_controls {
+    font-size: 0.8em;
+    margin: 2em 0 -3em;
+  }
+  .videoWrapper {
+    margin: 1em -1.5em;
+  }
+  .wrapper.card {
+    width: 78.7%;
+  }
+  footer {
+    width: 87.8vw;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up)*/
+@media only screen and (min-width: 605px) and (max-width: 1260px) {
+  body {
+    border: solid blue;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  header {
+    grid-template-columns: 22% 60% 18%;
+    width: 97.9%;
+    margin: -0.5em 0;
+    font-size: 0.8em;
+  }
+  header img {
+    width: 121%;
+  }
+  form#searchForm {
+    margin-left: 3.5em;
+    width: 86%;
+  }
+  #searchForm input {
+    width: 48%;
+  }
+   nav#menu-main {
+    right: -2%;
+  }
+  /*nav#menu-main.menuLogin {
+    left: 65.3vw !important
+  } */
+  header .avatar {
+    width: 36% !important;
+  }
+  .wrapper {
+    margin: 4em 1em 1em;
+  }
+  .inner-container {
+    width: 97%;
+  }
+  #vidCon {
+    width: 95.5%;
+    grid-template-columns: 10% 50% 20% 10% 10%;
+    padding: 0.4em 1em;
+  }
+  input[type='range'] {
+    width: 66%;
+  }
+  .profileWrap.card {
+    margin: 7em 14% 1em !important;
+    padding: 2.2em 2em;
+  }
+  img.avatarProfile {
+    width: 15%;
+  }
+  .follow.profile button {
+    margin: 0;
+    position: initial;
+  }
+  .videoWrap {
+    grid-template-columns: 50% 50%;
+  }
+  .wrapper.CAT {
+    grid-template-columns: 50% 50%;
+    margin: 3.5em 0 0;
+  }
+  nav#menu-main ul li ul {
+    margin: 2em -41.6em;
+    width: 100vw;
+  }
+  footer {
+    width: 94.2vw;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1260px) and (max-width: 1500px) {
+  body {
+    /* border: solid purple 1px !important;  */
+  }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up)*/
+@media only screen and (min-width: 1500px) {
+  body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 100%;
+    /* border: solid black; */
+  }
+  .thumbnailHome {
+    width: 114.3%;
+    margin: -7% -7% 1em;
+  }
+}
