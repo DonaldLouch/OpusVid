@@ -1,47 +1,22 @@
 <?php
+/* db_upload_s2.php | Version 1.0
+  By: OpusVid
+  User Level Required: 0+
+
+  This is step two of two for uploading videos! This is where you finish your video upload!
+
+  Blades Inlcluded:
+    #db_connect: To connect to Database
+    #db_templates/uploadFields: Get's the file information from the upload forms
+
+  File used in:
+    #dashboard/upload_s2?id=*
+*/
 
 session_start();
 
-/*
-//include '../do_spaces/spaces_config.php';
-// include 'db_templates/videoFile.php';
-// include 'db_templates/thumbnailFile.php';
-
-//If #ConnectionCheck = no errors then we will check to see if the files are up to standards #FileUploads
-  #Video
-    } elseif (in_array($videoExtention, $videoExtAllow)) { //In Array
-          if ($videoError === 0) { //Error Check
-            if ($videoSize < 5e+9) { //File Size -> Upload
-              include '../do_spaces/spaces_vidUpload.php';
-            } else {
-              header("Location: ../dashboard/upload?error=fBigVid".$urlContent);
-            } //End else "File Size/Upload"
-          } else {
-            header("Location: ../dashboard/upload?error=failedVid".$urlContent);
-          } //End else "Error Check"
-        } else {
-          header("Location: ../dashboard/upload?error=extVid".$urlContent);
-      } //End else "In Array"
-
-  #Thubnail
-    if (in_array($thumbExtention, $thumbExtAllow)) { //In Array
-      if ($thumbError === 0) { //Error Check
-        if ($thumbSize < 5e+6) { //File Size -> Upload
-          include '../do_spaces/spaces_thumbUpload.php';
-        } else {
-          header("Location: ../dashboard/upload?error=fBigThumb".$urlContent);
-        } //End else "File Size/Upload"
-      } else {
-        header("Location: ../dashboard/upload?error=failedThumb".$urlContent);
-      } //End else "Error Check"
-    } else {
-      header("Location: ../dashboard/upload?error=extThumb".$urlContent);
-    } //End else "In Array"
-#FileUploads
-*/
-
 if (isset($_POST['submit'])) {
-  include 'db_connect.php';
+  require 'db_connect.php';
   $vidID = $_POST['id'];
   include 'db_templates/uploadFields.php';
 
@@ -62,7 +37,6 @@ if (isset($_POST['submit'])) {
       require 'emails/email_videoUpload.php';
     #UploadEmail
 
-    //header("Location: ../dashboard/upload?upID=".$uniqeID.$urlContent);
     header("Location: ../player?id=$vidID");
   }
 }

@@ -9,12 +9,10 @@ if (isset($_POST['submit'])) {
 ?>
 
   <body>
-    <script>
-      document.title = "<?php echo $search; ?> (<?php echo $queryResult + $queryResultUser; ?>) | Opus Vid";
-    </script>
+    <script> document.title = "<?php echo $search; ?> (<?php echo $queryResult + $queryResultUser; ?>) | OpusVid"; </script>
     <?php include '../../page-templates/header.php'; ?>
     <div class="wrapper">
-      <h1>"<strong><?php echo $search ?></strong>" has <strong><?php echo $queryResult; ?></strong> video(s) and <strong><?php echo $queryResultUser; ?></strong> user(s)</h1>
+      <h2 class="pageTitle">"<strong><?php echo $search ?></strong>" has <strong><?php echo $queryResult; ?></strong> video(s) and <strong><?php echo $queryResultUser; ?></strong> user(s)</h2>
       <div class="videoWrap">
 
         <!--<php
@@ -38,6 +36,20 @@ if (isset($_POST['submit'])) {
                 <h3>No results found. Please try another keyword!</h3>
               </div>
           <?php } ?>
+      </div>
+
+      <div>
+        <?php foreach ($collections as $collection) { ?>
+          <div class="searchCollectionWrap">
+
+            <div class="videoInfo">
+              <h3><?php echo $collection['collection_title']; ?></h3>
+              <p>Created On: <?php echo date('D M j, Y', $collection['created_on']); ?> | Last Updated: <?php echo date('D M j, Y', $collection['last_updated']); ?></p>
+            </div>
+
+            <a href="../collection?id=<?php echo $collection['id']; ?>" class="button dashboard">View Collection</a>
+          </div>
+      <?php } ?>
       </div>
 
       <div>

@@ -7,9 +7,7 @@ include '../../../database/db_collections.php';
 if (isset ($_SESSION['uID'])) {?>
 <?php include '../../page-templates/head_l2.php'; ?>
 <body>
-  <script>
-    document.title = "Manage Opus Collections | Opus Vid";
-  </script>
+  <script> document.title = "Manage Opus Collections | Opus Vid"; </script>
   <?php
     include '../../page-templates/header_l2.php';
     include '../../page-templates/dash_nav_l2.php';
@@ -31,6 +29,7 @@ if (isset ($_SESSION['uID'])) {?>
         <?php }
       }
     ?>
+    <h2 class="pageTitle">Collection Manager</h2>
     <a href="new_collection" class="button">Add New Collection</a>
         <?php foreach ($opusCollections as $opusCollection){ ?>
           <div class="videoWrapper collection">

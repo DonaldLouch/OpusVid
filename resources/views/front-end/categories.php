@@ -6,10 +6,9 @@ include '../../page-templates/head.php';
 ?>
 
 <body>
-  <script>
-    document.title = "Categories | Opus Vid";
-  </script>
+  <script> document.title = "Categories | OpusVid"; </script>
   <?php include '../../page-templates/header.php';?>
+<h2 class="wrapper pageTitle">Categories</h2>
 <div class="wrapper CAT">
     <div class="catWrap" id="vlogCat">
       <h3><a href="category?type=Vlog">Vlog</a></h3>

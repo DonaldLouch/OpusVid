@@ -10,6 +10,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+)$ $1.php [L,QSA]
 
+RewriteRule ^404$ resources/views/back-end/404.php [NC]
+ErrorDocument 404 https://opusvid.com/404
+
 #Back-end redirects
 RewriteRule ^login$ resources/views/back-end/login.php [NC]
 RewriteRule ^password_reset$ resources/views/back-end/password_reset_start.php [NC]
@@ -27,11 +30,13 @@ RewriteRule ^admin/edit_video$ resources/views/back-end/admin_edit_video.php [NC
 RewriteRule ^admin/accounts$ resources/views/back-end/admin_accounts.php [NC]
 RewriteRule ^admin/edit_account$ resources/views/back-end/admin_edit_account.php [NC]
 RewriteRule ^admin/new_user$ resources/views/back-end/admin_newuser.php [NC]
+RewriteRule ^admin/feedback_results$ resources/views/back-end/feedback_results.php [NC]
 RewriteRule ^dashboard/manage_collections$ resources/views/back-end/collections.php [NC]
 RewriteRule ^dashboard/new_collection$ resources/views/back-end/collection_new.php [NC]
 RewriteRule ^dashboard/edit_collection$ resources/views/back-end/collection_edit.php [NC]
 RewriteRule ^dashboard/add_collection$ resources/views/back-end/collection_add.php [NC]
-
+RewriteRule ^dashboard/watch$ resources/views/back-end/watch_later.php [NC]
+RewriteRule ^dashboard/test$ resources/views/back-end/test.php [NC]
 
 #Front-end redirects
 RewriteRule ^home$ resources/views/front-end/index.php [NC]
@@ -41,7 +46,11 @@ RewriteRule ^search$ resources/views/front-end/search.php [NC]
 RewriteRule ^categories$ resources/views/front-end/categories.php [NC]
 RewriteRule ^category$ resources/views/front-end/category.php [NC]
 RewriteRule ^collection$ resources/views/front-end/collection.php [NC]
-RewriteRule ^test$ resources/views/front-end/test.php [NC]
+RewriteRule ^issues$ resources/views/front-end/known_issues.php [NC]
+RewriteRule ^feedback$ resources/views/front-end/beta_feedback.php [NC]
+RewriteRule ^beta_tasks$ resources/views/front-end/beta_tasks.php [NC]
+RewriteRule ^watch_later$ resources/views/front-end/watch_later.php [NC]
 
 
 RewriteRule ^sitemap$ sitemap.php [NC]
+RewriteRule ^beta$ beta.php [NC]

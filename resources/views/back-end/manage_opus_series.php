@@ -10,9 +10,7 @@ $videos = $video->fetch_all();
 if (isset ($_SESSION['uID'])) {?>
 <?php include '../../page-templates/head_l2.php'; ?>
 <body>
-  <script>
-    document.title = "Manage Videos | Opus Vid";
-  </script>
+  <script> document.title = "Manage Videos | OpusVid"; </script>
   <?php
     include '../../page-templates/header_l2.php';
     include '../../page-templates/dash_nav_l2.php';

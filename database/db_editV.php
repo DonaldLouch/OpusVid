@@ -1,7 +1,23 @@
 <?php
+/* db_editV.php | Version 1.0
+  By: OpusVid
+  User Level Required: 0+
+
+  The file is to edit a video and its information
+
+  Blades Inlcluded:
+    #db_connect: To connect to Database
+    #db_templates/thumbnailFile: Get's the file information for thumbnails
+    #../do_spaces/spaces_config: Connects to DigitalOcean for upload prep
+    #../do_spaces/spaces_thumbUpload: Uploads new thumbnail
+
+  File used in:
+    #dashboard/edit?id=*
+    #admin/edit_video?id=*
+*/
 
 if (isset($_POST['submit'])) {
-  include 'db_connect.php';
+  require 'db_connect.php';
 
   $uniqeID = mysqli_real_escape_string($mySQL, $_POST['vidID']);
 
@@ -38,27 +54,15 @@ if (isset($_POST['submit'])) {
     exit();
   } elseif (in_array($thumbExtention, $thumbExtAllow) != $thumbExtention) {
       $error = 1;
-      echo '
-      <div class="errorMessage">
-        <p>Please only upload image files with the extention jpg, jpeg, png, OR pdf! Please try again!</p>
-      </div>';
-      exit();
+      header("Location: ../dashboard/edit?id=$uniqeID&setting=ext&error=1");
     } //extention check
     elseif ($thumbError != 0) {
       $error = 2;
-      echo '
-      <div class="errorMessage">
-        <p>There seems to have been an error. Please try again or contact the support team at <a href="mailto:support@opusvid.com">support@opusvid.com</a> and we will be happy to help!</p>
-      </div>';
-      exit();
+      header("Location: ../dashboard/edit?id=$uniqeID&setting=error&error=2");
     } //error check
     elseif ($thumbSize > 5368709120) {
       $error = 3;
-      echo '
-      <div class="errorMessage">
-        <p>Sorry, the your thumbnail file is to large. Please try to upload a file under 100MB! Please try again!</p>
-      </div>';
-      exit();
+      header("Location: ../dashboard/edit?id=$uniqeID&setting=big&error=3");
     } //size check
   }
   if($error == 0) {

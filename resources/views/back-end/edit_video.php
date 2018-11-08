@@ -13,14 +13,12 @@ if (isset ($_SESSION['uID'])) {
     while($row = $result->fetch_assoc()) { ?>
         <?php include '../../page-templates/head_l2.php'; ?>
         <body>
-          <script>
-            document.title = "Edit <?php echo $row['video_title']; ?> | Opus Vid";
-          </script>
+          <script> document.title = "Edit <?php echo $row['video_title']; ?> | OpusVid"; </script>
           <?php
             include '../../page-templates/header_l2.php';
             include '../../page-templates/dash_nav_l2.php';
           ?>
-              <h2>Edit Video: <?php echo $row['video_title']; ?></h2>
+              <h2 class="pageTitle">Edit Video: <?php echo $row['video_title']; ?></h2>
               <form id="videoUpload" method="post" action="../../../database/db_editV.php"  enctype="multipart/form-data">
                 <input type="text" hidden name="vidID" value="<?php echo $row['id']; ?>">
                 <input type="text" hidden name="by" value="<?php echo $row['opus_creator']; ?>">

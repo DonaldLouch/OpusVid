@@ -1,7 +1,7 @@
 <?php
 
 $follower = $_SESSION['uID'];
-$following = $_POST['followID'];
+//$following = $_POST['followID'];
 
 $followingSQL = "SELECT following_id FROM following WHERE follower_id = '" . mysqli_escape_string($mySQL, $follower) . "';";
 $followResult = mysqli_query($mySQL, $followingSQL);

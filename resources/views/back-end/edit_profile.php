@@ -13,14 +13,38 @@ if (isset ($_SESSION['uID'])) {
     while($row = $result->fetch_assoc()) { ?>
         <?php include '../../page-templates/head_l2.php'; ?>
         <body>
-          <script>
-            document.title = "Edit <?php echo $_SESSION['uName']; ?> | Opus Vid";
-          </script>
+          <script> document.title = "Edit <?php echo $_SESSION['uName']; ?> | OpusVid"; </script>
           <?php
             include '../../page-templates/header_l2.php';
             include '../../page-templates/dash_nav_l2.php';
           ?>
-              <h2>Edit Profile: <?php echo $row['username']; ?></h2>
+              <h2 class="pageTitle">Edit Profile: <?php echo $row['username']; ?></h2>
+
+              <?php
+                if(!isset($_GET['setting'])){
+                  //No errors!
+                } else {
+                  $settingError = $_GET['setting'];
+
+                if($settingError == "failed") { ?>
+                    <div class="errorMessage">
+                      <p>Signup failed due to an unkown reason. Please try again or contact the support team at <a href="mailto:support@opusvid.com">support@opusvid.com</a> and we'll be happy to help!</p>
+                    </div>
+                  <?php } elseif($settingError == "ext") { ?>
+                    <div class="errorMessage">
+                      <p>Please only upload image files with the extention jpg, jpeg, png, OR pdf!</p>
+                    </div>
+                  <?php } elseif($settingError == "error") { ?>
+                    <div class="errorMessage">
+                      <p>There was an error uploading your avatar. Please try again or contact the support team at <a href="mailto:support@opusvid.com">support@opusvid.com</a> and we'll be happy to help!</p>
+                    </div>
+                  <?php } elseif($settingError == "big") { ?>
+                    <div class="errorMessage">
+                      <p>Sorry, the your avatar file is to large. Please try to upload a file under 100MB! Please try again!</p>
+                    </div>
+                <?php }
+              }
+              ?>
 
               <form id="videoUpload" method="post" action="../../../database/db_editP.php"  enctype="multipart/form-data" autocomplete="off">
                 <input type="text" hidden name="accountID" value="<?php echo $row['username']; ?>">

@@ -10,7 +10,7 @@ $videoType = $_FILES['videoFile']['type']; //Takes the file types
 $videoExplode = explode('.', $videoName); //Explodes the file name (name . extention)
 $videoExtention = strtolower(end($videoExplode)); //Changes the file extention into a lowercase name
 
-//$videoExtAllow = array('mp4', 'mkv'); //Allow the following extentions m4v, webm, 
+$videoExtAllow = array('mp4', 'm4v'); //Allow the following extentions m4v, webm, 
 
 $videoNewName = $uniqeID.".".$videoExtention;
 

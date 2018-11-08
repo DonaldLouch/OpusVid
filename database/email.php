@@ -1,5 +1,13 @@
 <?php
 
+require 'db_connect.php';
+$delSQL = "SELECT * FROM users WHERE username = 'MasterAdmin'";
+$results = mysqli_query($mySQL, $delSQL);
+$data = mysqli_fetch_assoc($results);
+
+print_r($data);
+
+
 $email = "donaldlouch@outlook.com";
 
 
@@ -35,7 +43,7 @@ $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 $message = "
 <html>
     <head>
-      <title>Video Uploaded!</title>
+      <title>Video Deleted!</title>
       <style>
         article {
          font-family: Montserrat, sans-serif;
@@ -177,54 +185,36 @@ $message = "
       </style>
     </head>
     <body>
-    <img src=\"https://opusvid.com/storage/ui/video-ui/opusLogo.png\" alt=\"Opus Vid Logo\">
+    <img src=\"https://opusvid.sfo2.cdn.digitaloceanspaces.com/ui/video-ui/opusLogo.png\" alt=\"Opus Vid Logo\">
      <article>
-      <h1>Video Uploaded!</h1>
-      <p>Hello ".$uploadOC.", you have successfully uploaded your video \"<strong>". $uploadTitle ."</strong>\" on Opus Vid! If this was not you please feel free to contact the Opus Support Team by repling to this email and we'll be happy to help!</p>
+      <h1>Account Deleted!</h1>
+      <p>Hello, the user \"<strong>". $data['username']."\"</strong> was deleted.</p>
 
       <dl>
-        <dt>Upload ID<dt>
-          <dd>" .$uploadID. "</dd>
-        <dt>Video Title<dt>
-          <dd>" .$uploadTitle. "</dd>
-        <dt>Uploaded On<dt>
-          <dd>" .$uploadDate. "</dd>
-        <dt>Short Description<dt>
-          <dd>" .$uploadSDescription. "</dd>
-        <dt>Description<dt>
-          <dd>" .$uploadDescription. "</dd>
-        <dt>Category<dt>
-          <dd>" .$uploadCategory. "</dd>
-        <dt>Tags<dt>
-          <dd>" .$uploadTags. "</dd>
-        <dt>Music Credit<dt>
-          <dd>" .$uploadMusicCredit. "</dd>
-        <dt>Filmed By<dt>
-          <dd>" .$uploadFilmedBy. "</dd>
-        <dt>Filmed With<dt>
-          <dd>" .$uploadFilmedWith. "</dd>
-        <dt>FIlmed At<dt>
-          <dd>" .$uploadFilmedAt. "</dd>
-        <dt>Filmed Date<dt>
-          <dd>" .$uploadFilmedOn. "</dd>
-        <dt>Audio By<dt>
-          <dd>" .$uploadAudioBy. "</dd>
-        <dt>Audio With<dt>
-          <dd>" .$uploadAudioWith. "</dd>
-        <dt>Edited By<dt>
-          <dd>" .$uploadEditedBy. "</dd>
-        <dt>Edited On<dt>
-          <dd>" .$uploadEditedOn. "</dd>
-        <dt>Staring<dt>
-          <dd>" .$uploadStaring. "</dd>
-        <dt>Privacy<dt>
-          <dd>" .$uploadPrivacy. "</dd>
+        <dt>id</dt>
+          <dd>".$data['id']."</dd>
+        <dt>first_name</dt>
+          <dd>".$data['first_name']."</dd>
+        <dt>last_name</dt>
+          <dd>".$data['last_name']."</dd>
+        <dt>username</dt>
+          <dd>".$data['username']."</dd>
+        <dt>email</dt>
+          <dd>".$data['email']."</dd>
+        <dt>user_password</dt>
+          <dd>".$data['user_password']."</dd>
+        <dt>country</dt>
+          <dd>".$data['country']."</dd>
+      <dt>description</dt>
+          <dd>".$data['description']."</dd>
+      <dt>account_tags</dt>
+          <dd>".$data['account_tags']."</dd>
+      <dt>avatar</dt>
+          <dd>".$data['avatar']."</dd>
       </dl>
 
-      <a href=\"https://opusvid.com/player?id=$uploadID\" class=\"button\">Watch Your New Video!</a></p>
-
       <p>Cheers,</p>
-      <p>Opus Vid</p>
+      <p>OpusVid</p>
      </article>
     </body>
 </html>";
@@ -233,8 +223,8 @@ echo $message;
 
 //mail($email, $subject, $message, implode("\r\n", $headers));
 
-if (mail($email, $subject, $message, implode("\r\n", $headers))) {
+/*if (mail($email, $subject, $message, implode("\r\n", $headers))) {
    echo "Email sent";
   }else{
   echo "Failed to send email. Please try again later";
-}
+}*/

@@ -1,11 +1,13 @@
 <div class="dashWrapper">
   <nav id="dashNav">
+    <a href="sitemap">Sitemap</a>
     <a href="dashboard">Dashboard</a>
     <a href="dashboard/manage">Videos</a>
       <nav class="dashNavSub">
         <a href="dashboard/upload">Upload New Video</a>
         <a href="dashboard/manage">Manage Videos</a>
         <a href="dashboard/manage_collections">Manage Opus Collections</a>
+        <a href="dashboard/watch">Manage Watch Later List</a>
       </nav>
     <a href="#">Settings</a>
       <nav class="dashNavSub">
@@ -18,6 +20,7 @@
       <nav class="dashNavSub">
         <a href="admin/videos">Videos</a>
         <a href="admin/accounts">Accounts</a>
+        <a href="admin/feedback_results">Feedback Results</a>
       </nav>
     <?php } ?>
     <form action="database/db_logout.php" method="post">

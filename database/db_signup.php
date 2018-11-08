@@ -1,9 +1,25 @@
 <?php
+/* db_signup.php | Version 1.0
+  By: OpusVid
+  User Level Required: 0+
+
+  The file allows users to signup
+
+  Blades Inlcluded:
+    #db_connect: To connect to Database
+    #db_templates/avatarUpload: Get's the file information for avatar
+    #../do_spaces/spaces_config: Connects to DigitalOcean for upload prep
+    #../do_spaces/spaces_avatarUpload: Uploads new avatar
+
+  File used in:
+    #login
+*/
+
   if (isset($_POST['submit'])) {
-    include 'db_connect.php';
+    require 'db_connect.php';
 
     $errors = 0;
-    include 'db_connect.php';
+
     require '../do_spaces/spaces_config.php'; //DO Spaces Configutation
 
 
@@ -99,103 +115,10 @@
         mysqli_stmt_bind_param($insertStmt, "sssssssss", $firstname, $lastname, $username, $email, $hashedPassword, $country, $avatarPath, $userlevel, $view);
         mysqli_stmt_execute($insertStmt);
 
-        $subject = "Welcome to Opus Vid!";
+        $sqlWatchLater = "INSERT INTO watch_later (user, privacy) VALUES ('$username, 'private')";
+        $sqlWatchQuery = mysqli_query($mySQL, $sqlWatchLater);
 
-        $headers[] = 'From: Opus Vid <no-reply@opusvid.com>';
-        $headers[] = 'Reply-To: contact@opusvid.com';
-        $headers[] = 'Bcc: admin@opusvid.com';
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
-
-        $message = "
-        <html>
-            <head>
-              <title>Welcome to Opus Vid!</title>
-              <style>
-                article {
-                 font-family: Montserrat, sans-serif;
-                 font-size: 16px;
-                 margin: 0.5em;
-                 padding: 1.5em;
-                 box-shadow: 1px 1px 5px 1px rgba(83, 109, 254, 0.4);
-                 border-radius: 0.3em;
-                }
-                h1 {
-                 color: #302E91;
-                 font-size: 2em;
-                 margin: 0.2em 0 0.6em;
-                 text-align: center;
-                 text-shadow: 1px 1px 8px rgba(148, 150, 150, 0.57);
-               }
-               a:link, a:visited {
-                 color: #302E91;
-                 text-decoration: none;
-                 font-weight: 500;
-               }
-               a:hover {
-                 color: #FF9D2F;
-               }
-               dt {
-                 font-weight: bold;
-                 font-size: 1.3em;
-               }
-               dd {
-                 margin-left: 1.5em;
-                 font-weight: 300;
-               }
-               a.button {
-                 background-color: #302E91;
-                 padding: 0.5em;
-                 color: #fff !important;
-                 text-shadow: none;
-                 font-size: 0.9em;
-                 box-shadow: 5px 3px 7px 1px rgba(83, 109, 254, 0.4);
-                 display: block;
-                 width: fit-content;
-                 margin: 1em auto;
-               }
-               a.button:hover {
-                 background: none;
-                 box-shadow: none;
-                 color: #302E91 !important;
-               }
-               img {
-                 width: 20vw;
-                 display: block;
-                 margin: 0.5em auto;
-               }
-              </style>
-            </head>
-            <body>
-            <img src=\"https://opusvid.com/storage/ui/video-ui/opusLogo.png\" alt=\"Opus Vid Logo\">
-             <article>
-              <h1>Welcome to Opus Vid!</h1>
-              <p>Hello ".$firstname." " .$lastname." (".$username."), you have successfully registered for Opus Vid!</p>
-
-              <dl>
-                <dt>First Name</dt>
-                  <dd>". $firstname ."</dd>
-                <dt>Last Name</dt>
-                  <dd>". $lastname ."</dd>
-                <dt>Username</dt>
-                  <dd>". $username ."</dd>
-                <dt>Email</dt>
-                  <dd>". $email ."</dd>
-                <dt>Password</dt>
-                  <dd>The password that you entered when signing up!</dd>
-                  <dt>Country</dt>
-                    <dd>". $country ."</dd>
-                </dl>
-
-               <p>Please feel free to login to the webite with the below button in which will direct you to the login page! <a href=\"https://opusvid.com/login\" class=\"button\">Login to Opus Vid</a></p>
-
-              <p>Cheers,</p>
-              <p>Opus Vid</p>
-             </article>
-            </body>
-        </html>";
-
-        mail($email, $subject, $message, implode("\r\n", $headers));
+        include 'emails/email_signup.php';
 
         header("Location: ../login?signup=success");
         exit();

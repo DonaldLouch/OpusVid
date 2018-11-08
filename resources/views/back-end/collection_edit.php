@@ -7,14 +7,12 @@ include '../../../database/db_collection_edit.php';
 if ($_SESSION['uName']) {?>
 <?php include '../../page-templates/head_l2.php'; ?>
 <body>
-  <script>
-    document.title = "New Opus Collection | Opus Vid";
-  </script>
+  <script> document.title = "New Opus Collection | OpusVid"; </script>
   <?php
     include '../../page-templates/header_l2.php';
     include '../../page-templates/admin_dash.php';
   ?>
-  <h3>Edit Collection</h3>
+  <h2 class="pageTitle">Edit Collection</h2>
   <section>
     <section>
       <?php if($result->num_rows > 0) {

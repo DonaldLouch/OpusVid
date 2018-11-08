@@ -12,9 +12,7 @@ if (isset ($_SESSION['uID'])) {
   if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) { ?>
         <?php include '../../page-templates/head_l2.php'; ?>
-        <script>
-          document.title = "Edit <?php echo $_SESSION['uName']; ?> | Opus Vid";
-        </script>
+        <script> document.title = "Edit <?php echo $_SESSION['uName']; ?> | OpusVid"; </script>
         <body>
           <?php
             include '../../page-templates/header_l2.php';
@@ -28,7 +26,7 @@ if (isset ($_SESSION['uID'])) {
                   <?php }
                 }
               ?>
-              <h2>Edit Account: <?php echo $row['username']; ?></h2>
+              <h2 class="pageTitle">Edit Account: <?php echo $row['username']; ?></h2>
 
               <form id="videoUpload" method="post" action="../../../database/db_editA.php"  enctype="multipart/form-data">
                 <input type="text" hidden name="accountID" value="<?php echo $row['username']; ?>">

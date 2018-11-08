@@ -8,9 +8,7 @@
         include '../../page-templates/head.php';
 ?>
         <body id="<?php echo $userRow['username']; ?>Profile">
-          <script>
-            document.title = "<?php echo $userRow['username']; ?> | Opus Vid";
-          </script>
+          <script> document.title = "<?php echo $userRow['username']; ?> | OpusVid"; </script>
           <?php include '../../page-templates/header.php'; ?>
           <div class="profileWrap card">
             <img src="<?php echo $userRow['avatar']; ?>" class="avatarProfile" alt="<?php echo $userRow['username']; ?> Avatar">

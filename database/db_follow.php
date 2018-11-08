@@ -1,24 +1,25 @@
 <?php
+/* db_follow.php | Version 1.0
+  By: OpusVid
+  User Level Required: 0+
+
+  The file is the follow function!
+
+  Blades Inlcluded:
+    #db_connect: To connect to Database
+    #db_templates/follow: Gets the follow function
+
+  File used in:
+    #../../profile?id=*
+*/
 
 session_start();
-include 'db_connect.php';
-include 'db_templates/follow.php';
+require 'db_connect.php';
+require 'db_templates/follow.php';
 
  if (isset($_POST['follow'])) {
   include 'db_connect.php';
   include 'db_templates/follow.php';
-
-  /*$follower = $_SESSION['uID'];
-  $following = $_POST['followID'];
-
-  $followingSQL = "SELECT following_id FROM following WHERE follower_id = '" . mysqli_escape_string($mySQL, $follower) . "';";
-  $followResult = mysqli_query($mySQL, $followingSQL);
-  $followRow = mysqli_fetch_assoc($followResult);
-
-  $followExpload = explode(" / ", $followRow['following_id']);
-
-  $followIDFollowing = implode(" / ",$followExpload);
-*/
 
   if (in_array($following, $followExpload)){
     header("Location: " . $_SERVER["HTTP_REFERER"]);
@@ -43,27 +44,3 @@ if (isset($_POST["unfollow"])){
     echo "<br>Error Occured.";
   }
 }
-
-  /*if (!$followResultCheck < 1) {
-    //header("Location: " . $_SERVER["HTTP_REFERER"]);
-  } else {
-    $followSQL = "INSERT INTO following (follower_id, following_id) VALUES ('$follower', '$following');";
-    $followResult = mysqli_query($mySQL, $followSQL);
-
-    //header("Location: " . $_SERVER["HTTP_REFERER"]);
-  }
-}
-
-if (isset($_POST['unfollow'])) {
-  include 'db_connect.php';
-
-  $follower = $_SESSION['uID'];
-  $following = $_POST['followID'];
-
-  $unfollowSQL = "DELETE following_id FROM following WHERE follower_id='$follower';";
-  $unfollowResult = mysqli_query($mySQL, $unfollowSQL);
-  header("Location: " . $_SERVER["HTTP_REFERER"]."&unfollowed=true");
-} else {
-  header("Location: " . $_SERVER["HTTP_REFERER"]."&unfollowed=failed");
-*/
-//}

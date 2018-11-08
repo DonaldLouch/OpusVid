@@ -2,7 +2,7 @@
 
 $subject = "Video Uploaded!";
 
-$headers[] = 'From: Opus Vid Account<no-reply@opusvid.com>';
+$headers[] = 'From: OpusVid Account<no-reply@opusvid.com>';
 $headers[] = 'Reply-To: support@opusvid.com';
 $headers[] = 'Bcc: admin@opusvid.com';
 $headers[] = 'MIME-Version: 1.0';
@@ -71,10 +71,10 @@ $message = "
       </style>
     </head>
     <body>
-    <img src=\"https://opusvid.com/storage/ui/video-ui/opusLogo.png\" alt=\"Opus Vid Logo\">
+    <img src=\"https://opusvid.sfo2.cdn.digitaloceanspaces.com/ui/video-ui/opusLogo.png\" alt=\"Opus Vid Logo\">
      <article>
       <h1>Video Uploaded!</h1>
-      <p>Hello ".$uploadOC.", you have successfully uploaded your video \"<strong>". $uploadTitle ."</strong>\" on Opus Vid! If this was not you please feel free to contact the Opus Support Team by repling to this email and we'll be happy to help!</p>
+      <p>Hello ".$uploadOC.", you have successfully uploaded your video \"<strong>". $uploadTitle ."</strong>\" on Opus Vid! If this was not you please feel free to contact the Opus Support Team by replying to this email and we'll be happy to help!</p>
 
       <dl>
         <dt>Upload ID<dt>
@@ -115,12 +115,15 @@ $message = "
           <dd>" .$uploadPrivacy. "</dd>
       </dl>
 
-      <a href=\"https://opusvid.com/player?id=$uploadID\" class=\"button\">Watch Your New Video!</a></p>
+      <p><a href=\"https://opusvid.com/player?id=$uploadID\" class=\"button\">Watch Your New Video!</a></p>
 
       <p>Cheers,</p>
-      <p>Opus Vid</p>
+      <p>OpusVid</p>
      </article>
     </body>
 </html>";
 
 mail($email, $subject, $message, implode("\r\n", $headers));
+
+$sqlMail = "INSERT INTO mail (user_to, user_from, subject, message, status, importance, sent_time) VALUES ('$uploadOC', 'OpusVid', '$subject', '".mysqli_escape_string($mySQL, $message)."', 'unread', 'medium', time())";
+$mailResults = mysqli_query($mySQL, $sqlMail);

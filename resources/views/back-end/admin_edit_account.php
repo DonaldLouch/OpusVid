@@ -13,14 +13,12 @@ if ($_SESSION['uLevel'] == 'admin') {
     while($row = $result->fetch_assoc()) { ?>
       <?php include '../../page-templates/head_l2.php'; ?>
       <body>
-        <script>
-          document.title = "Edit <?php echo $row['username']; ?> | Opus Vid";
-        </script>
+        <script> document.title = "Edit <?php echo $row['username']; ?> | OpusVid"; </script>
         <?php
           include '../../page-templates/header_l2.php';
           include '../../page-templates/admin_dash.php';?>
 
-          <h2>Edit Profile: <?php echo $row['username']; ?></h2>
+          <h2 class="pageTitle">Edit Profile: <?php echo $row['username']; ?></h2>
 
           <form id="videoUpload" method="post" action="../../../database/db_a_account.php"  enctype="multipart/form-data" autocomplete="off">
             <div class="field">

@@ -7,9 +7,7 @@ include '../../page-templates/head.php';
 ?>
 
   <body>
-    <script>
-      document.title = "Password Reset | Opus Vid";
-    </script>
+    <script> document.title = "Password Reset | OpusVid"; </script>
     <?php include '../../page-templates/header.php';?>
       <div class="wrapper card passwordReset">
         <div class="successMessage">

@@ -9,14 +9,12 @@ if (isset ($_SESSION['uID'])) {
     while($row = $result->fetch_assoc()) { ?>
 <?php include '../../page-templates/head_l2.php'; ?>
 <body>
-  <script>
-    document.title = "New Opus Collection | Opus Vid";
-  </script>
+  <script> document.title = "New Opus Collection | OpusVid"; </script>
   <?php
     include '../../page-templates/header_l2.php';
     include '../../page-templates/admin_dash.php';
   ?>
-  <h3>New Collection</h3>
+  <h2 class="pageTitle">New Collection</h2>
   <section>
     <form id="newCollection" method="post" action="../../../database/db_collection_addV.php">
 

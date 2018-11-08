@@ -49,17 +49,6 @@ if (isset($_POST['submit'])) {
   } elseif(!$mySQL) {
     die("Connection failed: " . mysqli_connect_error());
   } else {
-    /*echo '<p>1 ID:' . $collectionID . '</p>';
-    echo '<p>2 Opus Creator:' . $collectionOC . '</p>';
-    echo '<p>3 Uploaded On:' . $collectionDate . '</p>';
-    echo '<p>4 Video Title:' . $collectionTitle . '</p>';
-    echo '<p>5 Short Description:' . $collectionSDescription . '</p>';
-    echo '<p>6 Description:' . $collectionDescription . '</p>';
-    echo '<p>7 Category:' . $collectionCategory . '</p>';
-    echo '<p>8 Tags:' . $collectionTags . '</p>';
-    echo '<p>9 Videos:' . $collectionVideoSelect . '</p>';
-    echo '<p>10 Privacy:' . $collectionPrivacy . '</p>';*/
-
     $sqlInsert = "INSERT INTO collections (id, opus_creator, created_on, collection_title, short_description, description, category, tags, videos, privacy) VALUES ('$collectionID', '$collectionOC', '$collectionDate', '$collectionTitle', '$collectionSDescription', '$collectionDescription', '$collectionCategory', '$collectionTags',
     '$collectionVideoSelect', '$collectionPrivacy')";
 

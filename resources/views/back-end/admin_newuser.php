@@ -7,14 +7,12 @@ include '../../../database/db_a_videos.php';
 if ($_SESSION['uLevel'] == 'admin') {?>
 <?php include '../../page-templates/head_l2.php'; ?>
 <body>
-  <script>
-    document.title = "Admin Videos | Opus Vid";
-  </script>
+  <script> document.title = "Admin Videos | OpusVid"; </script>
   <?php
     include '../../page-templates/header_l2.php';
     include '../../page-templates/admin_dash.php';
   ?>
-  <h3>New User</h3>
+  <h2 class="pageTitle">New User</h2>
   <section id="signupTab">
     <form id="userSignup" method="post" action="../../../database/db_signup.php">
 

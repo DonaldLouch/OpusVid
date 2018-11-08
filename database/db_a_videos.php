@@ -3,7 +3,7 @@
   By: OpusVid
   User Level Required: 0
 
-  The file is to show administors a list of all the videos on Opus Vid in which they can then view/edit/delete a video!
+  The file is to show administrators a list of all the videos on OpusVid in which they can then view/edit/delete a video!
 
   Blades Inlcluded:
     #db_connect: To connect to Database

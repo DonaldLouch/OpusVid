@@ -7,12 +7,10 @@ include '../../../database/db_player_category.php';
 include '../../page-templates/head.php';
 ?>
 	<body>
-		<script>
-			document.title = "<?php echo $_GET['type']; ?> (<?php echo $queryResultPlayer; ?>) | Opus Vid";
-		</script>
+		<script> document.title = "<?php echo $_GET['type']; ?> (<?php echo $queryResultPlayer; ?>) | OpusVid"; </script>
     <?php include '../../page-templates/header.php';?>
 		<div class="wrapper">
-      <h1>"<strong><?php echo $playerID ?></strong>" has <strong><?php echo $queryResultPlayer; ?></strong> video(s) in the category!</h1>
+      <h2 class="pageTitle">"<strong><?php echo $playerID ?></strong>" has <strong><?php echo $queryResultPlayer; ?></strong> video(s) in the category!</h2>
       <div class="videoWrap">
       <?php if ($queryResultPlayer > 0) {
        foreach ($players as $player){ ?>

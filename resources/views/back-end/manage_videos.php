@@ -7,13 +7,11 @@ include '../../../database/db_video.php';
 if (isset ($_SESSION['uID'])) {?>
 <?php include '../../page-templates/head_l2.php'; ?>
 <body>
-  <script>
-    document.title = "Manage Videos | Opus Vid";
-  </script>
+  <script> document.title = "Manage Videos | OpusVid"; </script>
   <?php
     include '../../page-templates/header_l2.php';
     include '../../page-templates/dash_nav_l2.php';?>
-    <h1>Manage Videos</h1>
+    <h2 class="pageTitle">Manage Videos</h2>
     <?php
     if(isset($_GET['edited']) || isset($_GET['delete'])){
       $editError = $_GET['edited'];

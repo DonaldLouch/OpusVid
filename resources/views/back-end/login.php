@@ -10,9 +10,7 @@ include '../../page-templates/head.php';
 ?>
 
   <body>
-    <script>
-      document.title = "Login/Signup | Opus Vid";
-    </script>
+    <script> document.title = "Login/Signup | OpusVid"; </script>
     <?php include '../../page-templates/header.php';?>
       <div class="wrapper card">
             <?php
@@ -31,7 +29,7 @@ include '../../page-templates/head.php';
 
                 <section id="loginTab">
 
-              <h3>Login</h3>
+              <h2 class="pageTitle">Login</h2>
               <?php
                 if(isset($_GET['login']) || isset($_GET['signup']) || isset($_GET['logged'])){
                   $loginError = $_GET['login'];
@@ -92,7 +90,7 @@ include '../../page-templates/head.php';
             </section> <!-- #loginTab -->
 
             <section id="signupTab">
-              <h3>Signup</h3>
+              <h2 class="pageTitle">Signup</h2>
               <?php
                 if(!isset($_GET['signup'])){
                   //No errors!

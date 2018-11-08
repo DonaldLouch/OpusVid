@@ -1,7 +1,8 @@
 <nav id="menu-main" class="menuLogin">
   <ul>
-    <li><a href="home">Home</a></li>
+    <li><a href="feedback">Feedback</a></li>
     <li><a href="categories">Category</a><li>
+    <li><a href="watch_later">Watch Later</a></li>
     <li><img src="<?php echo $_SESSION['uAvatar']; ?>" class="avatar" alt="<?php echo $_SESSION["uName"]; ?> Avatar">
       <ul class="dropDownMain">
         <li><a class="dropDownMainBtn" href="dashboard"><?php echo $_SESSION["uName"]; ?></a></li>

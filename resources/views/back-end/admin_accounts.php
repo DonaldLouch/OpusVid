@@ -7,9 +7,7 @@ include '../../../database/db_a_accounts.php';
 if ($_SESSION['uLevel'] == 'admin') {?>
 <?php include '../../page-templates/head_l2.php'; ?>
 <body>
-  <script>
-    document.title = "Admin Videos | Opus Vid";
-  </script>
+  <script> document.title = "Admin Videos | OpusVid"; </script>
   <?php
     include '../../page-templates/header_l2.php';
     include '../../page-templates/admin_dash.php';}
@@ -29,6 +27,7 @@ if ($_SESSION['uLevel'] == 'admin') {?>
             <p>An error happened when trying to delete the video. Please try again or contact the support team at <a href="mailto:support@opusvid.com">support@opusvid.com</a> and we'll be happy to help!</p>
           </div>
         <?php }}?>
+        <h2 class="pageTitle">Admin: Accounts Manager</h2>
     <a href="new_user" class="button">Add New User</a>
     <div>
       <?php foreach ($profiles as $profile) { ?>

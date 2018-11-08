@@ -3,7 +3,7 @@
   By: OpusVid
   User Level Required: 0+
 
-  The file is to update the infomraiton of an Opus Collection
+  The file is to update the information of an Opus Collection
 
   Blades Inlcluded:
     #db_connect: To connect to Database

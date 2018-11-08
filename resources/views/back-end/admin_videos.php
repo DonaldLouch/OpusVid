@@ -7,13 +7,12 @@ include '../../../database/db_a_videos.php';
 if ($_SESSION['uLevel'] == 'admin') {?>
 <?php include '../../page-templates/head_l2.php'; ?>
 <body>
-  <script>
-    document.title = "Admin Videos | Opus Vid";
-  </script>
+  <script> document.title = "Admin Videos | OpusVid"; </script>
   <?php
     include '../../page-templates/header_l2.php';
-    include '../../page-templates/admin_dash.php';
-    foreach ($videos as $video){ ?>
+    include '../../page-templates/admin_dash.php';?>
+    <h2 class="pageTitle">Admin: Video Manager</h2>
+    <?php foreach ($videos as $video){ ?>
           <div class="videoWrapper">
             <img class="thumbDash" src="<?php echo $video['thumbnail_path']; ?>" alt="Thumbnail <?php echo $video['id']; ?>">
 

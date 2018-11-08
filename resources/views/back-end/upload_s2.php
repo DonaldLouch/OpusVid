@@ -22,13 +22,13 @@
   if (isset ($_SESSION['uID']) && isset ($_GET['id'])) {
     include '../../page-templates/head_l2.php'; ?>
     <body>
-      <script> document.title = "Video Upload | Opus Vid"; </script>
+      <script> document.title = "Video Upload | OpusVid"; </script>
       <?php
         include '../../page-templates/header_l2.php';
         include '../../page-templates/dash_nav_l2.php';
       ?>
       <script src="resources/js/uploadProgress.js"></script>
-          <h2>Upload A Video: Step 2 information</h2>
+          <h2 class="pageTitle">Upload A Video: Step 2 information</h2>
 
             <?php
               if(isset($_GET['error'])){

@@ -23,16 +23,14 @@ if ($_SESSION['uLevel'] == 'admin') {
     while($row = $result->fetch_assoc()) { ?>
         <?php include '../../page-templates/head_l2.php'; ?>
         <body>
-          <script>
-            document.title = "Edit <?php echo $row['video_title']; ?> | Opus Vid";
-          </script>
+          <script> document.title = "Edit <?php echo $row['video_title']; ?> | OpusVid"; </script>
           <?php
           include '../../page-templates/header_l2.php';
           include '../../page-templates/admin_dash.php';
           ?>
-              <h2>Edit Video: <?php echo $row['video_title']; ?></h2>
+              <h2 class="pageTitle">Edit Video: <?php echo $row['video_title']; ?></h2>
 
-              <form id="videoUpload" method="post" action="../../../database/db_editV.php"  enctype="multipart/form-data">
+              <form id="videoUpload" method="post" action="../../../../database/db_editV.php"  enctype="multipart/form-data">
                 <div class="columns 2">
                   <div class="nm column">
                     <div class="field">

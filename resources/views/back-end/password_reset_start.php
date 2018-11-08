@@ -5,12 +5,10 @@ include '../../page-templates/head.php';
 ?>
 
   <body>
-    <script>
-      document.title = "Password Reset | Opus Vid";
-    </script>
+    <script> document.title = "Password Reset | OpusVid"; </script>
     <?php include '../../page-templates/header.php';?>
       <div class="wrapper card passwordReset">
-        <h3>Forgot Your Password? Let us reset your password!</h3>
+        <h2 class="pageTitle">Forgot Your Password? Let us reset your password!</h2>
         <?php
           if(!isset($_GET['reset'])){
             //No errors!

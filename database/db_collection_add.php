@@ -4,18 +4,15 @@
   User Level Required: 0+
 
   The file is to show
-    1) all the videos that are in an Opus Collection then takes all the video IDs from the collection and then excludes them from tesp 2.
-    2) Shows all video created by an Opus Creator (excluding ones already in a collection); then looks at the video ID's and placees the videos in a format that can be selected and display information from the video.
-    3) Then adds new time stamp to SQL
+    1) all the videos that are in an Opus Collection then takes all the video IDs from the collection and then excludes them from step 2.
+    2) Shows all video created by an Opus Creator (excluding ones already in a collection); then looks at the video ID's and places the videos in a format that can be selected and display information from the video.
+    3) Then adds the new timestamp to SQL
 
   Blades Inlcluded:
     #db_connect: To connect to Database
 
   File used in:
     #dashboard/add_collection
-
-  Possible Duplicate:
-      #db_collection_edit.php  
 */
 
 session_start();

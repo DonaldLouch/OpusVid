@@ -1,7 +1,19 @@
 <?php
+/* db_pass_rest_new.php | Version 1.0
+  By: OpusVid
+  User Level Required: 0+
+
+  This file is step 3 and 4 of 4 for the password rest process!
+
+  Blades Inlcluded:
+    #db_connect: To connect to Database
+
+  File used in:
+    #../password_new?token*
+*/
 
 if (isset($_POST['change-password'])) {
-  include 'db_connect.php';
+  require 'db_connect.php';
 
   $errors = 0;
 

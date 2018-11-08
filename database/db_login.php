@@ -1,8 +1,20 @@
 <?php
+/* db_logint.php | Version 1.0
+  By: OpusVid
+  User Level Required: 0+
+
+  The file allows users to login and creates a new session!
+
+  Blades Inlcluded:
+    #db_connect: To connect to Database
+
+  File used in:
+    #../login
+*/
 
 if (isset($_POST['submit'])) {
 
-  include 'db_connect.php';
+  require 'db_connect.php';
 
   $username = mysqli_real_escape_string($mySQL, $_POST['username']);
   $password = mysqli_real_escape_string($mySQL, $_POST['password']);

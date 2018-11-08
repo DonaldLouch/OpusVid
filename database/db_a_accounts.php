@@ -1,9 +1,9 @@
 <?php
-/* db_a_accounts.php | Version 1.0
+ /* db_a_accounts.php | Version 1.0
   By: OpusVid
   User Level Required: 0
 
-  The file is to show administors a list of all the users on Opus Vid in which they can then view/edit/delete a user! With the addition of adding new users!
+  The file is to show administrators a list of all the users on OpusVid in which they can then view/edit/delete a user! With the addition of adding new users!
 
   Blades Inlcluded:
     #db_connect: To connect to Database
