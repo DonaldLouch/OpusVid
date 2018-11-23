@@ -75,6 +75,8 @@ if (!isset($_SESSION['uID']) || isset($_POST['allVid']) || isset($_GET['no_follo
 								<div class="profileWrap">
 									<a href="profile?id=<?php echo $follow['username']; ?>">
 										<img src="<?php echo $follow['avatar']; ?>">
+									</a>
+									<a href="profile?id=<?php echo $follow['username']; ?>">
 										<h3><?php echo $follow['username']; ?></h3>
 									</a>
 									<form class="follow feed" method="post" action="../../database/db_follow.php">
@@ -87,7 +89,7 @@ if (!isset($_SESSION['uID']) || isset($_POST['allVid']) || isset($_GET['no_follo
 		      <div class="videoWrap" id="followVideos">
 					<?php foreach ($players as $player){ ?>
 		        <article id="<?php echo $player['id']; ?>">
-		          <a href="player.php?id=<?php echo $player['id']; ?>" class="noLink">
+		          <a href="player?id=<?php echo $player['id']; ?>" class="noLink">
 		            <img src="<?php echo $player['thumbnail_path']; ?>" class="thumbnailHome" alt="Thumbnail <?php echo $player['id']; ?>">
 		          </a>
 		            <h3><?php echo $player['video_title']; ?></h3>

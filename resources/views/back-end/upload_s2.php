@@ -1,7 +1,7 @@
 <?php
 
   session_start();
-
+  require '../../../database/db_connect.php';
     $getID = $_GET['id'];
 
     $title = $_GET['title'];
@@ -61,11 +61,15 @@
                 <label for="vTitle"><span class="required">*</span>Video Title</label>
               </div>
 
-              <label for="sDescription"><span class="required">*</span>Short Description: Max 250 Characters</label>
-                <textarea name="sDescription" id="sDescription" placeholder="Short Description" maxlength="250" required><?php echo $sd; ?></textarea>
+              <div class="field">
+                  <textarea name="sDescription" id="sDescription" placeholder="Short Description" maxlength="250" required><?php echo $sd; ?></textarea>
+                  <label for="sDescription"><span class="required">*</span>Short Description: Max 250 Characters</label>
+              </div>
 
-              <label for="descriptionField"><span class="required">*</span>Description</label>
+              <div class="field">
                 <textarea name="description" id="descriptionField" placeholder="Description" rows="20" required><?php echo $d; ?></textarea>
+              <label for="descriptionField"><span class="required">*</span>Description</label>
+            </div>
 
               <div class="columns 2">
                 <div class="nm column">
@@ -99,8 +103,10 @@
                 </div>
               </div>
 
-              <label for="musicCredit"><span class="required">*</span>Music Credit</label>
+              <div class="field">
                 <textarea name="musicCredit"  id="musicCredit" placeholder="Music Credit" rows="7"  required><?php echo $mCredit; ?></textarea>
+                <label for="musicCredit"><span class="required">*</span>Music Credit</label>
+              </div>
 
                 <div class="columns 4">
                   <div class="nm column">
@@ -157,8 +163,10 @@
                   </div>
                 </div>
 
-                <label for="staring">Staring</label>
-                <textarea name="staring" id="staring" placeholder="Staring" rows="7"><?php echo $staring; ?></textarea>
+                <div class="field">
+                  <textarea name="staring" id="staring" placeholder="Staring" rows="7"><?php echo $staring; ?></textarea>
+                  <label for="staring">Staring</label>
+                </div>
 
                 <label for="privacy"><span class="required">*</span>Privacy of Video</label>
                   <select name="privacy" id="privacy" required>

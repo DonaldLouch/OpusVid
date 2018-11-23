@@ -54,11 +54,11 @@ elseif ($videoError != 0) {
   </div>';
   exit();
 } //error check
-elseif ($videoSize > 104857600) {
+elseif ($videoSize > 5e+9) {
   $error = 3;
   echo '
   <div class="errorMessage">
-    <p>Sorry, the your video file is to large. Please try to upload a file under 5GB! Please try again!</p>
+    <p>Sorry, your video file is to large. Please try to upload a file under 5GB! Please try again!</p>
   </div>';
   exit();
 } //size check
@@ -102,7 +102,7 @@ echo '
   <p>Video and thumbnail successfully uploaded!</p>
 </div>
 <p>
-  <a href="../dashboard/upload_s2?id='.$uniqeID.'" class="button">Contune To Step 2: Video Information</a>
+  <a href="../dashboard/upload_s2?id='.$uniqeID.'" class="button">Continue To Step 2: Video Information</a>
 </p>';
 } else {
   echo '

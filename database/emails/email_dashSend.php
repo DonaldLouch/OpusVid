@@ -8,6 +8,8 @@ if (isset($_POST['send'])) {
   $subject = mysqli_real_escape_string($mySQL, nl2br($_POST['subject']));
   $dashMessage = mysqli_real_escape_string($mySQL, nl2br($_POST['message']));
 
+  $currentTime = time();
+
   if ($to === "MasterAdmin") {
     $email = "admin@opusvid.com";
   } elseif ($to === "DonaldLouch") {
@@ -22,8 +24,7 @@ if (isset($_POST['send'])) {
     $headers[] = 'MIME-Version: 1.0';
     $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
-    $message = "
-    <html>
+    $message = "<html>
         <head>
           <title>Dashboard Message</title>
           <style>
@@ -99,7 +100,7 @@ if (isset($_POST['send'])) {
 
     mail($email, $subject, $message, implode("\r\n", $headers));
 
-    $sqlMail = "INSERT INTO mail (user_to, user_from, subject, message, status, importance, sent_time) VALUES ('$to', '$from', '$subject', '".mysqli_escape_string($mySQL, $message)."', 'unread', 'medium', time())";
+    $sqlMail = "INSERT INTO mail (user_to, user_from, subject, message, status, importance, sent_time) VALUES ('$to', '$from', '$subject', '".mysqli_escape_string($mySQL, $message)."', 'unread', 'medium', '$currentTime')";
     $mailResults = mysqli_query($mySQL, $sqlMail);
 
     header("Location: ../../dashboard?mes=sent");

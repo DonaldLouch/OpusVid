@@ -27,8 +27,10 @@ include '../../page-templates/head.php';?>
       </div>
 
       <form method="post" action="../../database/db_feedback.php" enctype="multipart/form-data" autocomplete="off">
-        <label for="issueRun">Did You Run Into Any Issues?</label>
+        <div class="field">
           <textarea name="issueRun" id="issueRun" rows="8"><?php echo $issue; ?></textarea>
+          <label for="issueRun">Did You Run Into Any Issues?</label>
+        </div>
 
         <label for="betaJourny">Did You Complete a Beta Task or Tasks?</label>
           <ol id="betaJourny">
@@ -47,8 +49,10 @@ include '../../page-templates/head.php';?>
                         <input type="checkbox" name ="taskSelect[]" id="t8" value="T8">Task 8: General Navigation<br>
                         <input type="checkbox" name ="taskSelect[]" id="otherClick" value="TOther">Other!<br>
                           <div class="conditional">
-                            <label for="betaTaskYES" >What Other Task(s) Did You Complete?</label>
+                            <div class="field">
                               <textarea name="betaTaskYES" id="betaTaskYES" rows="8"><?php echo $taskYes; ?></textarea>
+                              <label for="betaTaskYES" >What Other Task(s) Did You Complete?</label>
+                            </div>
                           </div>
                   </fieldset>
             </li>
@@ -56,29 +60,42 @@ include '../../page-templates/head.php';?>
               <input type="radio" name="betaJourny" id="no" value="no">
                 <label for="no">No</label>
                 <div class="conditional">
-                  <label for="betaTask">What Tasks Did You Complete?</label>
+                  <div class="field">
                     <textarea name="betaTask" id="betaTask" rows="8"><?php echo $tasks; ?></textarea>
+                    <label for="betaTask">What Tasks Did You Complete?</label>
+                  </div>
                 </div>
               </li>
           </ol>
-
-        <label for="betaExperince">What Was Your Experience?</label>
+        <div class="field">
           <textarea name="betaExperince" id="betaExperince" rows="8"><?php echo $experince; ?></textarea>
+          <label for="betaExperince">What Was Your Experience?</label>
+        </div>
 
-        <label for="betaProcess">What Was Your Process?</label>
+        <div class="field">
           <textarea name="betaProcess" id="betaProcess"  rows="8"><?php echo $process; ?></textarea>
+          <label for="betaProcess">What Was Your Process?</label>
+        </div>
 
-        <label for="betaDesign">Feedback: Design</label>
+        <div class="field">
           <textarea name="betaDesign" id="betaDesign" rows="8"><?php echo $design; ?></textarea>
+          <label for="betaDesign">Feedback: Design</label>
+        </div>
 
-        <label for="betaUser">Feedback: Navagation and Placement of Content</label>
+        <div class="field">
           <textarea name="betaUser" id="betaUser" rows="8"><?php echo $user; ?></textarea>
+          <label for="betaUser">Feedback: Navagation and Placement of Content</label>
+        </div>
 
-        <label for="betaOverall">Feedback: Overall</label>
+        <div class="field">
           <textarea name="betaOverall" id="betaOverall" rows="8"><?php echo $overall;?></textarea>
+          <label for="betaOverall">Feedback: Overall</label>
+        </div>
 
-        <label for="other">Additional Comments (such as new feature suggestions)</label>
+        <div class="field">
           <textarea name="other" id="other" rows="8"><?php echo $other; ?></textarea>
+          <label for="other">Additional Comments (such as new feature suggestions)</label>
+        </div>
 
         <button class="submitButton" type="submit" name="submit">Submit Feedback</button><span> | </span> <button class="submitButton" type="reset" name="reset">Rest Form</button>
       </form>

@@ -36,7 +36,7 @@ if (isset ($_SESSION['uID'])) {
         </div>
       </section>
       <div class="email card">
-      <h3 class="pageTitle">Massages</h3>
+      <h3 class="pageTitle">Messages</h3>
       <?php if(isset($_GET['mes'])){
         $mesError = $_GET['mes'];
         if($mesError == "empty"){ ?>

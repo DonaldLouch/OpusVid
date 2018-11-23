@@ -42,6 +42,7 @@ if ($_SESSION['uLevel'] == 'admin') {?>
 
           <form method="post" action="../../../database/db_delete-user.php"  enctype="multipart/form-data">
             <input hidden name="profileIDDel" value="<?php echo $profile['id']; ?>">
+            <input hidden name="profileUNameDel" value="<?php echo $profile['username']; ?>">
             <button class="button dashboard" type="submit" name="submit">Delete User</button>
           </form>
         </article>

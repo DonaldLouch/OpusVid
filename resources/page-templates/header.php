@@ -1,6 +1,6 @@
 <header>
   <a href="home">
-    <img src="https://opusvid.sfo2.cdn.digitaloceanspaces.com/logos/Opus_LogoTitle.png" alt="Opus Vid Title Logo">
+    <img src="https://opusvid.sfo2.cdn.digitaloceanspaces.com/logos/Opus_LogoTitle.png" alt="Opus Vid Title Logo" id="siteLogo">
   </a>
   <?php include 'search_form.php'; ?>
   <?php

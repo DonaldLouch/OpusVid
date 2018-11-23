@@ -26,7 +26,11 @@ if (isset ($_SESSION['uID'])) {
                 } else {
                   $settingError = $_GET['setting'];
 
-                if($settingError == "failed") { ?>
+                  if ($settingError == "name") { ?>
+                  <div class="errorMessage">
+                    <p>First Name and Last Name; must contain letters only (hyphens "-" Are Allowed)!</p>
+                  </div>
+                <?php } elseif($settingError == "failed") { ?>
                     <div class="errorMessage">
                       <p>Signup failed due to an unkown reason. Please try again or contact the support team at <a href="mailto:support@opusvid.com">support@opusvid.com</a> and we'll be happy to help!</p>
                     </div>
@@ -322,10 +326,12 @@ if (isset ($_SESSION['uID'])) {
                     <option value="Zimbabwe">Zimbabwe</option>
                   </select>
 
-                <label for="description"><span class="required">*</span>Description</label>
-                  <textarea name="description" rows="40" placeholder="Description" required>
+                <div class="field">
+                  <textarea name="description" rows="20" placeholder="Description" required>
                     <?php echo $row['description']; ?>
                   </textarea>
+                  <label for="description"><span class="required">*</span>Description</label>
+                </div>
 
                 <div class="field">
                   <input type="text" name="tags" id="tags" placeholder="Tags" value="<?php echo $row['account_tags']; ?>" required>

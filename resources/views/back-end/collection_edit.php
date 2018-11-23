@@ -24,15 +24,19 @@ if ($_SESSION['uName']) {?>
           <label for="collectionName">Collection Name</label>
         </div>
 
-        <label for="sDescription">Short Description: Max 250 Characters</label>
+        <div class="field">
           <textarea name="sDescription" id="sDescription" placeholder="Short Description" maxlength="250" required>
             <?php echo $collection['short_description']; ?>
           </textarea>
+          <label for="sDescription">Short Description: Max 250 Characters</label>
+        </div>
 
-        <label for="description">Description</label>
+        <div class="field">
           <textarea name="description" placeholder="Description" id="descriptionVid" rows="40" required>
             <?php echo $collection['description']; ?>
           </textarea>
+          <label for="description">Description</label>
+        </div>
 
         <label for="category">Category</label>
           <select name="category" id="category">

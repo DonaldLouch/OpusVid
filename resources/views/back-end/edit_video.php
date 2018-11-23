@@ -28,15 +28,19 @@ if (isset ($_SESSION['uID'])) {
                   <label for="vTitle"><span class="required">*</span>Title</label>
                 </div>
 
-                <label for="sDescription"><span class="required">*</span>Short Description: Max 250 Characters</label>
+                <div class="field">
                   <textarea name="sDescription" id="sDescription" maxlength="250" placeholder="Short Description" required>
                     <?php echo $row['short_description']; ?>
                   </textarea>
+                  <label for="sDescription"><span class="required">*</span>Short Description: Max 250 Characters</label>
+                </div>
 
-                <label for="description"><span class="required">*</span>Description</label>
+                <div class="field">
                   <textarea name="description" id="sDescription" rows="20" placeholder="Description" required>
                     <?php echo $row['description']; ?>
                   </textarea>
+                  <label for="description"><span class="required">*</span>Description</label>
+                </div>
 
                 <div class="columns 2">
                   <div class="nm column">
@@ -70,8 +74,10 @@ if (isset ($_SESSION['uID'])) {
                     </div>
                   </div>
 
-                <label for="musicCredit"><span class="required">*</span>Music Credit</label>
+                <div class="field">
                   <textarea name="musicCredit" id="musicCredit" rows="7" placeholder="Music Credit" required><?php echo $row['music_credit']; ?></textarea>
+                  <label for="musicCredit"><span class="required">*</span>Music Credit</label>
+                </div>
 
                 <div class="columns 4">
                   <div class="nm column">
@@ -128,8 +134,10 @@ if (isset ($_SESSION['uID'])) {
                   </div>
                 </div>
 
-                <label for="staring"><span class="required">*</span>Staring</label>
+                <div class="field">
                   <textarea name="staring" id="staring" rows="7" placeholder="Staring"><?php echo $row['staring']; ?></textarea>
+                  <label for="staring"><span class="required">*</span>Staring</label>
+                </div>
 
                 <label for="privacy"><span class="required">*</span>Privacy</label>
                   <select name="privacy" id="privacy">

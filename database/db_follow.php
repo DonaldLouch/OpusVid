@@ -21,6 +21,11 @@ require 'db_templates/follow.php';
   include 'db_connect.php';
   include 'db_templates/follow.php';
 
+  if (mysqli_num_rows($querryStart) === 0) {
+    $sqlFollowInsert = "INSERT INTO following (follower_id, following_id) VALUES ('$follower', '$following')";
+    $queryInsertFollower = mysqli_query($mySQL, $sqlFollowInsert);
+    header("Location: " . $_SERVER["HTTP_REFERER"]);
+  } else {
   if (in_array($following, $followExpload)){
     header("Location: " . $_SERVER["HTTP_REFERER"]);
   } else {
@@ -32,6 +37,7 @@ require 'db_templates/follow.php';
       echo "<br>Error Occured.";
     }
   }
+}
 }
 
 if (isset($_POST["unfollow"])){

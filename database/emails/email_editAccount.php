@@ -8,8 +8,9 @@ $headers[] = 'Bcc: admin@opusvid.com';
 $headers[] = 'MIME-Version: 1.0';
 $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
-$message = "
-<html>
+$currentTime = time();
+
+$message = "<html>
     <head>
       <title>Account Updated!</title>
       <style>
@@ -87,5 +88,5 @@ $message = "
 </html>";
 mail($accountEmail, $subject, $message, implode("\r\n", $headers));
 
-$sqlMail = "INSERT INTO mail (user_to, user_from, subject, message, status, importance, sent_time) VALUES ('$accountName', 'OpusVid', '$subject', '".mysqli_escape_string($mySQL, $message)."', 'unread', 'medium', time())";
+$sqlMail = "INSERT INTO mail (user_to, user_from, subject, message, status, importance, sent_time) VALUES ('$accountName', 'OpusVid', '$subject', '".mysqli_escape_string($mySQL, $message)."', 'unread', 'medium', '$currentTime')";
 $mailResults = mysqli_query($mySQL, $sqlMail);

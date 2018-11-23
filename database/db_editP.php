@@ -21,45 +21,53 @@ if (isset($_POST['submit'])) {
 
   $error = 0;
 
-  $accountName = mysqli_real_escape_string($mySQL, $_POST['accountID']);
+  $accountName = mysqli_real_escape_string($mySQL, nl2br($_POST['accountID']));
   $accountFirst = mysqli_real_escape_string($mySQL, $_POST['signupFirstName']);
   $accountLast = mysqli_real_escape_string($mySQL, $_POST['signupLastName']);
   $accountCountry = mysqli_real_escape_string($mySQL, $_POST['country']);
-  $accountDescription = nl2br($_POST['description']);
+  $accountDescription = mysqli_real_escape_string($mySQL, nl2br($_POST['description']));
   $accountTags = mysqli_real_escape_string($mySQL, $_POST['tags']);
   $accountEmail = mysqli_real_escape_string($mySQL, $_POST['accountEmail']);
 
   require '../do_spaces/spaces_config.php'; //DO Spaces Configutation
   require 'db_templates/avatarUpload.php'; //Upload Function
 
-  if ($_FILES["avatarFile"]["error"] > 0) {
+  if (!preg_match("/^[a-zA-Z]*$/", $accountFirst) || !preg_match("/^[a-zA-Z_\-]*$/", $accountLast)) {
+    $error = 1;
+    header("Location: ../dashboard/settingsP?setting=name&error=1");
+    exit();
+  } //first and last name characters check
+
+  elseif ($_FILES["avatarFile"]["error"] > 0) {
     $updateSQL = "UPDATE users SET first_name = '$accountFirst', last_name = '$accountLast', country = '$accountCountry', description = '$accountDescription', account_tags = '$accountTags' WHERE username= '$accountName';";
 
     $results = mysqli_query($mySQL, $updateSQL);
-    include 'emails_editProfile.php';
+    include 'emails/email_editProfile.php';
 
     header("Location: ../profile?id=$accountName");
   } else {
     #Check: Avatar
-    if (in_array($avatarExtention, $avatarExtAllow) != $avatarExtention) {
-      $error = 1;
-      header("Location: ../dashboard/settingsP?setting=ext&error=1");
-    } //extention check
-    elseif ($avatarError != 0) {
+    if ($avatarError != 0) {
       $error = 2;
       header("Location: ../dashboard/settingsP?setting=error&error=2");
     } //error check
-    elseif ($avatarSize > 1e+8) {
+    elseif (in_array($avatarExtention, $avatarExtAllow) != $avatarExtention) {
       $error = 3;
-      header("Location: ../dashboard/settingsP?setting=big&error=3");
+      header("Location: ../dashboard/settingsP?setting=ext&error=3");
+    } //extention check
+
+    elseif ($avatarSize > 1e+8) {
+      $error = 4;
+      header("Location: ../dashboard/settingsP?setting=big&error=4");
     } //size check
 
     if($error == 0) {
+    require '../do_spaces/spaces_avatarUpload.php'; //DO Spaces Avatar Upload
 
     $updateSQL = "UPDATE users SET first_name = '$accountFirst', last_name = '$accountLast', country = '$accountCountry', description = '$accountDescription', account_tags = '$accountTags', avatar = '$avatarDestination' WHERE username= '$accountName';";
     $results = mysqli_query($mySQL, $updateSQL);
 
-    include 'emails_editProfile.php';
+    include 'emails/email_editProfile.php';
 
     header("Location: ../profile?id=$accountName");
     }

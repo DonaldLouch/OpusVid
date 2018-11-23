@@ -24,7 +24,7 @@
 
 
     $firstname = mysqli_real_escape_string($mySQL, $_POST['signupFirstName']);
-    $lastname = mysqli_real_escape_string($mySQL, $_POST['signupLastName']);
+    $lastname = mysqli_real_escape_string($mySQL, nl2br($_POST['signupLastName']));
     $username = mysqli_real_escape_string($mySQL, $_POST['signupUsername']);
     $accountName = $username;
 
@@ -37,7 +37,7 @@
     $view = mysqli_real_escape_string($mySQL, "0");
     $country = mysqli_real_escape_string($mySQL, $_POST['country']);
 
-/*Checks*/
+/*Checks */
 
     #Check: Empty Files
     if (empty($firstname) || empty($lastname) || empty($username) || empty($password) || empty($email) || empty($country)) {
@@ -47,7 +47,7 @@
     } //empty files
 
     #Check: Characters Check
-    elseif (!preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $lastname)) {
+    elseif (!preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z_\-]*$/", $lastname)) {
       $error = 2;
       header("Location: ../login?signup=invaild&error=2&username=".$username."&email=".$email."");
       exit();
@@ -66,14 +66,14 @@
     } //email check
 
     #Check: Avatar
-    elseif (in_array($avatarExtention, $avatarExtAllow) != $avatarExtention) {
-      $error = 5;
-      header("Location: ../login?signup=ext&error=5&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
-    } //extention check
     elseif ($avatarError != 0) {
-      $error = 6;
-      header("Location: ../login?signup=error&error=6&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
+      $error = 5;
+      header("Location: ../login?signup=error&error=5&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
     } //error check
+    elseif (in_array($avatarExtention, $avatarExtAllow) != $avatarExtention) {
+      $error = 6;
+      header("Location: ../login?signup=ext&error=6&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
+    } //extention check
     elseif ($avatarSize > 1e+8) {
       $error = 7;
       header("Location: ../login?signup=big&error=7&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
@@ -115,7 +115,7 @@
         mysqli_stmt_bind_param($insertStmt, "sssssssss", $firstname, $lastname, $username, $email, $hashedPassword, $country, $avatarPath, $userlevel, $view);
         mysqli_stmt_execute($insertStmt);
 
-        $sqlWatchLater = "INSERT INTO watch_later (user, privacy) VALUES ('$username, 'private')";
+        $sqlWatchLater = "INSERT INTO watch_later (user, privacy) VALUES ('$username', 'private')";
         $sqlWatchQuery = mysqli_query($mySQL, $sqlWatchLater);
 
         include 'emails/email_signup.php';

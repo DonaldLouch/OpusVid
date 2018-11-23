@@ -17,10 +17,6 @@ require 'db_connect.php';
 //Gets the username
   $profileID = $_GET['id'];
 
-//Gets view count > updates by 1
-  $newView = "UPDATE users SET views = views + 1 WHERE username = '" . mysqli_escape_string($mySQL,$profileID) . "'";
-  $addView = mysqli_query($mySQL, $newView);
-
 //Gets the username and the content from the user
   $userSQL = "SELECT * FROM users WHERE username = '" . mysqli_escape_string($mySQL,$profileID) . "';";
   $userResult = mysqli_query($mySQL, $userSQL);

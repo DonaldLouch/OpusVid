@@ -6,7 +6,7 @@
 
 		<div class="wrapper card">
 			<h2 class="pageTitle">Beta Tasks</h2>
-      <p>If any task failed please copy the url that was provided and past it in the additional comments field in the <a href="feedback">Feedback</a> form.</p>
+      <p>If any task failed please copy the url that was provided and paste it in the additional comments field in the <a href="feedback">Feedback</a> form.</p>
 
       <div id="tabs">
         <nav>
@@ -70,7 +70,7 @@
           <section id="tk8">
             <h3>Task 8: General Navigation</h3>
             <h5>All Pages | Sitemap</h5>
-            <p>For this task if you could just simply click on buttons and links. Do you think their appropriately titled? Do they link where they should? Are these buttons and links placed in logical places?</p>
+            <p>For this task if you could just simply click on buttons and links. Do you think they're appropriately titled? Do they link where they should? Are these buttons and links placed in logical places?</p>
           </section> <!-- #tk8 -->
         </div><!-- .tabContent --->
 

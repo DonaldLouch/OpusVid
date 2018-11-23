@@ -29,12 +29,12 @@
                 <div class="oCVidWrap">
                 <?php if (in_array($user['id'], $followExpload) && isset($_SESSION['uID'])) {?>
                   <form class="follow collection" method="post" action="../../database/db_follow.php">
-                    <input name="followID" value="<?php echo $user['username']; ?>" hidden>
+                    <input name="followID" value="<?php echo $user['id']; ?>" hidden>
                     <button type="submit" name="unfollow">Unfollow Opus Creator</button>
                   </form>
                 <?php } elseif (!in_array($user['id'], $followExpload) && isset($_SESSION['uID'])) { ?>
                   <form class="follow collection" method="post" action="../../database/db_follow.php">
-                    <input name="followID" value="<?php echo $user['username']; ?>" hidden>
+                    <input name="followID" value="<?php echo $user['id']; ?>" hidden>
                     <button type="submit" name="follow">Follow Opus Creator</button>
                   </form>
                 <?php } ?>
@@ -117,21 +117,21 @@
               <div class="inner-container">
                 <video id="player" controls="controls" src="<?php echo $player['video_path']; ?>" preload="none" poster="<?php echo $player['thumbnail_path']; ?>"></video>
                 <nav id="vidCon" class="vidConON"></nav>
-<!--                 <nav id="vidCon"></nav> -->
+<!--                 <nav id="vidCon"></nav> poster="<?php echo $player['thumbnail_path']; ?>" -->
               </div> <!-- .inner-container -->
             </div> <!-- .outer-container -->
 
             <div id="vidDescription">
 	          <section id="description">
                 <div class="oCVidWrap">
-                  <?php if (in_array($userRow['id'], $followExpload) && isset($_SESSION['uID'])) {?>
+                  <?php if (in_array($user['id'], $followExpload) && isset($_SESSION['uID'])) { ?>
                     <form class="follow player" method="post" action="../../database/db_follow.php">
-                      <input name="followID" value="<?php echo $user['username']; ?>" hidden>
+                      <input name="followID" value="<?php echo $user['id']; ?>" hidden>
                       <button type="submit" name="unfollow">Unfollow Opus Creator</button>
                     </form>
-                  <?php } elseif (!in_array($userRow['id'], $followExpload) && isset($_SESSION['uID'])) { ?>
+                  <?php } elseif (!in_array($user['id'], $followExpload) && isset($_SESSION['uID'])) { ?>
                     <form class="follow player" method="post" action="../../database/db_follow.php">
-                      <input name="followID" value="<?php echo $user['username']; ?>" hidden>
+                      <input name="followID" value="<?php echo $user['id']; ?>" hidden>
                       <button type="submit" name="follow">Follow Opus Creator</button>
                     </form>
                   <?php } ?>

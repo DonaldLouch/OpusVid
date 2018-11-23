@@ -30,6 +30,7 @@ if (isset ($_SESSION['uID'])) {
 
               <form id="videoUpload" method="post" action="../../../database/db_editA.php"  enctype="multipart/form-data">
                 <input type="text" hidden name="accountID" value="<?php echo $row['username']; ?>">
+                <input type="text" hidden name="numberID" value="<?php echo $row['id']; ?>">
 
                 <div class="field">
                   <input type="text" name="editEmail" id="editEmail" value="<?php echo $row['email']; ?>" required>
@@ -40,6 +41,9 @@ if (isset ($_SESSION['uID'])) {
                   <input type="password" name="editPassword" id="editPassword" placeholder="New Password: LEAVE BLANK IF USING THE SAME PASSWORD">
                   <label for="editPassword">New Password: LEAVE BLANK IF USING THE SAME PASSWORD</label>
                 </div>
+
+                <button type="submit" name="delete" class="submitButton delete">!!! Delete Account !!!</button>
+
 
                 <button type="submit" name="submit" class="submitButton">Edit Account</button>
               </form>

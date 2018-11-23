@@ -11,7 +11,7 @@
     include '../../page-templates/header_l2.php';
     include '../../page-templates/admin_dash.php';
   ?>
-  <h2 class="pageTitle">Add Videos to Watch Later List</h2>
+  <h2 class="pageTitle">Manage Your Watch Later List</h2>
 
   <?php if(isset($_GET['edit'])){
     $editError = $_GET['edit'];
@@ -30,7 +30,7 @@
 
       <a class="toggleButton watchLater" onclick="toggle_visibility('rVideo')">Remove Videos</a>
         <section id="rVideo" class="panel">
-          <label for="videoSelect">Unselect Videos To Remove From Collection</label>
+          <label for="videoSelect">Unselect Videos To Remove From Your Watch Later List</label>
               <?php echo $videoNumber;
               for ($x = 0; $x <= $videoNumber; $x++){
                 $vidID = $videosAlreadyAdded[$x];
@@ -39,7 +39,7 @@
                 $videoResults = mysqli_query($mySQL, $videoSQL);
                 $video = mysqli_fetch_assoc($videoResults);?>
 
-              <div class="videoWrapperCollection">
+              <div class="watchLaterWrapper">
                 <input type="checkbox" name ="currentSelect[]" id ="videoSelect" value="<?php echo $video['id'];?>" checked>
                 <img class="thumbDash" src="<?php echo $video['thumbnail_path']; ?>" alt="Thumbnail <?php echo $video['id']; ?>">
 
@@ -52,9 +52,9 @@
         </section>
         <a class="toggleButton watchLater" onclick="toggle_visibility('aVideo')">Add Videos</a>
           <section id="aVideo" class="panel">
-            <label for="videoSelect">Select Videos To Add</label>
+            <label for="videoSelect">Select Videos To Add To Your Watch Later List</label>
               <?php foreach ($videos as $video){ ?>
-                <div class="videoWrapperCollection">
+                <div class="watchLaterWrapper">
                   <input type="checkbox" name ="videoSelect[]" id ="videoSelect" value="<?php echo $video['id'];?>">
                   <img class="thumbDash" src="<?php echo $video['thumbnail_path']; ?>" alt="Thumbnail <?php echo $video['id']; ?>">
 
@@ -64,12 +64,12 @@
                   </div>
                 </div>
               <?php } ?>
-              <div id="pagination_controls">
+              <div id="pagination_controls" class="watchListControls">
                 <?php echo $paginationControls; ?>
               </div>
           </section>
 
-          <label for="privacy">Privacy of Collection</label>
+          <label for="privacy">Privacy of Watch List</label>
             <select name="privacy" id="privacy">
               <option value="<?php echo $watchLater['privacy']; ?>"><?php echo $watchLater['privacy']; ?></option>
               <option value="public">Public</option>

@@ -67,6 +67,12 @@ if (isset($_POST['submit'])) {
   }
   if($error == 0) {
     include '../do_spaces/spaces_thumbUpload.php';
+
+    $path = "https://opusvid.sfo2.cdn.digitaloceanspaces.com/thumbnails/".$uniqeID.".".$thumbExtention;
+
+    $updateThumbSQL = "UPDATE videos SET thumbnail_path = '$path' WHERE id= '$uniqeID';";
+
+    $resultsThumb = mysqli_query($mySQL, $updateThumbSQL);
   }
 
   header("Location: ../dashboard/manage?edited=success");

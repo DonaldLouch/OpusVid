@@ -31,10 +31,11 @@ include '../../page-templates/head.php';
 
               <h2 class="pageTitle">Login</h2>
               <?php
-                if(isset($_GET['login']) || isset($_GET['signup']) || isset($_GET['logged'])){
+                if(isset($_GET['login']) || isset($_GET['signup']) || isset($_GET['logged']) || isset($_GET['delete'])){
                   $loginError = $_GET['login'];
                   $signupError = $_GET['signup'];
                   $loggedError = $_GET['logged'];
+                  $deleteError = $_GET['delete'];
 
                   if($loginError == "empty") { ?>
                     <div class="errorMessage">
@@ -68,9 +69,25 @@ include '../../page-templates/head.php';
                     <div class="errorMessage">
                       <p>An error happened when signing up; please see the 'Signup' tab for more information!</p>
                     </div>
+                  <?php } elseif($signupError == "error") { ?>
+                    <div class="errorMessage">
+                      <p>An error happened when signing up; please see the 'Signup' tab for more information!</p>
+                    </div>
+                  <?php } elseif($signupError == "ext") { ?>
+                    <div class="errorMessage">
+                      <p>An error happened when signing up; please see the 'Signup' tab for more information!</p>
+                    </div>
+                  <?php } elseif($signupError == "big") { ?>
+                    <div class="errorMessage">
+                      <p>An error happened when signing up; please see the 'Signup' tab for more information!</p>
+                    </div>
                   <?php } elseif($loggedError == "success") { ?>
                     <div class="successMessage">
                       <p>Successfully logged out!</p>
+                    </div>
+                  <?php } elseif($deleteError == "success") { ?>
+                    <div class="successMessage">
+                      <p>Your account has successfully been deleted! We're sorry to see you go; if there's anything that we could've done to make you stay please send us an email to <a href="mailto:admin@opusvid.com">admin@opusvid.com</a>.</p>
                     </div>
                   <?php }
                 }
@@ -103,7 +120,7 @@ include '../../page-templates/head.php';
                     </div>
                   <?php } elseif($signupError == "invaild") { ?>
                     <div class="errorMessage">
-                      <p>First Name and Last Name; must contain letters only!</p>
+                      <p>First Name and Last Name; must contain letters only (hyphens "-" Are Allowed)!</p>
                     </div>
                   <?php } elseif($signupError == "email") { ?>
                     <div class="errorMessage">
@@ -121,13 +138,13 @@ include '../../page-templates/head.php';
                     <div class="errorMessage">
                       <p>Signup failed due to an unkown reason. Please try again or contact the support team at <a href="mailto:support@opusvid.com">support@opusvid.com</a> and we'll be happy to help!</p>
                     </div>
+                  <?php } elseif($signupError == "error") { ?>
+                      <div class="errorMessage">
+                        <p>There was an error uploading your avatar OR No file was selected. Please note that an avatar is required for signup. Please try again or contact the support team at <a href="mailto:support@opusvid.com">support@opusvid.com</a> and we'll be happy to help!</p>
+                      </div>
                   <?php } elseif($signupError == "ext") { ?>
                     <div class="errorMessage">
                       <p>Please only upload image files with the extention jpg, jpeg, png, OR pdf!</p>
-                    </div>
-                  <?php } elseif($signupError == "error") { ?>
-                    <div class="errorMessage">
-                      <p>There was an error uploading your avatar. Please try again or contact the support team at <a href="mailto:support@opusvid.com">support@opusvid.com</a> and we'll be happy to help!</p>
                     </div>
                   <?php } elseif($signupError == "big") { ?>
                     <div class="errorMessage">

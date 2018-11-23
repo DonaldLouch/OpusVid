@@ -18,6 +18,14 @@ session_start();
 if (isset($_POST['submit'])) {
   require 'db_connect.php';
   $vidID = $_POST['id'];
+
+  $thumbCheckSQL = "SELECT thumbnail_path FROM videos WHERE id = '$vidID'";
+  $thumbCheckQuery = mysqli_query($mySQL, $thumbCheckSQL);
+  $thumbCheck = mysqli_fetch_assoc($thumbCheckQuery);
+  $thePath = $thumbCheck['thumbnail_path'];
+  $path = "https://opusvid.sfo2.cdn.digitaloceanspaces.com/thumbnails/".$vidID.".";
+  $placeholderPath = "https://opusvid.sfo2.cdn.digitaloceanspaces.com/thumbnails/placeholderThumb.jpg";
+
   include 'db_templates/uploadFields.php';
 
   if (empty($uploadTitle) || empty($uploadSDescription) || empty($uploadDescription) || empty($uploadCategory) || empty($uploadTags) || empty($uploadMusicCredit) || empty($uploadPrivacy)){//Checks that all fields are entered: #EmptyFields
@@ -32,6 +40,11 @@ if (isset($_POST['submit'])) {
 
   $updateSQL = "UPDATE videos SET video_title = '$uploadTitle', opus_creator = '$uploadOC', uploaded_on = '$uploadDate', short_description = '$uploadSDescription', description = '$uploadDescription', category = '$uploadCategory', tags = '$uploadTags', music_credit = '$uploadMusicCredit', filmed_date = '$uploadFilmedOn', filmed_at = '$uploadFilmedAt', filmed_on = '$uploadFilmedWith', filmed_by = '$uploadFilmedBy', audio_by = '$uploadAudioBy', audio_with = '$uploadAudioWith', edited_by = '$uploadEditedBy', edited_on = '$uploadEditedOn', staring = '$uploadStaring', privacy = '$uploadPrivacy' WHERE id= '$vidID';";
   $results = mysqli_query($mySQL, $updateSQL);
+
+  if ($thePath == $path) {
+    $updateThumbSQL = "UPDATE videos SET thumbnail_path = '$placeholderPath' WHERE id= '$vidID';";
+    $resultsThumb = mysqli_query($mySQL, $updateThumbSQL);
+  }
 
     #DatabaseInsert //Once a video is uploaded the user will recieve this email #UploadEmail
       require 'emails/email_videoUpload.php';

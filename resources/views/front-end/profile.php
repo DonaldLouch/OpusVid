@@ -39,7 +39,7 @@
           <div class="videoWrap">
           <?php foreach ($players as $player) { ?>
             <article id="<?php echo $player['id']; ?>">
-                <a href="player.php?id=<?php echo $player['id']; ?>" class="noLink">
+                <a href="player?id=<?php echo $player['id']; ?>" class="noLink">
                   <img src="<?php echo $player['thumbnail_path']; ?>" class="thumbnailHome" alt="Thumbnail <?php echo $player['id']; ?>">
                 </a>
                   <h3><?php echo $player['video_title']; ?></h3>
@@ -51,6 +51,11 @@
           </div>
 
           <?php include '../../page-templates/footer.php'; ?>
+          <?php if ($profileID =! $_SESSION['uName']) {
+            sleep(5);
+            include '../../../database/db_views_profile.php';
+          }
+          ?>
 
       <?php } else {
             echo "<h3>Sorry, this profile faild to load. Please try again or contact our support team at support@opusvid.com with the profile id:" . $profileID . " and we'll be happy to help you!</h3>";

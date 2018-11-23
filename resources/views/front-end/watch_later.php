@@ -64,12 +64,12 @@ if (!isset($_GET['index']) || $_GET['index'] < -1) {
           <div class="oCVidWrap">
             <?php if (in_array($user['id'], $followExpload) && isset($_SESSION['uID'])) {?>
               <form class="follow collection" method="post" action="../../database/db_follow.php">
-                <input name="followID" value="<?php echo $user['username']; ?>" hidden>
+                <input name="followID" value="<?php echo $user['id']; ?>" hidden>
                 <button type="submit" name="unfollow">Unfollow Opus Creator</button>
               </form>
             <?php } elseif (!in_array($user['id'], $followExpload) && isset($_SESSION['uID'])) { ?>
               <form class="follow collection" method="post" action="../../database/db_follow.php">
-                <input name="followID" value="<?php echo $user['username']; ?>" hidden>
+                <input name="followID" value="<?php echo $user['id']; ?>" hidden>
                 <button type="submit" name="follow">Follow Opus Creator</button>
               </form>
             <?php } ?>
@@ -141,12 +141,22 @@ if (!isset($_GET['index']) || $_GET['index'] < -1) {
   <? } else { ?>
     <body>
       <script> document.title = "WATCH LATER ERROR | OpusVid"; </script>
-      <?php //include '../../page-templates/header.php'; ?>
+      <?php include '../../page-templates/header.php'; ?>
       <div class="playerWrap">
         <div class="errorMessage">
-          <h3>Sorry, this video page faild to load. Please try again or contact our support team at support@opusvid.com and we'll be happy to help you!</h3>
+          <h3>Sorry, it seems that your watch list hasn't been setup yet. Please try again or contact our support team at support@opusvid.com and we'll be happy to help you! Or you can manually create one by clicking the below button!</h3>
         </div>
+        <?php if (isset($_SESSION['uID'])) {?>
+          <form class="follow collection" method="post" action="../../../database/db_new_watch_list.php">
+            <button type="submit" name="new">Setup Watch Later List</button>
+          </form>
+        <?php } else { ?>
+          <form class="follow collection">
+            <button type="submit" name="new">NEED TO BE LOGGED IN!</button>
+          </form>
+        <?php }?>
         <h3><a href="home" class="button">Go Back Home</a></h3>
       </div>
-      <?php include '../../page-templates/footer.php';
-  } //End of else
+    </body>
+    </html>
+  <?php } //End of else

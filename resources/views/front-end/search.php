@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
             <?php if($queryResult > 0){
               foreach ($players as $player) { ?>
               <article id="<?php echo $player['id']; ?>">
-                <a href="player.php?id=<?php echo $player['id']; ?>" class="noLink">
+                <a href="player?id=<?php echo $player['id']; ?>" class="noLink">
                   <img src="<?php echo $player['thumbnail_path']; ?>" class="thumbnailHome" alt="Thumbnail <?php echo $player['id']; ?>">
                 </a>
                   <h3><?php echo $player['video_title']; ?></h3>

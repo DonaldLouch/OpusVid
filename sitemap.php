@@ -33,8 +33,8 @@ include 'resources/page-templates/head.php'; ?>
             <li><a href="dashboard/settingsA" class="button"><strong>*(2)*</strong> Edit Account</a></li>
             <li><a href="dashboard/manage_collections" class="button"><strong>*(2)*</strong> Manage Opus Collections</a></li>
             <li><a href="dashboard/new_collection" class="button"><strong>*(2)*</strong> New Opus Collections</a></li>
-            <li><a href="admin/feedback_results" class="button"><strong>*NEW (4)*</strong> Feedback Results</a></li>
-            <li><a href="dashboard/watch" class="button"><strong>*NEW (4)*</strong> Watch Later</a></li>
+            <li><a href="admin/feedback_results" class="button"><strong>*(4)*</strong> Feedback Results</a></li>
+            <li><a href="dashboard/watch" class="button"><strong>*(4)*</strong> Watch Later</a></li>
           </ul>
 
           <h4>Front-End</h4>
@@ -46,10 +46,10 @@ include 'resources/page-templates/head.php'; ?>
             <li><a href="categories" class="button"><strong>*(2)*</strong> Categories</a></li>
             <li><a href="category" class="button"><strong>*(2)*</strong> Category Page</a></li>
             <li><a href="category?type=Animation" class="button"><strong>*(2)*</strong> Example: Category Page</a></li>
-            <li><a href="collection?id=5bcbd78f96898" class="button"><strong>*NEW (3)*</strong> Example: View Opus Collections</a></li>
-            <li><a href="issues" class="button"><strong>*NEW (4)*</strong> Known Issues</a></li>
-            <li><a href="feedback" class="button"><strong>*NEW (4)*</strong> Feedback</a></li>
-            <li><a href="beta_tasks" class="button"><strong>*NEW (4)*</strong> Beta Tasks <strong>BC</strong></a></li>
+            <li><a href="collection?id=5bcbd78f96898" class="button"><strong>*(3)*</strong> Example: View Opus Collections</a></li>
+            <li><a href="issues" class="button"><strong>*(4)*</strong> Known Issues</a></li>
+            <li><a href="feedback" class="button"><strong>*(4)*</strong> Feedback</a></li>
+            <li><a href="beta_tasks" class="button"><strong>*(4)*</strong> Beta Tasks</a></li>
           </ul>
 
       </section>
