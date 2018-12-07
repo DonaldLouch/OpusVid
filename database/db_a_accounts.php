@@ -5,18 +5,19 @@
 
   The file is to show administrators a list of all the users on OpusVid in which they can then view/edit/delete a user! With the addition of adding new users!
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
-    #pagination_init: Initate the pagination
+    #pagination_init: Initiate the pagination
     #pagination_control: Controls the control of the pagination
+    #db_templates/foreach_profile: Loops the Foreach loop
 
   File used in:
     #admin/accounts
 */
 
-require 'db_connect.php';
+require 'db_connect.php'; // Gets database connection
 
-//Find out how many items are in the videos table
+//Find out how many items are in the user table
 $countSQL = "SELECT COUNT(id) FROM users";
 $query = mysqli_query($mySQL, $countSQL);
 $row = mysqli_fetch_row($query);
@@ -25,17 +26,12 @@ $rows = $row[0];
 //Number of items to display per page
 $per_page = 10;
 
-include '../../page-templates/pagination_init.php';
+include '../../page-templates/pagination_init.php'; // Initiates pagination
 
 $searchUserSQL = "SELECT * FROM users ORDER BY id DESC $limit";
-$resultUser = mysqli_query($mySQL, $searchUserSQL);
-$queryResultUser = mysqli_num_rows($resultUser);
+$resultUser = mysqli_query($mySQL, $searchUserSQL); // The function that gets the database: connects then stores
+$queryResultUser = mysqli_num_rows($resultUser); // Get's the number of users in the table
 
-include '../../page-templates/pagination_control.php';
+include '../../page-templates/pagination_control.php'; // Creates the pagination and the controls
 
-$profiles = array();
-if (mysqli_num_rows($resultUser) > 0) {
-  while ($profile = mysqli_fetch_assoc($resultUser)) {
-    $profiles[] = $profile;
-  }
-}
+include 'db_templates/foreach_profile.php'; // Prepares the Foreach Loop

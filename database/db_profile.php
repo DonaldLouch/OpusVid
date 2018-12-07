@@ -5,7 +5,7 @@
 
   The file is to display a users profile
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
 
   File used in:

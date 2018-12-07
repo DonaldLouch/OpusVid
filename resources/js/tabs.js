@@ -1,18 +1,18 @@
 /*
 =====================================================================
-	YPP Debacle | tabs.js
-	v. 2.0 | April 10th, 2018
+	OpusVid | tabs.js
+	v. 1.0 | April 10th, 2018
 =====================================================================
 */
 
 var tabsFunction = document.getElementById("tabs");
 
 ;( function( window ) {
-	
+
 	'use strict';
 
 	function extend( a, b ) {
-		for( var key in b ) { 
+		for( var key in b ) {
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
 			}
@@ -72,6 +72,6 @@ var tabsFunction = document.getElementById("tabs");
 
 /*
 =====================================================================
-	@ 2013 - 2018 Donald Louch Producrions
+	@ 2018 OpusVid
 =====================================================================
 */

@@ -9,10 +9,11 @@
     #../login
 */
 
-if (isset($_POST['submit'])) {
-  session_start();
-  session_unset();
-  session_destroy();
-  header('Location: ../login?logged=success');
+if (isset($_POST['submit'])) { //When logout form is submitted #LoggedOut
+  session_start(); //If user session not already started; start the user session
+  session_unset(); //Unlinks user session
+  session_destroy(); //Ends user session: Logs out user
+
+  header('Location: ../login?logged=success'); //Redirect to login page: Account Logged Success Message
   exit();
-}
+} //End: LoggedOut

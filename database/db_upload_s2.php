@@ -5,7 +5,7 @@
 
   This is step two of two for uploading videos! This is where you finish your video upload!
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
     #db_templates/uploadFields: Get's the file information from the upload forms
 

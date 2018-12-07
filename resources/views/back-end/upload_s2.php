@@ -169,7 +169,7 @@
                 </div>
 
                 <label for="privacy"><span class="required">*</span>Privacy of Video</label>
-                  <select name="privacy" id="privacy" required>
+                  <select name="privacy" id="privacy">
                     <option value="public" selected>Public</option>
                     <option value="unlisted">Unlisted</option>
                     <option value="private">Private</option>

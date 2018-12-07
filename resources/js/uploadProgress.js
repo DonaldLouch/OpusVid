@@ -1,3 +1,10 @@
+/*
+=====================================================================
+	OpusVid | uploadProgress.js
+	v. 1.0 | October 10th, 2018
+=====================================================================
+*/
+
 function _(el){
 	return document.getElementById(el);
 }
@@ -18,7 +25,6 @@ function uploadFile(){
 }
 
 function progressHandler(event){
-	// _("loaded_n_total").innerHTML = "Uploaded "+event.loaded+" bytes of "+event.total;
 	var percent = (event.loaded / event.total) * 100;
 	_("progressBar").value = Math.round(percent);
 	_("status").innerHTML = Math.round(percent)+"% uploaded... please wait";
@@ -36,3 +42,9 @@ function errorHandler(event){
 function abortHandler(event){
 	_("status").innerHTML = "Upload Aborted";
 }
+
+/*
+=====================================================================
+	@ 2018 OpusVid
+=====================================================================
+*/

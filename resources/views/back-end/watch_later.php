@@ -78,6 +78,8 @@
 
       <button class="submitButton" type="submit" name="submit">Update Watch List</button>
     </form>
-  </div>
+  </section>
+</section>
+</div>
   <script src="../../resources/js/accordion.js"></script>
   <?php include '../../page-templates/footer.php'; ?>

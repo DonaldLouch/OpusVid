@@ -5,7 +5,7 @@
 
   The file is used to delete videos upon clicking the delete button.
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
     #emails/email_deleted_video: Sends email to admin when video is deleted
 
@@ -14,17 +14,19 @@
     #admin/videos
 */
 
-if (isset($_POST['submit'])) {
-  require 'db_connect.php';
-  $id = $_POST['videoIDDel'];
+if (isset($_POST['submit'])) { //Action once form is submitted #FormSubmitted
+  require 'db_connect.php'; // Gets database connection
 
-  require 'emails/email_deleted_video.php';
+  $id = $_POST['videoIDDel']; // Get's the video ID of the deleted video
+
+  require 'emails/email_deleted_video.php'; // Sends email to admin@opusvid.com to alert a video was deleted
 
   $delSQL = "DELETE FROM videos WHERE id = '$id';";
-  $results = mysqli_query($mySQL, $delSQL);
+  $results = mysqli_query($mySQL, $delSQL); // Deletes video
 
-  header("Location: ../dashboard/manage?delete=success");
+  header("Location: ../dashboard/manage?delete=success"); //* Once the video is deleted the user will be redirected to the manager page: Success Message!
   echo $message;
-} else {
-  header("Location: ../dashboard/manage?delete=failed");
-}
+} // End: FormSubmitted
+else { //Failed to delete or form not submitted #Failed
+  header("Location: ../dashboard/manage?delete=failed"); // If failed the video is deleted the user will be redirected to the manager page: Error Message
+} //End: Failed

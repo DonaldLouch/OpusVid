@@ -5,9 +5,9 @@
 
   This file is used to to get all the videos on OpusVid and allow users to see the information from them.
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
-    #pagination_init: Initate the pagination
+    #pagination_init: Initiate the pagination
     #pagination_control: Controls the control of the pagination
 
   File used in:
@@ -51,6 +51,7 @@ $videoResults = mysqli_query($mySQL, $videoSQL);
 
 include '../../page-templates/pagination_control.php';
 
+//Loops all video information
 $videos = array();
 if (mysqli_num_rows($videoResults) > 0) {
   while ($video = mysqli_fetch_assoc($videoResults)) {

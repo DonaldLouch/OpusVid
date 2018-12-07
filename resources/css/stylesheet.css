@@ -1073,7 +1073,8 @@ ol#betaJourny {
 }
 
 #dashNav a,
-#dashNav button {
+#dashNav button,
+.dashNav a {
   display: block;
   margin: 1em 0;
   padding: 1em;
@@ -1082,6 +1083,10 @@ ol#betaJourny {
   background-color: #302E91;
   color: #fff;
   font-size: 0.9vw;
+}
+
+.dashNav a {
+  color: #fff !important;
 }
 
 #dashNav button {
@@ -1102,7 +1107,8 @@ ol#betaJourny {
 
 #dashNav a:hover,
 #dashNav button:hover,
-.dashActive {
+.dashActive,
+.dashNav a:hove {
   background-color: #E57373;
   box-shadow: none !important;
 }
@@ -1351,7 +1357,7 @@ article,
   text-align: left;
 }
 
-form#watchLaterAdd {
+form.watchLaterAdd {
   display: inline;
 }
 
@@ -1945,11 +1951,13 @@ footer a:hover {
   .dashWrapper {
     grid-template-columns: 100%;
   }
-  nav#dashNav {
+  nav#dashNav,
+  nav.dashNav {
     grid-row: 2;
   }
   #dashNav a,
-  #dashNav button {
+  #dashNav button,
+  .dashNav a {
     font-size: 1em;
   }
   #dashContent {
@@ -2088,7 +2096,8 @@ footer a:hover {
     width: 15%;
   }
   #dashNav a,
-  #dashNav button {
+  #dashNav button,
+  .dashNav a {
     font-size: 1em;
   }
   .wrapper.CAT {

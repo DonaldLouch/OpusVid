@@ -5,7 +5,7 @@
 
   The file is to get the information for the selected video.
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
 
   File used in:
@@ -37,4 +37,4 @@ require 'db_connect.php';
 
 
   $following = $user['opus_creator'];
-  include 'db_templates/follow.php';
+  include 'db_templates/follow.php'; //Follow function by username

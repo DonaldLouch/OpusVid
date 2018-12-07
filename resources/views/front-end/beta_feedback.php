@@ -32,7 +32,7 @@ include '../../page-templates/head.php';?>
           <label for="issueRun">Did You Run Into Any Issues?</label>
         </div>
 
-        <label for="betaJourny">Did You Complete a Beta Task or Tasks?</label>
+        <label>Did You Complete a Beta Task or Tasks?</label>
           <ol id="betaJourny">
             <li>
               <input type="radio" name="betaJourny" id="yes" value="yes">

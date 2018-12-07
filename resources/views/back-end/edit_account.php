@@ -12,8 +12,8 @@ if (isset ($_SESSION['uID'])) {
   if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) { ?>
         <?php include '../../page-templates/head_l2.php'; ?>
-        <script> document.title = "Edit <?php echo $_SESSION['uName']; ?> | OpusVid"; </script>
         <body>
+        <script> document.title = "Edit <?php echo $_SESSION['uName']; ?> | OpusVid"; </script>
           <?php
             include '../../page-templates/header_l2.php';
             include '../../page-templates/dash_nav_l2.php';

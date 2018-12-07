@@ -185,6 +185,7 @@ include '../../page-templates/head.php';
 
                 <label for="country"><span class="required">*</span>Country</label>
                   <select name="country" id="country" required>
+                    <option value="">Chose</option>
                     <option value="Canada">Canada</option>
                     <option value="United States of America">United States of America</option>
                     <option value="United Kingdom">United Kingdom</option>
@@ -445,7 +446,7 @@ include '../../page-templates/head.php';
               </form>
 
             </section> <!-- #signupTab -->
-          </div><!-- .tabContent --->
+          </div><!-- .tabContent -->
 
         <script src="resources/js/tabs.js"></script>
     		<script>

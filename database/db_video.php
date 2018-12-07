@@ -5,12 +5,13 @@
 
   The file is to get the videos that are in a collection and disply the information of the videos
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
     #db_templates/foreach_video: Loops the Foreach loop
 
   File used in:
-    #?
+    #dashboard/manage
+    #dashboard/new_collection
 */
 require 'db_connect.php';
 

@@ -82,7 +82,7 @@
             <a href="https://github.com/OpusVid/OpusVid/issues/1" class="button">Issue Post: GitHub</a>
           </div>
         </section> <!-- #signupTab -->
-      </div><!-- .tabContent --->
+      </div><!-- .tabContent -->
 
     <script src="resources/js/tabs.js"></script>
     <script>

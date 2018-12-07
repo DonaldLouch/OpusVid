@@ -2,14 +2,12 @@
 /* db_vid_feed.php | Version 1.0
   By: OpusVid
   User Level Required: 0+
-
-  NOTE: File to be renamed? db_vid_feed.php
-
+  
   The file is to get all public videos and display their information
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
-    #pagination_init: Initate the pagination
+    #pagination_init: Initiate the pagination
     #pagination_control: Controls the control of the pagination
     #db_templates/foreach_player.php: Adds the information for a "foreach" loop
 

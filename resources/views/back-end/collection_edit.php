@@ -25,17 +25,13 @@ if ($_SESSION['uName']) {?>
         </div>
 
         <div class="field">
-          <textarea name="sDescription" id="sDescription" placeholder="Short Description" maxlength="250" required>
-            <?php echo $collection['short_description']; ?>
-          </textarea>
+          <textarea name="sDescription" id="sDescription" placeholder="Short Description" maxlength="250" required><?php echo $collection['short_description']; ?></textarea>
           <label for="sDescription">Short Description: Max 250 Characters</label>
         </div>
 
         <div class="field">
-          <textarea name="description" placeholder="Description" id="descriptionVid" rows="40" required>
-            <?php echo $collection['description']; ?>
-          </textarea>
-          <label for="description">Description</label>
+          <textarea name="description" placeholder="Description" id="descriptionVid" rows="40" required><?php echo $collection['description']; ?></textarea>
+          <label for="descriptionVid">Description</label>
         </div>
 
         <label for="category">Category</label>
@@ -95,7 +91,11 @@ if ($_SESSION['uName']) {?>
         </select>
 
       <button class="submitButton" type="submit" name="submit">Update "<?php echo $collection['collection_title']; ?>" Collection</button>
-
-<?php }
+    </form>
+</section>
+</section>
+</section>
+</div>
+<?php  include '../../page-templates/footer.php'; }
     }
   }

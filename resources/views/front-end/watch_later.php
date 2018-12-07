@@ -50,7 +50,7 @@ if (!isset($_GET['index']) || $_GET['index'] < -1) {
               ?>
               <article id="<?php echo $collectionVid['id']; ?>">
                 <a href="watch_later?index=<?php echo $id; ?>" class="noLink">
-                  <img src="<?php echo $collectionVid['thumbnail_path']; ?>" id="moviesposter" class="thumbnailHome" alt="Thumbnail <?php echo $collectionVid['id']; ?>">
+                  <img src="<?php echo $collectionVid['thumbnail_path']; ?>" class="thumbnailHome" alt="Thumbnail <?php echo $collectionVid['id']; ?>">
                   <h3><?php echo $collectionVid['video_title']; ?></h3>
                   <h5>By: <?php echo $collectionVid['opus_creator']; ?> <span>on <?php echo date('D M j, Y' , $collectionVid['uploaded_on']); ?> </span></h5>
                 </a>

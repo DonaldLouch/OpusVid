@@ -1,6 +1,6 @@
 /*
 =====================================================================
-	Opus Vid | video.js
+	Opus Vid | collection.js
 		v. 1.0 | October 3rd, 2018
 =====================================================================
 */
@@ -214,32 +214,14 @@ video.addEventListener("ended", next);// Once the video has ended the "next" fun
 					wrapVideo.className = "outer-container collection";
 					//wrapPlayer.className = "vidPlayer";
 				}
-		/*
-					if(video.requestFullScreen){
-						video.requestFullScreen(); // Enables fullscreen
-						console.log("You played the video in fullscreen");
-					} else if(video.webkitRequestFullScreen){
-						video.webkitRequestFullScreen(); // Enables fullscreen on Safari, IE, Chrome and other webkit browsers
-						console.log("You played the video in fullscreen");
-					} else if(video.mozRequestFullScreen){
-						video.mozRequestFullScreen(); // Enables fullscreen on Firefox and other moz browsers
-						console.log("You played the video in fullscreen");
-					}
-				}*/
 
 			fullBTNLink.appendChild(fullBTNImage); //Adds the image to the anchor tag
 			document.getElementById("vidCon").appendChild(fullBTNLink); //Adds the DOM content to HTML
-
-			//fullNavBar = document.getElementById("vidCon");
-			//video.addEventListener("mouseover", toggleControls)
-			//document.getElementById("player").addEventListener("mouseover", toggleControls);
-			//document.getElementById("player").addEventListener("mouseout", toggleControlsOff);
 
 			video.addEventListener("mouseover", toggleControls);
 			video.addEventListener("mouseout", toggleControlsOff);
 			fullNavBar.addEventListener("mouseover", toggleControls);
 			fullNavBar.addEventListener("mouseout", toggleControlsOff);
-
 
 			function toggleControls() {
 				fullNavBar.className = "collection vidConON";

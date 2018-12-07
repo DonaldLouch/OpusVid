@@ -74,7 +74,9 @@ if ($_SESSION['uID'] && $_SESSION['uLevel'] == 'admin') {?>
   				<?php echo $paginationControls; ?>
   			</div> <!-- pagination_controls -->
       </div>
+    </section>
     </div>
+
     <?php include '../../page-templates/footer.php'; ?>
 
   <!-- IF logged out -->

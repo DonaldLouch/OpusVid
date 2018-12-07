@@ -36,11 +36,10 @@ RewriteRule ^dashboard/new_collection$ resources/views/back-end/collection_new.p
 RewriteRule ^dashboard/edit_collection$ resources/views/back-end/collection_edit.php [NC]
 RewriteRule ^dashboard/add_collection$ resources/views/back-end/collection_add.php [NC]
 RewriteRule ^dashboard/watch$ resources/views/back-end/watch_later.php [NC]
-RewriteRule ^dashboard/test$ resources/views/back-end/test.php [NC]
 RewriteRule ^dashboard/UserSession$ resources/views/back-end/UserSession.php [NC]
 
 #Front-end redirects
-RewriteRule ^home$ resources/views/front-end/index.php [NC]
+RewriteRule ^$ resources/views/front-end/index.php [NC]
 RewriteRule ^player$ resources/views/front-end/player.php [NC]
 RewriteRule ^profile$ resources/views/front-end/profile.php [NC]
 RewriteRule ^search$ resources/views/front-end/search.php [NC]
@@ -54,4 +53,3 @@ RewriteRule ^watch_later$ resources/views/front-end/watch_later.php [NC]
 
 
 RewriteRule ^sitemap$ sitemap.php [NC]
-RewriteRule ^beta$ beta.php [NC]

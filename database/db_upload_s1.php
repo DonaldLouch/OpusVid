@@ -5,7 +5,7 @@
 
   This is step one of two for uploading videos! You upload the video and thumbnail while adding the new entry to the database!
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
     #db_templates/videoUpload: Get's the file information for video
     #db_templates/thumbnailUpload: Get's the file information for thumbnail

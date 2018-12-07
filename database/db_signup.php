@@ -5,7 +5,7 @@
 
   The file allows users to signup
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
     #db_templates/avatarUpload: Get's the file information for avatar
     #../do_spaces/spaces_config: Connects to DigitalOcean for upload prep
@@ -15,12 +15,12 @@
     #login
 */
 
-  if (isset($_POST['submit'])) {
+  if (isset($_POST['submit'])) { //If form is submitted #FormSubmitted
     require 'db_connect.php';
 
-    $errors = 0;
+    $errors = 0; //Sets initial error number to 0 meaning no errors
 
-    require '../do_spaces/spaces_config.php'; //DO Spaces Configutation
+    require '../do_spaces/spaces_config.php'; //DO Spaces Configuration
 
 
     $firstname = mysqli_real_escape_string($mySQL, $_POST['signupFirstName']);
@@ -44,7 +44,7 @@
       $error = 1;
       header("Location: ../login?signup=empty&error=1&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
       exit();
-    } //empty files
+    } //End: Empty Files
 
     #Check: Characters Check
     elseif (!preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z_\-]*$/", $lastname)) {
@@ -58,7 +58,7 @@
       exit();
     } //username characters check
 
-    #Check: Vaild Email
+    #Check: Valid Email
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $error = 4;
       header("Location: ../login?signup=email&error=4&name-first=".$firstname."&name-last=".$lastname."&username=".$username."");
@@ -107,10 +107,10 @@
 
       $sqlInsert = "INSERT INTO users (first_name, last_name, username, email, user_password, country, avatar, userlevel, views) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
       $insertStmt = mysqli_stmt_init($mySQL);
-      if (!mysqli_stmt_prepare($insertStmt, $sqlInsert)){
+      if (!mysqli_stmt_prepare($insertStmt, $sqlInsert)){ //Database connection
         header("Location: ../login?signup=sql&name-first=".$firstname."&name-last=".$lastname."&username=".$username."&email=".$email."");
         exit();
-      } else {
+      } else { //Hashpassword then sign user up
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         mysqli_stmt_bind_param($insertStmt, "sssssssss", $firstname, $lastname, $username, $email, $hashedPassword, $country, $avatarPath, $userlevel, $view);
         mysqli_stmt_execute($insertStmt);
@@ -127,7 +127,8 @@
       mysqli_stmt_close($insertStmt);
       mysqli_close($mySQL);
     }
-} else {
+} //End: FormSubmitted
+else {
   header("Location: ../login?signup=failed");
   exit();
 }

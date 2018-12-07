@@ -31,7 +31,7 @@ if (!isset($_SESSION['uID']) || isset($_POST['allVid']) || isset($_GET['no_follo
             <p><?php echo $player['short_description']; ?></p>
 						<p><em><?php echo $player['views']; ?> Views</em></p>
             <a href="player?id=<?php echo $player['id']; ?>" class="button">Watch Video!</a> <?php if(isset($_SESSION['uName'])) { ?> |
-						<form id="watchLaterAdd" method="post" action="../../../database/db_watch_later_update.php">
+						<form class="watchLaterAdd" method="post" action="../../../database/db_watch_later_update.php">
 				      <input type="text" name="username" value="<?php echo $profileID; ?>" placeholder="Username" hidden>
 				      <input name="currentSelect" value="<?php echo $selectRow['videos']; ?>" hidden>
 							<input type="checkbox" checked name ="videoSelect[]" id ="videoSelect" value="<?php echo $player['id'];?>" hidden>
@@ -97,9 +97,9 @@ if (!isset($_SESSION['uID']) || isset($_POST['allVid']) || isset($_GET['no_follo
 		            <p><?php echo $player['short_description']; ?></p>
 								<p><em><?php echo $player['views']; ?> Views</em></p>
 		            <a href="player?id=<?php echo $player['id']; ?>" class="button">Watch Video!</a> <?php if(isset($_SESSION['uName'])) { ?> |
-								<form id="watchLaterAdd" method="post" action="../../../database/db_watch_later_update.php">
+								<form class="watchLaterAdd" method="post" action="../../../database/db_watch_later_update.php">
 						      <input type="text" name="username" value="<?php echo $_SESSION['uName']; ?>" placeholder="Username" hidden>
-						      <input name="currentSelect" value="<?php echo $selectRow['videos']; ?>"hidden>
+						      <input name="currentSelect" value="<?php echo $selectRow['videos']; ?>" hidden>
 									<input type="checkbox" checked name ="videoSelect[]" id ="videoSelect" value="<?php echo $player['id'];?>" hidden>
 									<button type="submit" name="add" class="buttonStyle">Watch Later</button>
 								</form> <?php } ?>

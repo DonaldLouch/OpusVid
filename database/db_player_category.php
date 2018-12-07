@@ -5,9 +5,9 @@
 
   This file is used to display all the videos that are in a category.
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
-    #pagination_init: Initate the pagination
+    #pagination_init: Initiate the pagination
     #pagination_control: Controls the control of the pagination
     #db_templates/foreach_player.php: Adds the information for a "foreach" loop
 

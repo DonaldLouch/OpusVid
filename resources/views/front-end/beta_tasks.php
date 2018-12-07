@@ -72,7 +72,7 @@
             <h5>All Pages | Sitemap</h5>
             <p>For this task if you could just simply click on buttons and links. Do you think they're appropriately titled? Do they link where they should? Are these buttons and links placed in logical places?</p>
           </section> <!-- #tk8 -->
-        </div><!-- .tabContent --->
+        </div><!-- .tabContent -->
 
         <script src="resources/js/tabs.js"></script>
         <script> new tabsFunction(document.getElementById("tabs")); </script>

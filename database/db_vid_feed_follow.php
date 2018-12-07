@@ -5,9 +5,9 @@
 
   The file is to get all public videos from the Opus Creators in which you follow; and display their information
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
-    #pagination_init: Initate the pagination
+    #pagination_init: Initiate the pagination
     #pagination_control: Controls the control of the pagination
     #db_templates/foreach_player.php: Adds the information for a "foreach" loop
 
@@ -15,7 +15,7 @@
     #home -> index
 */
 
-if (isset($_SESSION['uID'])) {
+if (isset($_SESSION['uID'])) { //If form is submitted #FormSubmitted
   include 'db_connect.php';
 
   //Find out how many items are in the videos table
@@ -34,9 +34,9 @@ if (isset($_SESSION['uID'])) {
   $searchResult = mysqli_query($mySQL, $searchSQL);
   $searchRow = mysqli_fetch_assoc($searchResult);
 
-  $explode = explode(" / ", $searchRow['following_id']);
+  $explode = explode(" / ", $searchRow['following_id']); //Separates each followed ID in the array into their own array
 
-  $usersIDFollowing = implode(" OR id =",$explode);
+  $usersIDFollowing = implode(" OR id =",$explode); //Takes all the followed IDs and adds "OR id =" to it for getting information from the database
 
   $followSQL = "SELECT * FROM users WHERE id=$usersIDFollowing";
   $followResults = mysqli_query($mySQL, $followSQL);
@@ -49,7 +49,7 @@ if (isset($_SESSION['uID'])) {
   $followResults1 = mysqli_query($mySQL, $followSQL1);
   $users = mysqli_fetch_all($followResults1);
 
-  $usernameImplose = implode("' OR opus_creator = '", array_column($users, 0));
+  $usernameImplose = implode("' OR opus_creator = '", array_column($users, 0)); //Takes all the followed IDs and adds "OR id =" to it for getting information from the database
 
   $videoSelect = "SELECT * FROM videos WHERE opus_creator = '$usernameImplose' AND privacy='public' ORDER BY order_number DESC $limit";
   $resultPlayer = mysqli_query($mySQL, $videoSelect);
@@ -57,6 +57,7 @@ if (isset($_SESSION['uID'])) {
   include '../../page-templates/pagination_control.php';
   include 'db_templates/foreach_player.php';
 
-} else {
+} //End: FormSubmitted
+else { //If form has not been submitted redirect to the home page #Error
   header("Location: home");
-}
+} //End: Error

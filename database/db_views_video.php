@@ -5,7 +5,7 @@
 
   The file updates the view count on a video.
 
-  Blades Inlcluded:
+  Blades Included:
     #db_connect: To connect to Database
 
   File used in:
@@ -17,4 +17,4 @@ require 'db_connect.php';
 $playerID = $_GET['id'];
 
 $newView = "UPDATE videos SET views = views + 1 WHERE id = '" . mysqli_escape_string($mySQL,$playerID) . "'";
-$addView = mysqli_query($mySQL, $newView);
+$addView = mysqli_query($mySQL, $newView); //Adds 1 new view count to videos

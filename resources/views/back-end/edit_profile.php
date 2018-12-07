@@ -70,7 +70,7 @@ if (isset ($_SESSION['uID'])) {
                 </div>
 
                 <label for="country"><span class="required">*</span>Country</label>
-                  <select name="country" id="country" required>
+                  <select name="country" id="country">
                     <option value="<?php echo $row['country']; ?>"><?php echo $row['country']; ?></option>
                     <option>---</option>
                     <option value="Canada">Canada</option>
@@ -327,10 +327,8 @@ if (isset ($_SESSION['uID'])) {
                   </select>
 
                 <div class="field">
-                  <textarea name="description" rows="20" placeholder="Description" required>
-                    <?php echo $row['description']; ?>
-                  </textarea>
-                  <label for="description"><span class="required">*</span>Description</label>
+                  <textarea name="description" id="descriptionPro" rows="20" placeholder="Description" required><?php echo $row['description']; ?></textarea>
+                  <label for="descriptionPro"><span class="required">*</span>Description</label>
                 </div>
 
                 <div class="field">

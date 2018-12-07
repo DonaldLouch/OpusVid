@@ -29,23 +29,19 @@ if (isset ($_SESSION['uID'])) {
                 </div>
 
                 <div class="field">
-                  <textarea name="sDescription" id="sDescription" maxlength="250" placeholder="Short Description" required>
-                    <?php echo $row['short_description']; ?>
-                  </textarea>
+                  <textarea name="sDescription" id="sDescription" maxlength="250" placeholder="Short Description" required><?php echo $row['short_description']; ?></textarea>
                   <label for="sDescription"><span class="required">*</span>Short Description: Max 250 Characters</label>
                 </div>
 
                 <div class="field">
-                  <textarea name="description" id="sDescription" rows="20" placeholder="Description" required>
-                    <?php echo $row['description']; ?>
-                  </textarea>
-                  <label for="description"><span class="required">*</span>Description</label>
+                  <textarea name="description" id="descriptionVid" rows="20" placeholder="Description" required><?php echo $row['description']; ?></textarea>
+                  <label for="descriptionVid"><span class="required">*</span>Description</label>
                 </div>
 
                 <div class="columns 2">
                   <div class="nm column">
                     <label for="category"><span class="required">*</span>Category</label>
-                      <select name="category" id="category" required>
+                      <select name="category" id="category">
                         <option value="<?php echo $row['category']; ?>"><?php echo $row['category']; ?></option>
                         <option>---</option>
                         <option value="Vlog">Vlog</option>
@@ -100,7 +96,7 @@ if (isset ($_SESSION['uID'])) {
                   </div>
                   <div class="nm column">
                     <label for="filmedOn">Filmed On</label>
-                      <input type="date" name="filmedOn" id="filmedOn" value="<?php echo $row['filmed_date']; ?>" placeholder="Filmed Date">
+                      <input type="date" name="filmedOn" id="filmedOn" value="<?php echo $row['filmed_date']; ?>">
                   </div>
                 </div>
 
