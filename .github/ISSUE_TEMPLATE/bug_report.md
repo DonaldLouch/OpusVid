@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
+title: "[BUG] TITLE"
 labels: bug
 assignees: DevLexicon
 
@@ -11,6 +11,9 @@ assignees: DevLexicon
 A clear and concise description of what the bug is.
 
 ### Where is the bug seen
+On what page(s) or area of the project do you see this bug? Please use the following format for page(s).
+- [ ] PAGE
+- [ ] PAGE
 
 ### To Reproduce
 Steps to reproduce the behavior:

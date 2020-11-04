@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
+title: "[SUGGESTION] TITLE"
 labels: feature request
 assignees: DevLexicon
 
@@ -14,4 +14,7 @@ Please describe the feature request.
 Please describe what you see this function doing. 
 
 ### Where Will This Be Seen On?
-Where would this feature be seen?
+Where would this feature be seen? Please use the following format for page(s).
+
+- [ ] PAGE
+- [ ] PAGE
