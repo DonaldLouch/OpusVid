@@ -1,1 +1,0 @@
-[07-Dec-2018 12:37:30 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/opusvid/public_html/opusvid.com/database/db_connect.php on line 17
