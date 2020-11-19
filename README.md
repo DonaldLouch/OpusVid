@@ -1,4 +1,4 @@
-# OpusVid (PREPARATION Community Version 1.0 Beta 1)
+# OpusVid (Community Version 1.0 Beta 1): December 3rd, 2020 at 10am(PST)
 Opus Vid is a portal for all your pieces of videography(Vid) work(Opus).
 
 ## What is OpusVid?
@@ -12,7 +12,7 @@ OpusVid will have multiple streams of licenses and Beta's.
 
 There will be a FREE open source Community Version (CV) then there will be two different licenses versions which will be a paid version. There will be differences between all and will be explained in the following sections.
 
-**At this point there is only the CV in the form of a very early public beta also known as, CV 1.0 Beta 1.  This beta will be available to download {DATE AND TIME}.**
+**At this point there is only the CV in the form of a very early public beta also known as, CV 1.0 Beta 1.  This beta will be available to download December 3rd, 2020 at 10am (PST).**
 
 ### Community Version (CV)
 The "**Community Version (CV)**" will be a **FREE** version of OpusVid in which is open sourced. This version will be available here on [GitHub](https://github.com/DevLexicon/OpusVid/).
