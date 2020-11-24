@@ -1,5 +1,5 @@
 # OpusVid 
-## (Community Version 1.0 Beta 1): December 3rd, 2020 at 10am(PST)
+### (Community Version 1.0 Beta 1): December 3rd, 2020 at 10am(PST)
 Opus Vid is a portal for all your pieces of videography(Vid) work(Opus).
 
 ## What is OpusVid?
