@@ -2,7 +2,7 @@
 ### (Community Version 1.0 Beta 1): December 3rd, 2020 at 10am(PST)
 Opus Vid is a portal for all your pieces of videography(Vid) work(Opus).
 
-[![Generic badge](https://img.shields.io/badge/CV-X-E57373.svg?style=for-the-badge)](#community-version-cv) [![Generic badge](https://img.shields.io/badge/RL-X-E57373.svg?style=for-the-badge)](#regular-license-rl) [![Generic badge](https://img.shields.io/badge/EL-X-E57373.svg?style=for-the-badge)](#extended-license-el) [![Generic badge](https://img.shields.io/badge/Built_By-DevLexicon-4524E8.svg?style=for-the-badge)](https://devlexicon.ca) [![Generic badge](https://img.shields.io/badge/Twitter-DevLexicon-1DA1F2.svg?style=for-the-badge&logo=twitter)](https:/twitter.com/DevLexicon)
+[![Generic badge](https://img.shields.io/badge/CV-X-E57373.svg?style=for-the-badge)](#community-version-cv) [![Generic badge](https://img.shields.io/badge/RL-X-E57373.svg?style=for-the-badge)](#regular-license-rl) [![Generic badge](https://img.shields.io/badge/EL-X-E57373.svg?style=for-the-badge)](#extended-license-el) [![Generic badge](https://img.shields.io/badge/Built_By-DevLexicon-4524E8.svg?style=for-the-badge)](https://devlexicon.ca) [![Generic badge](https://img.shields.io/badge/Twitter-DevLexicon-1DA1F2.svg?style=for-the-badge&logo=twitter)](https:/twitter.com/devlexicon)
 
 ## What is OpusVid?
 OpusVid is a video content management system or CMS for short. With this video CMS user are able to create accounts, login to to a dashboard area, upload videos, manage their videos, create Opus Collections (playlists), manage their collections, watch other videos uploaded by other Opus Creators, follow other Opus Creators, add videos to a Watch Later List and more!
