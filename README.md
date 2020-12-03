@@ -23,7 +23,7 @@ OpusVid will have multiple streams of licenses and Beta's.
 
 There will be a FREE open source Community Version (CV) then there will be two different licenses versions which will be a paid version. There will be differences between all and will be explained in the following sections.
 
-**At this point there is only the CV in the form of a very early public beta also known as, CV 1.0 Beta 1.  This beta will be available to download December 3rd, 2020 at 10am (PST).**
+**At this point there is only the CV in the form of a very early public beta also known as, CV 1.0 Beta 1.**
 
 ### Community Version (CV)
 The **Community Version (CV)** will be a **FREE** version of OpusVid in which is open sourced. This version will be available here on [GitHub](https://github.com/DevLexicon/OpusVid/).
@@ -74,7 +74,7 @@ Pricing and arability will be announced soon along with the launch of the first 
 - [DigitalOcean Spaces](https://m.do.co/c/237705dc5b02) (copy the Key and Secret | Create a “root folder” for your OpusVid script)
 - [Google Captcha v3](https://developers.google.com/recaptcha) (copy the Site Key and Secret Key)
 - Setup server with domain and file structure; and MySQL
-- Download OpusVid Script (rather by downloading the “**[Release](https://github.com/DevLexicon/OpusVid/tree/release)** > **Code**” or [cv1.0b1](#))
+- Download OpusVid Script (rather by downloading the “**[Release](https://github.com/DevLexicon/OpusVid/tree/release)** > **Code**” or [cv1.0b1](https://github.com/DevLexicon/OpusVid/releases/tag/cv1.0b1))
 - Download **Additional Files** From [DevLexicon Files](https://files.devlexicon.ca/index.php/s/3ekcLLB6QHfNAyR)
 - Upload the “**OpusVid Script**” to your server
 - Upload all the **Additional Files** > “**FOR DOSPACES**” folders to your DigitalOcean Spaces root folder for your OpusVid script
