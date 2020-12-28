@@ -75,7 +75,7 @@ Pricing and arability will be announced soon along with the launch of the first 
 - [Google Captcha v3](https://developers.google.com/recaptcha) (copy the Site Key and Secret Key)
 - Setup server with domain and file structure; and MySQL
 - Download OpusVid Script (rather by downloading the “**[Release](https://github.com/DevLexicon/OpusVid/tree/release)** > **Code**” or [cv1.0b1](https://github.com/DevLexicon/OpusVid/releases/tag/cv1.0b1))
-- Download **Additional Files** From [DevLexicon Files](https://files.devlexicon.ca/index.php/s/3ekcLLB6QHfNAyR)
+- Download **Additional Files** From [DevLexicon Files NEW LINK COMING SOON!]()
 - Upload the “**OpusVid Script**” to your server
 - Upload all the **Additional Files** > “**FOR DOSPACES**” folders to your DigitalOcean Spaces root folder for your OpusVid script
 - Upload the **Additional Files** > **opus.sql** file to your **phpMyAdmin**
