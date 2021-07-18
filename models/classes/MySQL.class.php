@@ -8,9 +8,9 @@
 
         public function connect() {
             $this->serverName = "localhost"; //Usually "localhost"
-            $this->username = "DATABASE_USERNAME";
-            $this->password = "DATABASE_PASSWORD";
-            $this->dbName = "DATABASE_NAME";
+            $this->username = "devlexicon_opusvid";
+            $this->password = "3b65ms~Q";
+            $this->dbName = "devlexicon_opusvid";
             $this->charset = "utf8mb4"; //Usually "utf8mb4"
 
             try {
