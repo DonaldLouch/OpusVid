@@ -3,6 +3,8 @@
 # OpusVid
 [![Generic badge](https://img.shields.io/badge/CV-v1.0b1-302E91.svg?style=for-the-badge)](#community-version-cv) [![Generic badge](https://img.shields.io/badge/RL-X-E57373.svg?style=for-the-badge)](#regular-license-rl) [![Generic badge](https://img.shields.io/badge/EL-X-E57373.svg?style=for-the-badge)](#extended-license-el) [![Generic badge](https://img.shields.io/badge/Built_By-DevLexicon-4524E8.svg?style=for-the-badge)](https://devlexicon.ca) [![Generic badge](https://img.shields.io/badge/Twitter-DevLexicon-1DA1F2.svg?style=for-the-badge&logo=twitter)](https://twitter.com/devlexicon) [![Generic badge](https://img.shields.io/badge/Discord-pUAgE2qdqT-7289DA.svg?style=for-the-badge&logo=discord)](https://discord.gg/pUAgE2qdqT)
 
+NOTE: CV1.0B2 is under production review and should be released in the next few weeks 🎉
+
 ##
 [Demo](#demo) | [Versions](#streams) | [Requirements](#what-you-will-need) | [Installation](#installation) | [Changelog](https://github.com/DevLexicon/OpusVid/blob/master/CHANGELOG.md)
 ##
