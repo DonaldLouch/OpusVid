@@ -24,7 +24,6 @@
         
         include_once '../../models/classes/Video.class.php';
         $videoClass = new Video;
-        //randomError  successVidDeleted
 
         $player = $videoClass->playerPage($playerID);
 
@@ -49,23 +48,8 @@
         if ($error == 0) {
             $videoClass->deleteVideo($playerID);
 
-            $videoPathExplode = explode("/", $videoPath);
-            $thumbPathExplode = explode("/", $thumbnailPath);
-            
-            $videoPath = $videoPathExplode[3]."/".$videoPathExplode[4]."/".$videoPathExplode[5];
-            $thumbPath = $thumbPathExplode[3]."/".$thumbPathExplode[4]."/".$thumbPathExplode[5];
-            
-            include_once '../../do_spaces/spaces_config.php';
-	
-            $spaces->deleteObject([
-                'Bucket' => $spacesBucket,
-                'Key' => $videoPath
-            ]);
-            
-            $spaces->deleteObject([
-                'Bucket' => $spacesBucket,
-                'Key' => $thumbPath
-            ]);
+            unlink($videoPath);
+            unlink($thumbnailPath);
             
             header("Location: ../../../dashboard/manage?type=successVidDeleted");
     }

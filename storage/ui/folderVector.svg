@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 443 443" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <g transform="matrix(1,0,0,1,-2315,-2298)">
+        <g id="folderVector" transform="matrix(4.16667,0,0,4.16667,2328.14,2305.3)">
+            <rect x="0" y="0" width="100" height="100" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="0" y="0" width="100" height="100"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g id="folderVectori">
+                    <g transform="matrix(1,0,0,1,19.6182,20.4328)">
+                        <path d="M0,11.076L0,-0.499L13.041,-0.499L19.871,4.989L54.273,4.989L62.47,11.575" style="fill:none;fill-rule:nonzero;stroke:#ff9d2f;stroke-width:5px;"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,80.5679,83.3131)">
+                        <g>
+                            <path d="M0,-53.319L-59.289,-53.319C-64.188,-53.319 -68.161,-49.346 -68.161,-44.447L-68.161,-8.873C-68.161,-3.972 -64.188,0 -59.289,0L0,0C4.9,0 8.873,-3.972 8.873,-8.873L8.873,-44.447C8.873,-49.346 4.9,-53.319 0,-53.319M0,-48.319C2.135,-48.319 3.873,-46.582 3.873,-44.447L3.873,-8.873C3.873,-6.737 2.135,-5 0,-5L-59.289,-5C-61.424,-5 -63.161,-6.737 -63.161,-8.873L-63.161,-44.447C-63.161,-46.582 -61.424,-48.319 -59.289,-48.319L0,-48.319" style="fill:#e57373;fill-rule:nonzero;"/>
+                        </g>
+                    </g>
+                    <g transform="matrix(1,0,0,1,80.5679,83.3131)">
+                        <path d="M0,-53.319L-59.289,-53.319C-64.188,-53.319 -68.161,-49.346 -68.161,-44.447L-68.161,-8.873C-68.161,-3.972 -64.188,0 -59.289,0L0,0C4.9,0 8.873,-3.972 8.873,-8.873L8.873,-44.447C8.873,-49.346 4.9,-53.319 0,-53.319M0,-48.319C2.135,-48.319 3.873,-46.582 3.873,-44.447L3.873,-8.873C3.873,-6.737 2.135,-5 0,-5L-59.289,-5C-61.424,-5 -63.161,-6.737 -63.161,-8.873L-63.161,-44.447C-63.161,-46.582 -61.424,-48.319 -59.289,-48.319L0,-48.319" style="fill:#e57373;fill-rule:nonzero;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

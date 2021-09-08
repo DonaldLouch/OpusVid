@@ -73,8 +73,6 @@ $message = "<html>
 		</style>
 	</head>
 	<body>
-		<img src=\"https://".$spacesBucket.".".$spacesURIRegion.".".$spacesURL."/".$spacesRootFolder."/ui/videoUI/titleLogo.png\" alt=\"".$websiteName."Logo\">
-
 		<article>
       <h1>Account Updated!</h1>
       <p>Hello ".$accountName.", you have successfully updated your account on ".$websiteName."! If this was not you please feel free to contact the ".$websiteName." Support Team by repling to this email and we'll be happy to help!</p>

@@ -72,8 +72,6 @@ $message = "<html>
 		</style>
 	</head>
 	<body>
-		<img src=\"https://".$spacesBucket.".".$spacesURIRegion.".".$spacesURL."/".$spacesRootFolder."/ui/videoUI/titleLogo.svg\" alt=\"".$websiteName."Logo\">
-
 		<article>
 			<h1>New Comment on Video!</h1>
 			<p>Hello ".$opusCreator.",</p>

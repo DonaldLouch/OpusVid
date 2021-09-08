@@ -6,12 +6,16 @@
 	require '../../blades/head.php'; 
 	$videoClass = new Video;
 ?>
-	<body>
-		<?php require '../../blades/menu.php';  ?>
-			<script> document.title = "<?php echo $websiteName; ?>"</script>
-			<div class="wrapper">
-				<div class="videoWrap">
-					<?php
+
+<body>
+    <?php require '../../blades/menu.php';  ?>
+    <script>
+    document.title = "<?php echo $websiteName; ?>"
+    </script>
+    <main class="pageWrapper">
+        <div class="videoFeed">
+            <!--TEST-->
+            <?php
 						if (!isset($_SESSION['userName'])) {
 							$userName = null;
 						} 
@@ -20,8 +24,9 @@
 						} 
 						echo $videoFeed = $videoClass->videoFeed($userID, $userName);
 					?>
-			</div> <!-- .wrapper -->
-	
-<?php 
+        </div> <!-- .videoFeed -->
+    </main> <!-- .pageWrapper -->
+
+    <?php 
 	require '../../blades/footer.php';
 ?>

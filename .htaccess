@@ -2,7 +2,7 @@ RewriteEngine On
 
 #Redirects URL to "https://*" if "http://*" has been typed
 RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ {WEBSITE URL}/$1 [R,L]
+RewriteRule ^(.*)$ https://{DOMAIN.NAME}/$1 [R,L]
 
 #Removes the file extensions
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -11,7 +11,7 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+)$ $1.php [L,QSA]
 
 RewriteRule ^404$ views/pages/backEnd/404.php [NC]
-ErrorDocument 404 {WEBSITE URL}/404
+ErrorDocument 404 https://{DOMAIN.NAME}/404
 
 #Back-end redirects
 RewriteRule ^sitemap$ views/pages/backEnd/sitemap.php [NC]
@@ -24,6 +24,7 @@ RewriteRule ^passwordPending$ views/pages/backEnd/passwordResetPending.php [NC]
 RewriteRule ^dashboard$ views/pages/backEnd/index.php [NC]
 RewriteRule ^dashboard/upload$ views/pages/backEnd/upload_s1.php [NC]
 RewriteRule ^dashboard/upload_s2$ views/pages/backEnd/upload_s2.php [NC]
+RewriteRule ^dashboard/upload_s3$ views/pages/backEnd/upload_s3.php [NC]
 RewriteRule ^dashboard/manage$ views/pages/backEnd/manage_videos.php [NC]
 RewriteRule ^dashboard/edit$ views/pages/backEnd/edit_video.php [NC]
 RewriteRule ^dashboard/settingsP$ views/pages/backEnd/edit_profile.php [NC]
@@ -52,7 +53,7 @@ RewriteRule ^search$ views/pages/frontEnd/search.php [NC]
 RewriteRule ^categories$ views/pages/frontEnd/categories.php [NC]
 RewriteRule ^category$ views/pages/frontEnd/category.php [NC]
 RewriteRule ^tos$ views/pages/frontEnd/tos.php [NC]
-RewriteRule   ^T/(.+)$   views/pages/frontEnd/tag.php?type=$1   [L]
+RewriteRule ^T/(.+)$ views/pages/frontEnd/tag.php?type=$1 [L]
 
 RewriteRule ^login$ views/pages/frontEnd/login.php [NC]
 RewriteRule ^signup$ views/pages/frontEnd/login.php [NC]

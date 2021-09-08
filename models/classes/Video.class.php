@@ -9,12 +9,6 @@ class Video extends MySQL {
 		$row = $countStatement->fetch();
 		$rows = $row[0];
 
-		$statementWatchLater = $this->connect()->prepare('SELECT videos FROM watch_later WHERE user=?');
-		$statementWatchLater->execute(["$userName"]);
-		$rowWatchLater = $statementWatchLater->fetch();
-
-		//echo $rowWatchLater;
-
 		$per_page = 16;
 
 		include '../../blades/paginationInit.php';
@@ -37,20 +31,17 @@ class Video extends MySQL {
 			foreach($result as $row) {
 				$count ++; 
 				$output .= '
-					<article id="'.$row['id'].'">
+					<article id="'.$row['id'].'" class="videoCard">
 						<a href="player?id='.$row['id'].'" class="noLink">
 							<img src="'.$row['thumbnailPath'].'" class="thumbnailHome" alt="Thumbnail '.$row['id'].'">
+							<h3>'.$row['videoTitle'].'</h3>
+							<h5>By: <a href="profile?id='.$row['opusCreator'].'">'.$row['opusCreator'].'</a> <span>on '.date('D M j, Y' , $row['uploadedOn']).' </span></h5>
 						</a>
-						<h3>'.$row['videoTitle'].'</h3>
-						<h5>By: <a href="profile?id='.$row['opusCreator'].'">'.$row['opusCreator'].'</a> <span>on '.date('D M j, Y' , $row['uploadedOn']).' </span></h5>
-						<p>'.$row['shortDescription'].'</p>
-						<p><em>'.$row['views'].' Views</em></p>
-						<a href="player?id='.$row['id'].'" class="button">Watch Video!</a>
 					</article>
 				';
 			}
 			$output .= '
-				</div> <!-- .videoWrap -->
+				</div> <!-- .videoFeed -->
 				<div id="pagination_controls">
 					'.$paginationControls.'
 				</div> 
@@ -63,16 +54,43 @@ class Video extends MySQL {
 		echo $output;
 	}
 
+	public function categoriesPage() {
+		$statement = $this->connect()->prepare('SELECT * FROM category ORDER BY catSortID ASC');
+		$statement->execute();
+
+		$result = $statement->fetchAll();
+		$number_of_rows = $statement->rowCount();
+
+		$output = '';
+
+		if($number_of_rows > 0) {
+			$count = 0;
+			foreach($result as $row) {
+				$count ++; 
+				$output .= '
+					<a href="category?type='.$row['catSlug'].'">
+						<div class="categoryCard" id="'.$row['catIDName'].'">
+							<h3>'.$row['catName'].'</h3>
+						</div>
+					</a>
+				';
+			}
+		} else {
+		$output .= '
+			<h3>Sorry, No Categories Found.</h3>
+			<br>
+		';
+		}
+		echo $output;
+	}
+
 	public function allCategoryPost($category) {
 		$this->theCategory = $category;
 		$categorySearch = "%".$category."%";
 
-		//$countStatement = $this->connect()->prepare('SELECT COUNT(orderNumber) FROM blog_posts WHERE postStatus = \'Public\' AND categories LIKE ?');
-
 		$countStatement = $this->connect()->prepare('SELECT COUNT(orderNumber) FROM videos WHERE privacy = \'public\' AND category LIKE ?');
 		$countStatement->execute([$categorySearch]);
-		//$countStatement->bindParam(1, $category,PDO::PARAM_STR);
-		//$countStatement->execute();
+
 		$row = $countStatement->fetch();
 		$rows = $row[0];
 
@@ -82,14 +100,10 @@ class Video extends MySQL {
 
 		$statement = $this->connect()->prepare('SELECT * FROM videos WHERE privacy = \'public\' AND category LIKE ? ORDER BY orderNumber DESC LIMIT ?,?');
 
-		//$statement = $this->connect()->prepare('SELECT * FROM blog_posts WHERE postStatus = \'Public\' AND categories LIKE ? ORDER BY orderNumber DESC');
-
 		$statement->bindParam(1, $categorySearch,PDO::PARAM_STR);
 		$statement->bindParam(2, $limit,PDO::PARAM_INT);
 		$statement->bindParam(3, $per_page,PDO::PARAM_INT);
 		$statement->execute();
-
-		//echo $per_page;            
 
 		$result = $statement->fetchAll();
 		$number_of_rows = $statement->rowCount();
@@ -111,25 +125,22 @@ class Video extends MySQL {
 		if($number_of_rows > 0) {
 			$count = 0;
 			$output .= '
-				<div class="videoWrap">
+				<div class="videoFeed">
 			';
 			foreach($result as $row) {
 				$count ++; 
 				$output .= '
-					<article id="'.$row['id'].'">
+					<article id="'.$row['id'].'" class="videoCard">
 						<a href="player?id='.$row['id'].'" class="noLink">
 							<img src="'.$row['thumbnailPath'].'" class="thumbnailHome" alt="Thumbnail '.$row['id'].'">
+							<h3>'.$row['videoTitle'].'</h3>
+							<h5>By: <a href="profile?id='.$row['opusCreator'].'">'.$row['opusCreator'].'</a> <span>on '.date('D M j, Y' , $row['uploadedOn']).' </span></h5>
 						</a>
-						<h3>'.$row['videoTitle'].'</h3>
-						<h5>By: <a href="profile?id='.$row['opusCreator'].'">'.$row['opusCreator'].'</a> <span>on '.date('D M j, Y' , $row['uploadedOn']).' </span></h5>
-						<p>'.$row['shortDescription'].'</p>
-						<p><em>'.$row['views'].' Views</em></p>
-						<a href="player?id='.$row['id'].'" class="button">Watch Video!</a>
 					</article>
 				';
 			}
 			$output .= '
-				</div> <!-- .videoWrap -->
+				</div> <!-- .videoFeed -->
 				<div id="pagination_controls">
 					'.$paginationControls.'
 				</div> 
@@ -161,7 +172,7 @@ class Video extends MySQL {
 		$result = $statement->fetchAll();
 		$number_of_rows = $statement->rowCount();
 
-		include '../../blades/paginationControl.php'; // Creates the pagination and the controls
+		include '../../blades/paginationControlProfile.php'; // Creates the pagination and the controls
 
 		$output = '';
 
@@ -170,21 +181,18 @@ class Video extends MySQL {
 			foreach($result as $row) {
 				$count ++; 
 				$output .= '
-				<article id="'.$row['id'].'">
-					<a href="player?id='.$row['id'].'" class="noLink">
-						<img src="'.$row['thumbnailPath'].'" class="thumbnailHome" alt="Thumbnail '.$row['id'].'">
-					</a>
-					<h3>'.$row['videoTitle'].'</h3>
-					<h5>By: <a href="profile?id='.$row['opusCreator'].'">'.$row['opusCreator'].'</a> <span>on '.date('D M j, Y' , $row['uploadedOn']).' </span></h5>
-					<p>'.$row['shortDescription'].'</p>
-					<p><em>'.$row['views'].' Views</em></p>
-					<a href="player?id='.$row['id'].'" class="button">Watch Video!</a>
-				</article>
+					<article id="'.$row['id'].'" class="videoCard">
+						<a href="player?id='.$row['id'].'" class="noLink">
+							<img src="'.$row['thumbnailPath'].'" class="thumbnailHome" alt="Thumbnail '.$row['id'].'">
+							<h3>'.$row['videoTitle'].'</h3>
+							<h5>By: <a href="profile?id='.$row['opusCreator'].'">'.$row['opusCreator'].'</a> <span>on '.date('D M j, Y' , $row['uploadedOn']).' </span></h5>
+						</a>
+					</article>
 				';
 			}
 			$output .= '
-				</div> <!-- .videoWrap -->
-				<div id="pagination_controls">
+				</div> <!-- .videoFeed -->
+				<div id="pagination_controls" class="paginationProfile">
 					'.$paginationControls.'
 				</div> 
 			';
@@ -261,7 +269,7 @@ class Video extends MySQL {
 	public function manageVideoFeed($userName) {
 		$this->name = $userName;
 
-		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 15');
+		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 9');
 
 		while ($baseRow = $baseSTMT->fetch()) {
 			$baseFileURL = $baseRow['settingValue'];
@@ -312,15 +320,15 @@ class Video extends MySQL {
 						<p>Uploaded on: '.date('D M j, Y', $row['uploadedOn']).'</p>
 					</div>
 
-					<a href="../player?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoUI/videoVector.svg").'</a>';
+					<a href="../player?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoVector.svg").'</a>';
 
 					if (isset($row['videoTitle'])) {
 						$output .= '
-							<a href="edit?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoUI/videoEditVector.svg").'</a>
+							<a href="edit?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoEditVector.svg").'</a>
 						';
 					} else {
 							$output .= '
-							<a href="upload_s2?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoUI/videoEditVector.svg").'</a>
+							<a href="upload_s2?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoEditVector.svg").'</a>
 						';
 					}
 				$output .= '
@@ -330,7 +338,7 @@ class Video extends MySQL {
 						<input hidden name="thumbPath" value="'.$row['thumbnailPath'].'">
 						<label name="delete" class="videoManagerButton">
 							<input type="submit" style="display:none;" />
-							'.file_get_contents($baseFileURL."/ui/videoUI/videoDeleteVector.svg").'
+							'.file_get_contents($baseFileURL."/ui/videoDeleteVector.svg").'
 						</label>
 					</form>
 				</article>';
@@ -349,7 +357,7 @@ class Video extends MySQL {
 	}
 
 	public function manageVideoFeedAdmin() {
-		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 15');
+		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 9');
 
 		while ($baseRow = $baseSTMT->fetch()) {
 			$baseFileURL = $baseRow['settingValue'];
@@ -389,9 +397,9 @@ class Video extends MySQL {
 						<p>Uploaded on: '.date('D M j, Y', $row['uploadedOn']).'</p>
 					</div>
 
-					<a href="../player?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoUI/videoVector.svg").'</a>
+					<a href="../player?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoVector.svg").'</a>
 
-					<a href="edit_video?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoUI/videoEditVector.svg").'</a>
+					<a href="edit_video?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoEditVector.svg").'</a>
 
 					<form method="post" action="../../controllers/database/videoDelete.database.php"  enctype="multipart/form-data">
 						<input hidden name="id" value="'.$row['id'].'">
@@ -399,7 +407,7 @@ class Video extends MySQL {
 						<input hidden name="thumbPath" value="'.$row['thumbnailPath'].'">
 						<label name="delete" class="videoManagerButton">
 							<input type="submit" style="display:none;" />
-							'.file_get_contents($baseFileURL."/ui/videoUI/videoDeleteVector.svg").'
+							'.file_get_contents($baseFileURL."/ui/videoDeleteVector.svg").'
 						</label>
 					</form>
 				</article>';
@@ -418,7 +426,7 @@ class Video extends MySQL {
 	}
 
 	public function manageVideoFeedMod() {
-		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 15');
+		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 9');
 
 		while ($baseRow = $baseSTMT->fetch()) {
 			$baseFileURL = $baseRow['settingValue'];
@@ -458,9 +466,9 @@ class Video extends MySQL {
 						<p>Uploaded on: '.date('D M j, Y', $row['uploadedOn']).'</p>
 					</div>
 
-					<a href="../player?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoUI/videoVector.svg").'</a>
+					<a href="../player?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoVector.svg").'</a>
 
-					<a href="../admin/edit_video?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoUI/videoEditVector.svg").'</a>
+					<a href="../admin/edit_video?id='.$row['id'].'" class="videoManageButton">'.file_get_contents($baseFileURL."/ui/videoEditVector.svg").'</a>
 
 					<form method="post" action="../../controllers/database/videoDelete.database.php"  enctype="multipart/form-data">
 						<input hidden name="id" value="'.$row['id'].'">
@@ -468,7 +476,7 @@ class Video extends MySQL {
 						<input hidden name="thumbPath" value="'.$row['thumbnailPath'].'">
 						<label name="delete" class="videoManagerButton">
 							<input type="submit" style="display:none;" />
-							'.file_get_contents($baseFileURL."/ui/videoUI/videoDeleteVector.svg").'
+							'.file_get_contents($baseFileURL."/ui/videoDeleteVector.svg").'
 						</label>
 					</form>
 				</article>';
@@ -510,7 +518,7 @@ class Video extends MySQL {
 		}
 	}
 
-	public function videoUploadS2($uploadID, $uploadTitle, $uploadOC, $uploadDate, $uploadSDescription, $uploadDescription, $uploadCategory, $uploadTags, $uploadChapters, $uploadMusicCredit, $uploadVideoCredit, $uploadStaring, $links, $uploadPrivacy, $uploadComments) {
+	public function videoUploadS3($uploadID, $uploadTitle, $uploadOC, $uploadDate, $uploadSDescription, $uploadDescription, $uploadCategory, $uploadTags, $uploadChapters, $uploadMusicCredit, $uploadVideoCredit, $uploadStaring, $links, $uploadPrivacy, $uploadComments) {
 		$this->id = $uploadID;
 		$this->title = $uploadTitle;
 		$this->opusCreator = $uploadOC;
@@ -560,15 +568,13 @@ class Video extends MySQL {
 			foreach($result as $row) {
 				$count ++; 
 				$output .= '
-				<article id="'. $row['id'].'">
-					<a href="player?id='.$row['id'].'" class="noLink">
-						<img src="'.$row['thumbnailPath'].'" class="thumbnailHome" alt="Thumbnail '.$row['id'].'">
-					</a>
-					<h3>'.$row['videoTitle'].'</h3>
-					<h5>By: '.$row['opusCreator'].' <span>on '. date('D M j, Y' , $row['uploadedOn']).' </span></h5>
-					<p>'.$row['shortDescription'].'</p>
-					<a href="player?id='.$row['id'].'" class="button">Watch Video!</a>
-				</article>
+					<article id="'.$row['id'].'" class="videoCard">
+						<a href="player?id='.$row['id'].'" class="noLink">
+							<img src="'.$row['thumbnailPath'].'" class="thumbnailHome" alt="Thumbnail '.$row['id'].'">
+							<h3>'.$row['videoTitle'].'</h3>
+							<h5>By: <a href="profile?id='.$row['opusCreator'].'">'.$row['opusCreator'].'</a> <span>on '.date('D M j, Y' , $row['uploadedOn']).' </span></h5>
+						</a>
+					</article>
 				';
 			}
 		} else {
@@ -645,7 +651,7 @@ class Video extends MySQL {
 									<input type="text" name="commenterID" value="'.$row['commenterID'].'" hidden>
 									<label>
 										<input type="submit" name="deleteComment" style="display:none;" />
-										'.file_get_contents($baseFileURL."/ui/videoUI/trashVector.svg").'
+										'.file_get_contents($baseFileURL."/ui/trashVector.svg").'
 									</label>
 								</form>
 							';
@@ -658,8 +664,10 @@ class Video extends MySQL {
 
 						$output .= '
 						<img src="'.$commenter['userAvatar'].'" alt="'.$commenter['userName'].'">
-						<h2><a href="profile?id='.$commenter['userName'].'">'.$commenter['userName'].'</a></h2>
-						<h5>Commetned On: '.date('m/d/Y \a\t g:ia' , $row['postedOn']).'</h5>
+						<div class="commenterInfo">
+							<h2><a href="profile?id='.$commenter['userName'].'">'.$commenter['userName'].'</a></h2>
+							<h5>Commetned On: '.date('m/d/Y \a\t g:ia' , $row['postedOn']).'</h5>
+						</div>
 					</div>
 					<p>'.$row['commentBody'].'</p>
 				</article>
@@ -802,29 +810,26 @@ class Video extends MySQL {
 				}
 
 				$output .= '
-					<div class="videoWrap">
-				';
-				foreach($result as $row) {
-					$count ++; 
-					$output .= '
-						<article id="'.$row['id'].'">
-							<a href="player?id='.$row['id'].'" class="noLink">
-								<img src="'.$row['thumbnailPath'].'" class="thumbnailHome" alt="Thumbnail '.$row['id'].'">
-							</a>
+				<div class="videoFeed">
+			';
+			foreach($result as $row) {
+				$count ++; 
+				$output .= '
+					<article id="'.$row['id'].'" class="videoCard">
+						<a href="player?id='.$row['id'].'" class="noLink">
+							<img src="'.$row['thumbnailPath'].'" class="thumbnailHome" alt="Thumbnail '.$row['id'].'">
 							<h3>'.$row['videoTitle'].'</h3>
 							<h5>By: <a href="profile?id='.$row['opusCreator'].'">'.$row['opusCreator'].'</a> <span>on '.date('D M j, Y' , $row['uploadedOn']).' </span></h5>
-							<p>'.$row['shortDescription'].'</p>
-							<p><em>'.$row['views'].' Views</em></p>
-							<a href="player?id='.$row['id'].'" class="button">Watch Video!</a>
-						</article>
-					';
-				}
-				$output .= '
-					</div> <!-- .videoWrap -->
-					<div id="pagination_controls">
-						'.$paginationControls.'
-					</div> 
+						</a>
+					</article>
 				';
+			}
+			$output .= '
+				</div> <!-- .videoFeed -->
+				<div id="pagination_controls">
+					'.$paginationControls.'
+				</div> 
+			';
 			} 
 			echo $output;   
     }

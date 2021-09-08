@@ -75,8 +75,6 @@ $message = "<html>
       </style>
     </head>
     <body>
-      <img src=\"https://".$spacesBucket.".".$spacesURIRegion.".".$spacesURL."/".$spacesRootFolder."/ui/videoUI/titleLogo.png\" alt=\"".$websiteName."Logo\">
-
       <article>
       <h1>Welcome to <a href=\"".$siteURL."\">".$websiteName."</a></h1>
       

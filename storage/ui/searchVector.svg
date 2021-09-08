@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 443 442" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
+    <g transform="matrix(1,0,0,1,-2315,-1710)">
+        <g id="searchVector" transform="matrix(4.16667,0,0,4.16667,2328.14,1716.55)">
+            <rect x="0" y="0" width="100" height="100" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="0" y="0" width="100" height="100"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g id="searchVector1" serif:id="searchVector">
+                    <g transform="matrix(0.707056,0.707158,0.707158,-0.707056,65.9717,48.4765)">
+                        <path d="M-5.716,-13.798L33.308,-13.798" style="fill:none;fill-rule:nonzero;stroke:#ff9d2f;stroke-width:5px;"/>
+                    </g>
+                    <g transform="matrix(0,-1,-1,0,37.7699,17.7099)">
+                        <g>
+                            <circle cx="-20.295" cy="0" r="20.295" style="fill:none;stroke:#e57373;stroke-width:6px;stroke-linejoin:round;"/>
+                        </g>
+                    </g>
+                    <g transform="matrix(0,-1,-1,0,37.7699,17.7099)">
+                        <circle cx="-20.295" cy="0" r="20.295" style="fill:none;stroke:#e57373;stroke-width:6px;stroke-linejoin:round;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

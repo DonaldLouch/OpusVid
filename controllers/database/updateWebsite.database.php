@@ -21,17 +21,14 @@
         $siteKeywords = $_POST['4'];
         $timeZone = $_POST['5'];
         $supportEmail = $_POST['6'];
-        $spacesKey = $_POST['7'];
-        $spacesSecert = $_POST['8'];
-        $spacesBucket = $_POST['9'];
-        $spacesRegion = $_POST['10'];
-        $spacesEndpoint = $_POST['11'];
-        $spacesURIRegion = $_POST['12'];
-        $spacesURL = $_POST['13'];
-        $spacesRootFolder = $_POST['14'];
-        $baseFileURL = $_POST['15'];
-        $captchaSite = $_POST['16'];
-        $captchaSecret = $_POST['17'];
+        $customEmail = $_POST['7'];
+        $baseFileURL = $_POST['9'];
+        $uploadBaseURL = $_POST['10'];
+        $maxSizeVideo = $_POST['11'];
+        $maxSizeThumbnail = $_POST['12'];
+        $maxSizeAvatar = $_POST['13'];
+        $captchaSite = $_POST['14'];
+        $captchaSecret = $_POST['15'];
         
         $error = 0;
         
@@ -62,7 +59,7 @@
             }
         }
 
-        if (empty($siteURL) || empty($websiteName) || empty($siteDescription) || empty($siteKeywords) || empty($timeZone) || empty($supportEmail) || empty($spacesKey) || empty($spacesSecert) || empty($spacesBucket) || empty($spacesRegion) || empty($spacesEndpoint) || empty($spacesURIRegion) || empty($spacesURL) || empty($spacesRootFolder) || empty($baseFileURL) || empty($captchaSite) || empty($captchaSecret)) {
+        if (empty($siteURL) || empty($websiteName) || empty($siteDescription) || empty($siteKeywords) || empty($timeZone) || empty($supportEmail) || empty($customEmail) || empty($baseFileURL) || empty($uploadBaseURL) || empty($maxSizeVideo) || empty($maxSizeThumbnail) || empty($maxSizeAvatar) || empty($captchaSite) || empty($captchaSecret)) {
             $error = 3;
             header("Location: ../../../admin/web?type=empty&error=$error");
             exit();
@@ -76,7 +73,7 @@
         
         if ($error === 0) {
             $settings = new Settings;
-            $updateWebsite = $settings->updateWebsite($siteURL, $websiteName, $siteDescription, $siteKeywords, $timeZone, $supportEmail, $spacesKey, $spacesSecert, $spacesBucket, $spacesRegion, $spacesEndpoint, $spacesURIRegion, $spacesURL, $spacesRootFolder, $baseFileURL, $captchaSite, $captchaSecret);
+            $updateWebsite = $settings->updateWebsite($siteURL, $websiteName, $siteDescription, $siteKeywords, $timeZone, $supportEmail, $customEmail, $baseFileURL, $uploadBaseURL, $maxSizeVideo, $maxSizeThumbnail, $maxSizeAvatar, $captchaSite, $captchaSecret);
             
             if ($updateWebsite === "false") {
                 $error = 5;

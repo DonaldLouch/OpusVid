@@ -130,22 +130,6 @@ class Users extends MySQL {
 			http_response_code(500);
 			die('Error establishing connection with database');
 		}
-		/*
-		$stmt = $this->connect()->prepare('SELECT * FROM users WHERE username=?  OR emailAddress=?');
-		$stmt->execute([$username, $username]);
-		
-		while ($row = $stmt->fetch()) {
-			$sessionBind = $_SESSION['uID'] = $row['userID'];
-			$sessionBind .= $_SESSION['uFirst'] = $row['userFirstName'];
-			$sessionBind .= $_SESSION['uLast'] = $row['userLastName'];
-			$sessionBind .= $_SESSION['userName'] = $row['usernNme'];
-			$sessionBind .= $_SESSION['uEmail'] = $row['userEmail'];
-			$sessionBind .= $_SESSION['uCountry'] = $row['userCountry'];
-			$sessionBind .= $_SESSION['uTimeZone'] = $row['userTimeZone'];
-			$sessionBind .= $_SESSION['uAvatar'] = $row['userAvatar'];
-			$sessionBind .= $_SESSION['uLevel'] = $row['userLevel'];
-			return $sessionBind;
-		}*/
 	}
 	
 	public function getUser($userID) {
@@ -174,8 +158,8 @@ class Users extends MySQL {
 		foreach($result as $row) {
 		$count ++; 
 		$output .= '
-		<article class="adminAccountProfileWrap">
-          <img src="'.$row['userAvatar'].'" class="avatarSearch" alt="Thumbnail '.$row['userName'].'">
+		<article class="profileCard">
+          <img src="'.$row['userAvatar'].'" class="profileAvatar" alt="Thumbnail '.$row['userName'].'">
 
           <a href="../profile?id='.$row['userName'].'">
             <h3>'.$row['userName'].'</h3>
@@ -183,7 +167,7 @@ class Users extends MySQL {
 
           <a href="edit_account?id='.$row['userID'].'" class="button dashboard">Edit User</a>
 
-          <form method="post" action="../../controllers/database/editAccount.database.php">
+          <form method="post" action="../../controllers/database/editAccount.database.php" class="cardFormButton">
             <input hidden name="profileIDDel" value="'.$row['userID'].'">
             <input hidden name="profileUNameDel" value="'.$row['userName'].'">
             <button class="submitButton delete" type="submit" name="deleteAccountAdmin">Delete User</button>
@@ -339,44 +323,6 @@ class Users extends MySQL {
 			return $false;
 		}
 	}
-
-	public function followingCheck ($userID) {
-		$this->follower = $userID;
-		
-		$stmt = $this->connect()->prepare('SELECT * FROM following WHERE followerID=?');
-		$stmt->execute([$userID]);
-		
-		$fetchFollower = $stmt->fetch();
-		
-		$followerList = $fetchFollower['followingID'];
-		
-		return $followExpload = explode(" / ", $followerList);
-		
-		/*$followIDFollowing = implode(" / ",$followExpload);
-		
-		$false = "false";
-		$true = "true";				
-		
-		if ($stmt->rowCount()) {
-			return $true;
-		} else {
-			return $false;
-		}*/
-		/*
-		//$follower = $_SESSION['uID'];
-		//$following = $_POST['followID'];
-		
-		$sqlFollowStart = "SELECT * FROM following WHERE follower_id = '$follower'";
-		$querryStart = mysqli_query($mySQL, $sqlFollowStart);
-		
-		$followingSQL = "SELECT following_id FROM following WHERE follower_id = '" . mysqli_escape_string($mySQL, $follower) . "';";
-		$followResult = mysqli_query($mySQL, $followingSQL);
-		$followRow = mysqli_fetch_assoc($followResult);
-		
-		$followExpload = explode(" / ", $followRow['following_id']);
-		
-		$followIDFollowing = implode(" / ",$followExpload);*/
-	}
 	
 	public function statusCheck($username) {
 		$this->theUsername = $username;
@@ -427,7 +373,7 @@ class Users extends MySQL {
 			foreach($result as $row) {
 				$count ++; 
 				$output .= '
-				<article class="searchProfileWrap">
+				<article class="profileCard">
 					<img src="'.$row['userAvatar'].'" class="avatarSearch" alt="Thumbnail '.$row['userName'].'">
 					<a href="profile?id='.$row['userName'].'">
 					<h3>'.$row['userName'].'</h3>

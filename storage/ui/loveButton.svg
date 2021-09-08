@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 442 443" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
+    <g transform="matrix(1,0,0,1,-1732,-1126)">
+        <g id="loveButton" transform="matrix(4.16667,0,0,4.16667,1744.68,1133.01)">
+            <rect x="0" y="0" width="100" height="100" style="fill:none;"/>
+            <g id="loveButton1" serif:id="loveButton">
+                <g transform="matrix(1,0,0,1,81.7725,59.5143)">
+                    <g>
+                        <path d="M0,-18.611L-11.144,-2.411L-30.048,25.078C-30.609,25.894 -31.815,25.894 -32.377,25.078L-51.283,-2.411L-62.263,-18.373C-67.417,-25.866 -65.503,-36.217 -58.008,-41.371C-55.162,-43.329 -51.904,-44.267 -48.678,-44.267C-43.405,-44.267 -38.208,-41.764 -35.013,-37.116L-32.377,-33.286C-31.815,-32.47 -30.609,-32.47 -30.049,-33.286L-27.251,-37.355C-24.055,-42.002 -18.858,-44.505 -13.585,-44.505C-10.358,-44.505 -7.101,-43.568 -4.255,-41.609C3.24,-36.455 5.153,-26.104 0,-18.611Z" style="fill:none;fill-rule:nonzero;stroke:#e57373;stroke-width:6px;"/>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,81.7725,59.5143)">
+                    <path d="M0,-18.611L-11.144,-2.411L-30.048,25.078C-30.609,25.894 -31.815,25.894 -32.377,25.078L-51.283,-2.411L-62.263,-18.373C-67.417,-25.866 -65.503,-36.217 -58.008,-41.371C-55.162,-43.329 -51.904,-44.267 -48.678,-44.267C-43.405,-44.267 -38.208,-41.764 -35.013,-37.116L-32.377,-33.286C-31.815,-32.47 -30.609,-32.47 -30.049,-33.286L-27.251,-37.355C-24.055,-42.002 -18.858,-44.505 -13.585,-44.505C-10.358,-44.505 -7.101,-43.568 -4.255,-41.609C3.24,-36.455 5.153,-26.104 0,-18.611Z" style="fill:none;fill-rule:nonzero;stroke:#e57373;stroke-width:6px;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

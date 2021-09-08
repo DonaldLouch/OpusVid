@@ -17,31 +17,189 @@ require '../../models/config/config.php';
 include_once '../../models/classes/MySQL.class.php';
 include_once '../../models/classes/ReCAPTCHA.class.php';
 
-if (isset($_POST['submit'])) { //Looks to see if the form has been submitted #FormSubmitted
-  $uniqeID = $_POST['vidID']; //Gets the video id from the post
-  //Gets information from the submitted form
+if (isset($_POST['submit'])) {
+  $uniqeID = $_POST['vidID']; 
   $uploadID = $uniqeID;
   $uploadOC = $_POST['by'];
   $uploadTitle = $_POST['vTitle'];
   $uploadSDescription = htmlspecialchars($_POST['sDescription']);
   $uploadDescription = $_POST['description'];
   $uploadCategory = $_POST['category'];
-  $uploadTags = $_POST['tags'];
-  $uploadChapters = $_POST['chapters'];
-  $uploadMusicCredit = htmlspecialchars($_POST['musicCredit']);
-  $uploadVideoCredit = $_POST['videoCredit'];
-  $uploadStaring = htmlspecialchars($_POST['staring']);
+  $uploadTags = $_POST['tags']; 
   
-  if ($_POST['linkType'] === "default") {
-    $links = "DEFAULT";
-  } else if ($_POST['linkType'] === "custom" || $_POST['linkType'] === "leaveAsIS") {
-    $links = $_POST['links'];
-  } else if ($_POST['linkType'] === "noLinks") {
-    $links = "NONE";
+  $chapterArrayBase = array();
+    if (isset($_POST['isThereChapters'])) { 
+      $uploadChapters = "NONE";
+    } else {
+    for ($i = 0; $i < count($_POST['chapterTimeCode']); $i++) { 
+      $chapterTimeCode = $_POST['chapterTimeCode'][$i];
+
+      $chapterTimeExplode = explode(":",$chapterTimeCode);
+
+      if (count($chapterTimeExplode) == 3 && $chapterTimeExplode[0] != "0") {
+        $chapterHours = $chapterTimeExplode[0]*3600;
+        if ($chapterTimeExplode[1] == 0) {
+          $chapterMinutes = 0;
+        } else {
+          $chapterMinutes = $chapterTimeExplode[1]*60;
+        }
+        $chapterSeconds = $chapterTimeExplode[2];
+        $chapterTimeCodeCoded = $chapterHours+$chapterMinutes+$chapterSeconds;
+      } 
+      else if (count($chapterTimeExplode) == 2 && $chapterTimeExplode[0] != "0") {
+        $chapterMinutes = $chapterTimeExplode[0]*60;
+        $chapterSeconds = $chapterTimeExplode[1];
+        $chapterTimeCodeCoded = $chapterMinutes+$chapterSeconds;
+      } else if (count($chapterTimeExplode) == 1 || count($chapterTimeExplode) == 2 && $chapterTimeExplode[0] == 0 ) {
+        $chapterSeconds = $chapterTimeExplode[1];
+        $chapterTimeCodeCoded = $chapterSeconds;
+      }
+      $chapterTitle = $_POST['chapterTitle'][$i];
+      $currentChapterImplode = $chapterTimeCodeCoded . ";;" . $chapterTitle;
+
+      array_push($chapterArrayBase, $currentChapterImplode);
+    }
+    $chapterArraySorted = array();
+    if (!empty($chapterArrayBase)) {
+      asort($chapterArrayBase, SORT_NATURAL);
+
+      foreach($chapterArrayBase as $newChapterKey=>$newChapter) {
+        $newChapterExplode = explode(";;", $newChapter);
+        $newTimeCodeExploded = $newChapterExplode[0];
+        $newChapterTitle = $newChapterExplode[1];
+
+        if ($newTimeCodeExploded >= 3600) {
+          $timeCodeHour = floor($newTimeCodeExploded/3600);
+          $timeCodeMinute = floor($newTimeCodeExploded/60-60);
+          $timeCodeMinute = floor($newTimeCodeExploded/60-60);
+          $timeCodeSecond = floor($newTimeCodeExploded-($timeCodeHour*3600)-($timeCodeMinute*60));
+
+          if ($timeCodeMinute == 0) {
+            $timeCodeMinute ="00";
+          }
+          if ($timeCodeSecond == 0) {
+            $timeCodeSecond = "00";
+          } 
+          $newChapterTimeCode = $timeCodeHour.":".$timeCodeMinute.":".$timeCodeSecond;
+        } 
+        else if ($newTimeCodeExploded < 3600 && $newTimeCodeExploded >=60) {
+          $timeCodeMinutes = floor($newTimeCodeExploded/60);
+          $timeCodeSecond = floor($newTimeCodeExploded - $timeCodeMinutes * 60);
+
+          if ($timeCodeSecond == 0) {
+            $timeCodeSecond = "00";
+          } 
+          $newChapterTimeCode = $timeCodeMinutes.":".$timeCodeSecond;
+        } 
+        else {
+          $timeCodeSecond = floor($newTimeCodeExploded);
+          if ($timeCodeSecond == 0) {
+            $timeCodeSecond = "00";
+          } 
+          $newChapterTimeCode = "0:".$timeCodeSecond;
+        }
+
+        $currentNewChapterImplode = $newChapterTimeCode . ";;" . $newChapterTitle;
+
+        array_push($chapterArraySorted, $currentNewChapterImplode);
+      }
+      $uploadChapters = implode(" || ", $chapterArraySorted);
+    }
   }
   
+  $musicArrayBase = array();
+    if (isset($_POST['isThereMusicCredit'])) { 
+      $uploadMusicCredit = "NONE";
+     } else {
+      for ($i = 0; $i < count($_POST['musicTimePlayed']); $i++) { 
+        if (empty($_POST['musicTimePlayed'][$i]) ) { 
+            $musicTimePlayed = "NONE";
+          } else {
+            $musicTimePlayed = $_POST['musicTimePlayed'][$i];
+          }
+          $musicSongTitle = $_POST['musicSongTitle'][$i];
+          $musicArtist = $_POST['musicArtist'][$i];
+         
+          if (empty($_POST['musicLink'][$i])) { 
+            $musicLink = "NONE";
+          } else {
+            $musicLink = $_POST['musicLink'][$i];
+          }
+
+          if (empty($_POST['musicMore'][$i])) { 
+            $musicMore = "NONE";
+          } else {
+            $musicMore = $_POST['musicMore'][$i];
+          }
+
+          $musicCreditImplode = $musicTimePlayed . ";;" . $musicSongTitle . ";;" . $musicArtist . ";;" . $musicLink . ";;" . $musicMore;
+
+          array_push($musicArrayBase, $musicCreditImplode);
+      }
+      $uploadMusicCredit = implode(" || ", $musicArrayBase);
+  }
+
+  $videoCreditArrayBase = array();
+    if (isset($_POST['isThereVideoCredit'])) { 
+     $uploadVideoCredit = "NONE";
+    } else {
+    for ($i = 0; $i < count($_POST['videoCreditTitle']); $i++) { 
+      $videoCreditTitle = $_POST['videoCreditTitle'][$i];
+      $videoCreditName = $_POST['videoCreditName'][$i];
+
+      $videoCreditImplode = $videoCreditTitle . ";;" . $videoCreditName;
+
+      array_push($videoCreditArrayBase, $videoCreditImplode);
+    }
+    $uploadVideoCredit = implode(" || ", $videoCreditArrayBase);
+  }
+
+  $staringArrayBase = array();
+  if (isset($_POST['isThereStaringCredit'])) { 
+      $uploadStaring = "NONE";
+     } else {
+    for ($i = 0; $i < count($_POST['staringDisplayName']); $i++) { 
+       if (empty($_POST['staringTimeCode'][$i]) ) { 
+        $staringTimeCode = "NONE";
+      } else {
+        $staringTimeCode = $_POST['staringTimeCode'][$i];
+      }
+
+      $staringDisplayName = $_POST['staringDisplayName'][$i];
+
+      if (empty($_POST['staringUsername'][$i]) || $_POST['staringUsername'][$i] == "NoUn" ) { 
+        $staringUsername = "NONE";
+      } else {
+        $staringUsername = $_POST['staringUsername'][$i];
+      }
+
+      $staringImplode = $staringTimeCode . ";;" . $staringDisplayName . ";;" . $staringUsername;
+
+      array_push($staringArrayBase, $staringImplode);
+    }
+    $uploadStaring = implode(" || ", $staringArrayBase);
+  }
+
+  if ($_POST['linkType'] === "default") {
+    $links = "DEFAULT";
+  } else if ($_POST['linkType'] === "noLinks") {
+    $links = "NONE";
+  } else if ($_POST['linkType'] === "custom" || $_POST['linkType'] === "leaveAsIS") {
+    $linksArrayBase = array();
+      for ($i = 0; $i < count($_POST['linkHref']); $i++) { 
+        $linkHref = $_POST['linkHref'][$i];
+        $linkHref = $_POST['linkHref'][$i];
+        $linkTitle = $_POST['linkTitle'][$i];
+
+        $linksImplode = $linkHref . ";;" . $linkTitle;
+
+        array_push($linksArrayBase, $linksImplode);
+      }
+      $links = implode(" || ", $linksArrayBase);
+  }
+
   $uploadPrivacy = $_POST['privacy'];
-  $uploadComments = $_POST['comments'];
+  $uploadComments = $_POST['commentsOption'];
 
   $thumb = $_FILES['thumbnailFile'];
 
@@ -54,12 +212,12 @@ if (isset($_POST['submit'])) { //Looks to see if the form has been submitted #Fo
   $thumbExplode = explode('.', $thumbName); //Explodes the file name (name . extention)
   $thumbExtention = strtolower(end($thumbExplode)); //Changes the file extention into a lowercase name
   $thumbTypeExplode = explode ("/", $thumbType); // [0] is media type | [1] is file type
-  $thumbExtAllow = array('jpg', 'jpeg', 'png'); //Allow the following extentions
+  $thumbExtAllow = array('jpg'); //Allow the following extentions
   $maxThumbSize = "5368709120";
 
   $thumbNewName = $uniqeID.".".$thumbExtention;
 
-  $thumbPath = "https://".$spacesBucket.".".$spacesURIRegion.".".$spacesURL."/".$spacesRootFolder."/thumbnails/".$thumbNewName;
+  $thumbPath =" ../../../../storage/thumbnails/".$thumbNewName;
 
   $error =0; // Sets initial error number to 0 meaning no errors
 
@@ -84,19 +242,9 @@ if (isset($_POST['submit'])) { //Looks to see if the form has been submitted #Fo
       header("Location: ../../../dashboard/edit?id=$uniqeID&type=captcha&error=$error");
       exit();
     }
-  } #Captcha 
+  } #Captcha
 
-  if (empty($uploadTitle) || empty($uploadSDescription) || empty($uploadDescription) || empty($uploadCategory) || empty($uploadTags) || empty($uploadChapters) || empty($uploadMusicCredit) || empty($uploadPrivacy)){//Checks that all fields are entered: #EmptyFields
-    $error = 3;
-    header("Location: ../../../dashboard/edit?id=$uniqeID&type=empty&error=$error");
-    exit();
-  }
   
-  if ($_POST['linkType'] === "custom" && empty($links) || $_POST['linkType'] === "leaveAsIS" && empty($links)) {//Checks to see if custom links are chosen that the custom link field is not empty.
-    $error = 4;
-    header("Location: ../../../dashboard/edit?id=$uniqeID&type=empty&error=$error");
-    exit();
-  } #EmptyFields
 //header("Location: ../../../dashboard/edit?id=$uniqeID&type=captcha&error=$error");
   if ($_FILES['thumbnailFile']['error'] == 0) {
     if (in_array($thumbExtention, $thumbExtAllow) != $thumbExtention) {
@@ -122,13 +270,12 @@ if (isset($_POST['submit'])) { //Looks to see if the form has been submitted #Fo
         <p>Sorry, the your thumbnail file is to large. Please try to upload a file under 100MB! Please try again!</p>
       </div>';
       exit();
-    } //size check
+    } //size check 
 
     if ($error == 0) {
-      include '../../do_spaces/spaces_config.php';
-      include '../../do_spaces/spaces_thumbnailUpload.php';
+      move_uploaded_file($thumbTemp, $thumbPath); 
     }
-  }
+  } 
   
   if ($error == 0) {
     include_once '../../models/classes/Video.class.php';

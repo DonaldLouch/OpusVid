@@ -66,7 +66,7 @@ class Comments extends MySQL {
 								<input type="text" name="commenterID" value="'.$row['commenterID'].'" hidden>
 								<label>
 									<input type="submit" name="deleteComment" style="display:none;" />
-									'.file_get_contents($baseFileURL."/ui/videoUI/trashVector.svg").'
+									'.file_get_contents($baseFileURL."/ui/trashVector.svg").'
 								</label>
 							</form>
 				';
@@ -79,8 +79,10 @@ class Comments extends MySQL {
 					
 					$output .= '
 							<img src="'.$commenter['userAvatar'].'" alt="'.$commenter['userName'].'">
-							<h2><a href="profile?id='.$commenter['userName'].'">'.$commenter['userName'].'</a></h2>
-							<h5>Commetned On: '.date('m/d/Y \a\t g:ia' , $row['postedOn']).'</h5>
+							<div class="commenterInfo">
+								<h2><a href="profile?id='.$commenter['userName'].'">'.$commenter['userName'].'</a></h2>
+								<h5>Commetned On: '.date('m/d/Y \a\t g:ia' , $row['postedOn']).'</h5>
+							</div
 						</div>
 						<p>'.$row['commentBody'].'</p>
 					</article>
@@ -120,7 +122,7 @@ class Comments extends MySQL {
 	}
 
 	public function manageCommentsAdmin() {
-		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 15');
+		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 9');
 
 		while ($baseRow = $baseSTMT->fetch()) {
 			$baseFileURL = $baseRow['settingValue'];
@@ -165,7 +167,7 @@ class Comments extends MySQL {
 						<input type="text" name="commenterID" value="'.$row['commenterID'].'" hidden>
 						<label>
 							<input type="submit" name="deleteComment" style="display:none;" />
-							'.file_get_contents($baseFileURL."/ui/videoUI/trashVector.svg").'
+							'.file_get_contents($baseFileURL."/ui/trashVector.svg").'
 						</label>
 					</form>
 				</article>';
@@ -184,7 +186,7 @@ class Comments extends MySQL {
 	}
 
 	public function manageCommentsMod() {
-		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 15');
+		$baseSTMT = $this->connect()->query('SELECT * FROM settings WHERE settingOrder = 9');
 
 		while ($baseRow = $baseSTMT->fetch()) {
 			$baseFileURL = $baseRow['settingValue'];
@@ -217,7 +219,7 @@ class Comments extends MySQL {
 				$count ++; 
 				$output .= '
 				<article class="videoWrapper comment">
-					<h3>Comment By: '.$row['commenterName'].'</h3>
+					<h3>Comment By: ('.$row['commenterID'].')'.$row['commenterName'].'</h3>
 					<p>'.$row['commentBody'].'</p>
 					<h5>Posted on: '.date('D M j, Y', $row['postedOn']).'</h5>
 
@@ -229,7 +231,7 @@ class Comments extends MySQL {
 						<input type="text" name="commenterID" value="'.$row['commenterID'].'" hidden>
 						<label>
 							<input type="submit" name="deleteComment" style="display:none;" />
-							'.file_get_contents($baseFileURL."/ui/videoUI/trashVector.svg").'
+							'.file_get_contents($baseFileURL."/ui/trashVector.svg").'
 						</label>
 					</form>
 				</article>';

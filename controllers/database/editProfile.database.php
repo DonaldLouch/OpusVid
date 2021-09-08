@@ -21,7 +21,22 @@
     $accountName = $_POST['accountID'];
     $accountDescription = htmlspecialchars($_POST['description']);
     $accountTags = $_POST['tags'];
-    $accountLinks = $_POST['links'];
+
+  if (isset($_POST['isThereVideoCredit'])) {
+    $accountLinks = "NONE";
+  } else {
+    $linksArrayBase = array();
+      for ($i = 0; $i < count($_POST['linkHref']); $i++) { 
+        $linkHref = $_POST['linkHref'][$i];
+        $linkTitle = $_POST['linkTitle'][$i];
+
+        $linksImplode = $linkHref . ";;" . $linkTitle;
+
+        array_push($linksArrayBase, $linksImplode);
+      }
+      $accountLinks = implode(" || ", $linksArrayBase);
+  }
+
     $accountEmail = $_POST['accountEmail'];
 
     if ($_FILES['avatarFile']['error'] == 0) {
@@ -40,8 +55,7 @@
       $maxAvatarSize = "1e+7";
 
       $avatarNewName = $accountName.".".$avatarExtention;
-
-      $avatarDestination = "https://".$spacesBucket.".".$spacesURIRegion.".".$spacesURL."/".$spacesRootFolder."/avatar/".$avatarNewName; 
+      $avatarDestination =" ../../../../storage/thumbnails/".$avatarNewName;
     }
 
     include_once '../../models/classes/MySQL.class.php';
@@ -103,10 +117,7 @@
   } //End: NoAvatar
 
   if ($_FILES['avatarFile']['error'] == 0) { //Is the file uploaded and no initial errors?
-      $error = 6;
-      header("Location: ../../dashboard/settingsP?type=fileError&file=ava&error=$error"); 
-  } //error check
-  elseif (in_array($avatarExtention, $avatarExtAllow) != $avatarExtention) { //Does the uploaded file have the right extention?
+  if (in_array($avatarExtention, $avatarExtAllow) != $avatarExtention) { //Does the uploaded file have the right extention?
     $error = 7;
     header("Location: ../../dashboard/settingsP?type=fileExt&file=ava&error=$error"); 
   } //extention check
@@ -116,8 +127,7 @@
   } //size check
 
     if($_FILES['avatarFile']['error'] == 0 && $error == 0) { //If no errors then upload avatar and update database #DatabaseUpdate
-      include '../../do_spaces/spaces_config.php';
-      include '../../do_spaces/spaces_avatarUpload.php';
+      move_uploaded_file($avatarTemp, $avatarDestination);
 
       if (empty($accountDescription) || empty($accountTags)) {
         $profileStatus = 1;
@@ -134,7 +144,8 @@
       header("Location: ../../dashboard/settingsP?type=email&error=$error"); 
       exit();
     }
-      header("Location: ../profile?id=$accountName");
+      header("Location: ../../profile?id=$accountName");
     } //End: DatabaseUpdate
 
 } //End: FormSubmitted
+}

@@ -5,15 +5,12 @@
     $siteKeywords = $setting->siteKeywords();
     $timeZone = $setting->timeZone();
     $supportEmail = $setting->supportEmail();
-    $spacesKey = $setting->spacesKey();
-    $spacesSecert = $setting->spacesSecert();
-    $spacesBucket = $setting->spacesBucket();
-    $spacesRegion = $setting->spacesRegion();
-    $spacesEndpoint = $setting->spacesEndpoint();
-    $spacesURIRegion = $setting->spacesURIRegion();
-    $spacesURL = $setting->spacesURL();
-    $spacesRootFolder = $setting->spacesRootFolder();
+    $customEmail = $setting->customEmail();
     $baseFileURL = $setting->baseFileURL();
+    $uploadBaseURL = $setting->uploadBaseURL();
+    $maxSizeVideo = $setting->maxSizeVideo();
+    $maxSizeThumbnail = $setting->maxSizeThumbnail();
+    $maxSizeAvatar = $setting->maxSizeAvatar();
     $captchaSite = $setting->captchaSite();
     $captchaSecret = $setting->captchaSecret();
     

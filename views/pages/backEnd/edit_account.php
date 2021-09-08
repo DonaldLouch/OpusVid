@@ -6,51 +6,59 @@
   $profile = $userClass->getProfile($accountID);
 
 ?>
+
 <body>
-  <script> document.title = "Edit <?php echo $_SESSION['userName']; ?> | <?php echo $websiteName; ?>"</script>
-  <?php require '../../blades/portalHeader.php'; ?> 
-  <?php require '../../blades/errors.php'; ?>
-  <main>
-    <section id="loginPage" class="">
-      <h3><span class="underline pageTitle">Edit Account: <?php echo $profile['userName']; ?></span></h3>
-      <br>
-              <form id="videoUpload" method="post" action="../../controllers/database/editAccount.database.php" enctype="multipart/form-data">
-                <input type="text" hidden name="accountID" value="<?php echo $profile['userName']; ?>">
-                <input type="text" hidden name="numberID" value="<?php echo $profile['userID']; ?>">
-                <div class="columns 2">
-                  <div class="nm column">
+    <script>
+    document.title = "Edit <?php echo $_SESSION['userName']; ?> | <?php echo $websiteName; ?>"
+    </script>
+    <?php require '../../blades/portalHeader.php'; ?>
+    <?php require '../../blades/errors.php'; ?>
+    <section id="editAccount" class="">
+        <h3><span class="underline pageTitle">Edit Account: <?php echo $profile['userName']; ?></span></h3>
+        <br>
+        <form id="editAccountForm" method="post" action="../../controllers/database/editAccount.database.php"
+            enctype="multipart/form-data">
+            <input type="text" hidden name="accountID" value="<?php echo $profile['userName']; ?>">
+            <input type="text" hidden name="numberID" value="<?php echo $profile['userID']; ?>">
+            <div class="columns 2">
+                <div class="nm column">
                     <div class="field">
-                      <input type="text" name="signupFirstName" id="signupFirstName" placeholder="First Name" value="<?php echo $profile['userFirstName']; ?>" required>
-                      <label for="signupFirstName"><span class="required">*</span>First Name</label>
+                        <input type="text" name="signupFirstName" id="signupFirstName" placeholder="First Name"
+                            value="<?php echo $profile['userFirstName']; ?>" required>
+                        <label for="signupFirstName"><span class="required">*</span>First Name</label>
                     </div>
-                  </div>
-                  <div class="nm column">
+                </div>
+                <div class="nm column">
                     <div class="field">
-                      <input type="text" name="signupLastName" id="signupLastName" placeholder="Last Name" value="<?php echo $profile['userLastName']; ?>" required>
-                      <label for="signupLastName"><span class="required">*</span>Last Name</label>
+                        <input type="text" name="signupLastName" id="signupLastName" placeholder="Last Name"
+                            value="<?php echo $profile['userLastName']; ?>" required>
+                        <label for="signupLastName"><span class="required">*</span>Last Name</label>
                     </div>
-                  </div>
                 </div>
-                <hr>
+            </div>
+            <hr>
 
-                <div class="field">
-                  <input type="text" name="editEmail" id="editEmail" value="<?php echo $profile['userEmail']; ?>" required>
-                  <label for="editEmail"><span class="required">*</span>Email</label>
-                </div>
+            <div class="field">
+                <input type="text" name="editEmail" id="editEmail" value="<?php echo $profile['userEmail']; ?>"
+                    required>
+                <label for="editEmail"><span class="required">*</span>Email</label>
+            </div>
 
-                <div class="field">
-                  <input type="password" name="editPassword" id="editPassword" placeholder="New Password: LEAVE BLANK IF USING THE SAME PASSWORD">
-                  <label for="editPassword">New Password: LEAVE BLANK IF USING THE SAME PASSWORD</label>
-                </div>
-                
-                <hr>
-            
+            <div class="field">
+                <input type="password" name="editPassword" id="editPassword"
+                    placeholder="New Password: LEAVE BLANK IF USING THE SAME PASSWORD">
+                <label for="editPassword">New Password: LEAVE BLANK IF USING THE SAME PASSWORD</label>
+            </div>
 
-                <div class="columns 2">
-                  <div class="nm column">
+            <hr>
+
+
+            <div class="columns 2">
+                <div class="nm column">
                     <label for="country"><span class="required">*</span>Country</label>
-                      <select name="country" id="country">
-                        <option value="<?php echo $profile['userCountry']; ?>"><?php echo $profile['userCountry']; ?></option>
+                    <select name="country" id="country">
+                        <option value="<?php echo $profile['userCountry']; ?>">
+                            <?php echo $profile['userCountry']; ?></option>
                         <option>---</option>
                         <option value="Canada">Canada</option>
                         <option value="United States of America">United States of America</option>
@@ -303,12 +311,13 @@
                         <option value="Zaire">Zaire</option>
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabwe">Zimbabwe</option>
-                      </select>
-                    </div>
-                    <div class="nm column">
-                      <label for="timezone"><span class="required">*</span>Timezone</label>
-                      <select name="timezone" id="timezone" require>
-                        <option value="<?php echo $profile['userTimeZone']; ?>"><?php echo $profile['userTimeZone']; ?></option>
+                    </select>
+                </div>
+                <div class="nm column">
+                    <label for="timezone"><span class="required">*</span>Timezone</label>
+                    <select name="timezone" id="timezone" require>
+                        <option value="<?php echo $profile['userTimeZone']; ?>">
+                            <?php echo $profile['userTimeZone']; ?></option>
                         <option>---</option>
                         <option value="Etc/GMT+12">(GMT-12:00) International Date Line West</option>
                         <option value="Pacific/Midway">(GMT-11:00) Midway Island, Samoa</option>
@@ -339,9 +348,12 @@
                         <option value="Atlantic/Cape_Verde">(GMT-01:00) Cape Verde Is.</option>
                         <option value="Atlantic/Azores">(GMT-01:00) Azores</option>
                         <option value="Africa/Casablanca">(GMT+00:00) Casablanca, Monrovia, Reykjavik</option>
-                        <option value="Etc/Greenwich">(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
-                        <option value="Europe/Amsterdam">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
-                        <option value="Europe/Belgrade">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+                        <option value="Etc/Greenwich">(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon,
+                            London</option>
+                        <option value="Europe/Amsterdam">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm,
+                            Vienna</option>
+                        <option value="Europe/Belgrade">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana,
+                            Prague</option>
                         <option value="Europe/Brussels">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
                         <option value="Europe/Sarajevo">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
                         <option value="Africa/Lagos">(GMT+01:00) West Central Africa</option>
@@ -350,7 +362,8 @@
                         <option value="Asia/Beirut">(GMT+02:00) Beirut</option>
                         <option value="Africa/Cairo">(GMT+02:00) Cairo</option>
                         <option value="Africa/Harare">(GMT+02:00) Harare, Pretoria</option>
-                        <option value="Europe/Helsinki">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+                        <option value="Europe/Helsinki">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius
+                        </option>
                         <option value="Asia/Jerusalem">(GMT+02:00) Jerusalem</option>
                         <option value="Europe/Minsk">(GMT+02:00) Minsk</option>
                         <option value="Africa/Windhoek">(GMT+02:00) Windhoek</option>
@@ -392,18 +405,21 @@
                         <option value="Pacific/Auckland">(GMT+12:00) Auckland, Wellington</option>
                         <option value="Pacific/Fiji">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
                         <option value="Pacific/Tongatapu">(GMT+13:00) Nuku'alofa</option>
-                      </select>
-                    </div>
-                  </div>
+                    </select>
+                </div>
+            </div>
 
-                  <?php require '../../blades/recaptchaCodeHomepage.php'; ?>
-                  <button type="submit" name="editAccountUser" class="submitButton">Edit Account</button>
-              </form>
-              <form method="post" action="../../controllers/database/editAccount.database.php">
-                <input hidden name="profileIDDel" value="<?php echo $profile['userID']; ?>">
-                <input hidden name="profileUNameDel" value="<?php echo $profile['userName']; ?>">
-                <button class="submitButton delete" type="submit" name="deleteAccountUser">Delete Account</button>
-              </form>
-            </section>
-          </div>
-      <?php require '../../blades/footer.php'; ?>
+            <?php require '../../blades/recaptchaCodeHomepage.php'; ?>
+            <button type="submit" name="editAccountUser" class="submitButton">Edit Account</button>
+        </form>
+        <form method="post" action="../../controllers/database/editAccount.database.php">
+            <input hidden name="profileIDDel" value="<?php echo $profile['userID']; ?>">
+            <input hidden name="profileUNameDel" value="<?php echo $profile['userName']; ?>">
+            <button class="submitButton delete" type="submit" name="deleteAccountUser">Delete Account</button>
+        </form>
+    </section>
+    <!-- End Tags From "blades/portalHeader.php" -->
+    </main> <!-- #dashboardContent -->
+    </div><!-- .dashboard-->
+    </div> <!-- .dashboardWrapper -->
+    <?php require '../../blades/footer.php'; ?>
