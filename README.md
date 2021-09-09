@@ -1,4 +1,4 @@
-![OpusVid CV1.0B2](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4c50d4f3-5eb9-42a1-9042-ce9968ebe370/repository-open-graph-templateCV1B2.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210908T180111Z&X-Amz-Expires=86400&X-Amz-Signature=a9fdba119929e7383aca1525516254cd26b319ef3562f1e38e66c7a5a9cdd11e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22repository-open-graph-templateCV1B2.jpg%22)
+![OpusVid CV1.0B2](https://devlexicon.ca/storage/knowledge/opusVidCV1B2.jpg)
 
 # OpusVid
 [![Generic badge](https://img.shields.io/badge/CV-v1.0b2*-302E91.svg?style=for-the-badge)](#community-version-cv) [![Generic badge](https://img.shields.io/badge/Built_By-DevLexicon-4524E8.svg?style=for-the-badge)](https://devlexicon.ca) [![Generic badge](https://img.shields.io/badge/Twitter-DevLexicon-1DA1F2.svg?style=for-the-badge&logo=twitter)](https://twitter.com/devlexicon) [![Generic badge](https://img.shields.io/badge/Discord-pUAgE2qdqT-7289DA.svg?style=for-the-badge&logo=discord)](https://discord.gg/pUAgE2qdqT)
@@ -139,7 +139,7 @@ Note that any changed made here will not transfer if you update the script. You 
 ### Before Upgrading
 Before you upgrade to CV1.0B2 or any other version, please make sure to back up your current files and database files. Most importantly please make sure to backup your storage folders and database files. Due to the major updates in CV1.0B2 you will need to reupload all files to your sever. There is an upgrade script included that will automatically upgrade your database.
 ### VIdeo Tutorial
-You may watch a video tutorial of the upgrade process on [OpusVid: COMING SOON!](https://opusvid.devlexicon.ca/player?id=6137fac87421d)
+You may watch a video tutorial of the upgrade process on [OpusVid](https://opusvid.devlexicon.ca/player?id=6137fac87421d)
 ### Downloading
 Make sure you download the OpusVid Script (rather by downloading the “**[Release](https://github.com/DevLexicon/OpusVid/tree/release)** > **Code**” or [CV1.0B2](https://github.com/DevLexicon/OpusVid/releases/tag/cv1.0b2)). You can also fork the repository and use your severs git intergration to upload the files.
 ### Uploading
