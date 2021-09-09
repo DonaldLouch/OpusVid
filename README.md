@@ -52,7 +52,7 @@ The **Regular License (RL)** version will include all releases of OpusVid post l
 
 With the RL version you will also get more detailed documentation to help with configuration, troubleshooting, and overall improvement tips. 
 
-The RL and EL will also receive the ability to receive support from DevLexicon. The RL will receive medium level support (such as, basic configurations and basic troubleshooting | Slow Support) and the EL will receive high level support (advanced configuration and troubleshooting | Fast support). The support will be offered through “work orders” through the [DevLexicon Portal (Work Orders Coming Soon!)](https://devlexicon.ca).
+The RL and EL will also receive the ability to receive support from DevLexicon. The RL will receive medium level support (such as, basic configurations and basic troubleshooting | Slow Support) and the EL will receive high level support (advanced configuration and troubleshooting | Fast support). The support will be offered through “work orders” through the [DevLexicon Portal](https://devlexicon.ca/portal/requestProduct?id=21).
 
 Pricing and arability will be announced soon along with the launch of the first version of the OpusVid Script.
 
@@ -61,7 +61,7 @@ The **Extended License (EL)** version will include all releases of OpusVid post 
 
 With the EL version you will also get more detailed documentation to help with configuration, troubleshooting, and overall improvement tips. 
 
-The RL and EL will also receive the ability to receive support from DevLexicon. The RL will receive medium level support (such as, basic configurations and basic troubleshooting | Slow Support) and the EL will receive high level support (advanced configuration and troubleshooting | Fast support). The support will be offered through “work orders” through the [DevLexicon Portal (Work Orders Coming Soon!)](https://devlexicon.ca).
+The RL and EL will also receive the ability to receive support from DevLexicon. The RL will receive medium level support (such as, basic configurations and basic troubleshooting | Slow Support) and the EL will receive high level support (advanced configuration and troubleshooting | Fast support). The support will be offered through “work orders” through the [DevLexicon Portal](https://devlexicon.ca/portal/requestProduct?id=21).
 
 Pricing and arability will be announced soon along with the launch of the first version of the OpusVid Script.
 
@@ -70,7 +70,7 @@ The **By Donation Version (BDV)** version will include all releases of OpusVid p
 
 With the BDV as long as you spend over a certain amount, it will contain more detailed documentation to help with configuration, troubleshooting, and overall improvement tips. 
 
-The BDV will also receive the ability to receive support from DevLexicon. The levels will range from low level support (such as base troubleshooting | Slowest Support). To the same as RL which will receive medium level support (such as, basic configurations and basic troubleshooting | Slow Support). To the same as EL which will receive high level support (advanced configuration and troubleshooting | Fast support). The support will be offered through “work orders” through the [DevLexicon Portal (Work Orders Coming Soon!)](https://devlexicon.ca).
+The BDV will also receive the ability to receive support from DevLexicon. The levels will range from low level support (such as base troubleshooting | Slowest Support). To the same as RL which will receive medium level support (such as, basic configurations and basic troubleshooting | Slow Support). To the same as EL which will receive high level support (advanced configuration and troubleshooting | Fast support). The support will be offered through “work orders” through the [DevLexicon Portal](https://devlexicon.ca/portal/requestProduct?id=21).
 
 Pricing and arability will be announced soon along with the launch of the first version of the OpusVid Script.
 
