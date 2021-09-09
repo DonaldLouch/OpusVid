@@ -1,7 +1,7 @@
 CHANGELOG
 ================================================================================
 
-## [CV1.0B2](https://github.com/DevLexicon/OpusVid/releases/tag/cv1.0b2) (DATE TBD)
+## [CV1.0B2](https://github.com/DevLexicon/OpusVid/releases/tag/cv1.0b2) (September 10th, 2021)
 We are happy to introduce OpusVid Community Version (CV) 1.0 Beta 2. With this update, we have made design changes in which we implemented from feedback from the first beta and modernized the styles with Glassmorphism UI and other cleaner styles. We have also moved away from requiring a third-party cloud storage solution such as DigitalOcean Spaces. With the addition of adding the ability to upload larger videos without straining your server. Furthermore we have made changes to the fullscreen mode and added a new theater mode.
 ### Improved Features
 
