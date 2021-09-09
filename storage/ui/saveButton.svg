@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 417 418" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
+    <g transform="matrix(1,0,0,1,0,-2888)">
+        <g id="saveButton" transform="matrix(4.16667,0,0,4.16667,0,2888.89)">
+            <rect x="0" y="0" width="100" height="100" style="fill:none;"/>
+            <g id="saveButton1" serif:id="saveButton">
+                <g transform="matrix(1,0,0,1,70.4839,17.07)">
+                    <path d="M0,65.93L-37.843,65.93C-42.882,65.93 -46.966,61.845 -46.966,56.807L-46.966,9.123C-46.966,4.084 -42.882,0 -37.843,0L0,0C5.039,0 9.123,4.084 9.123,9.123L9.123,56.807C9.123,61.845 5.039,65.93 0,65.93Z" style="fill:none;fill-rule:nonzero;stroke:#e57373;stroke-width:6px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,70.4839,17.07)">
+                    <path d="M0,65.93L-37.843,65.93C-42.882,65.93 -46.966,61.845 -46.966,56.807L-46.966,9.123C-46.966,4.084 -42.882,0 -37.843,0L0,0C5.039,0 9.123,4.084 9.123,9.123L9.123,56.807C9.123,61.845 5.039,65.93 0,65.93Z" style="fill:none;fill-rule:nonzero;stroke:#e57373;stroke-width:6px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,60.9038,17.4548)">
+                    <g>
+                        <path d="M0,15.761L-18.683,15.761C-19.5,15.761 -20.162,15.1 -20.162,14.282L-20.162,1.479C-20.162,0.661 -19.5,0 -18.683,0L0,0C0.816,0 1.479,0.661 1.479,1.479L1.479,14.282C1.479,15.1 0.816,15.761 0,15.761Z" style="fill:none;fill-rule:nonzero;stroke:#e57373;stroke-width:6px;"/>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,60.9038,17.4548)">
+                    <path d="M0,15.761L-18.683,15.761C-19.5,15.761 -20.162,15.1 -20.162,14.282L-20.162,1.479C-20.162,0.661 -19.5,0 -18.683,0L0,0C0.816,0 1.479,0.661 1.479,1.479L1.479,14.282C1.479,15.1 0.816,15.761 0,15.761Z" style="fill:none;fill-rule:nonzero;stroke:#e57373;stroke-width:6px;"/>
+                </g>
+                <g transform="matrix(0,-1,-1,0,51.5617,45.5822)">
+                    <ellipse cx="-10.764" cy="-0.001" rx="10.765" ry="10.764" style="fill:none;stroke:#ff9d2f;stroke-width:5px;stroke-linecap:butt;stroke-linejoin:miter;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

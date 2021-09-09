@@ -1,0 +1,18 @@
+.htaccess
+
+# code editors
+.nova
+.vscode
+
+*.pem
+
+#Ignoring the MySQL Database Connection
+/models/classes/MySQL.class.php
+
+#Ignoring the avatar, thumbnails, and video files
+/storage/avatar/
+/storage/thumbnails/
+/storage/videos/
+
+
+.DS_Store

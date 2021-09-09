@@ -1,0 +1,59 @@
+RewriteEngine On
+
+#Redirects URL to "https://*" if "http://*" has been typed
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://{DOMAIN.NAME}/$1 [R,L]
+
+#Removes the file extensions
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]
+
+RewriteRule ^404$ views/pages/backEnd/404.php [NC]
+ErrorDocument 404 https://{DOMAIN.NAME}/404
+
+#Back-end redirects
+RewriteRule ^sitemap$ views/pages/backEnd/sitemap.php [NC]
+RewriteRule ^php$ views/pages/backEnd/phpInfo.php [NC]
+
+RewriteRule ^passwordReset$ views/pages/backEnd/passwordResetStart.php [NC]
+RewriteRule ^passwordNew$ views/pages/backEnd/passwordResetNew.php [NC]
+RewriteRule ^passwordPending$ views/pages/backEnd/passwordResetPending.php [NC]
+
+RewriteRule ^dashboard$ views/pages/backEnd/index.php [NC]
+RewriteRule ^dashboard/upload$ views/pages/backEnd/upload_s1.php [NC]
+RewriteRule ^dashboard/upload_s2$ views/pages/backEnd/upload_s2.php [NC]
+RewriteRule ^dashboard/upload_s3$ views/pages/backEnd/upload_s3.php [NC]
+RewriteRule ^dashboard/manage$ views/pages/backEnd/manage_videos.php [NC]
+RewriteRule ^dashboard/edit$ views/pages/backEnd/edit_video.php [NC]
+RewriteRule ^dashboard/settingsP$ views/pages/backEnd/edit_profile.php [NC]
+RewriteRule ^dashboard/settingsA$ views/pages/backEnd/edit_account.php [NC]
+RewriteRule ^dashboard/UserSession$ views/pages/backEnd/UserSession.php [NC]
+
+RewriteRule ^admin/videos$ views/pages/backEnd/admin_videos.php [NC]
+RewriteRule ^admin/comment$ views/pages/backEnd/admin_comments.php [NC]
+RewriteRule ^admin/edit_video$ views/pages/backEnd/admin_edit_video.php [NC]
+RewriteRule ^admin/accounts$ views/pages/backEnd/admin_accounts.php [NC]
+RewriteRule ^admin/edit_account$ views/pages/backEnd/admin_edit_account.php [NC]
+RewriteRule ^admin/new_user$ views/pages/backEnd/admin_newuser.php [NC]
+RewriteRule ^admin/tos$ views/pages/backEnd/settingsTOS.php [NC]
+RewriteRule ^admin/web$ views/pages/backEnd/settingsWebsite.php [NC]
+RewriteRule ^admin/css$ views/pages/backEnd/settingsCSS.php [NC]
+
+RewriteRule ^mod/videos$ views/pages/backEnd/mod_videos.php [NC]
+RewriteRule ^mod/comment$ views/pages/backEnd/mod_comments.php [NC]
+
+#Front-end redirects
+RewriteRule ^$ views/pages/frontEnd/index.php [NC]
+RewriteRule ^player$ views/pages/frontEnd/player.php [NC]
+RewriteRule ^embed$ views/pages/frontEnd/embed.php [NC]
+RewriteRule ^profile$ views/pages/frontEnd/profile.php [NC]
+RewriteRule ^search$ views/pages/frontEnd/search.php [NC]
+RewriteRule ^categories$ views/pages/frontEnd/categories.php [NC]
+RewriteRule ^category$ views/pages/frontEnd/category.php [NC]
+RewriteRule ^tos$ views/pages/frontEnd/tos.php [NC]
+RewriteRule ^T/(.+)$ views/pages/frontEnd/tag.php?type=$1 [L]
+
+RewriteRule ^login$ views/pages/frontEnd/login.php [NC]
+RewriteRule ^signup$ views/pages/frontEnd/login.php [NC]
