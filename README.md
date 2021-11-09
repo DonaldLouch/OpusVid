@@ -3,6 +3,8 @@
 # OpusVid
 [![Generic badge](https://img.shields.io/badge/CV-v1.0b2*-302E91.svg?style=for-the-badge)](#community-version-cv) [![Generic badge](https://img.shields.io/badge/Built_By-DevLexicon-4524E8.svg?style=for-the-badge)](https://devlexicon.ca) [![Generic badge](https://img.shields.io/badge/Twitter-DevLexicon-1DA1F2.svg?style=for-the-badge&logo=twitter)](https://twitter.com/devlexicon) [![Generic badge](https://img.shields.io/badge/Discord-pUAgE2qdqT-7289DA.svg?style=for-the-badge&logo=discord)](https://discord.gg/pUAgE2qdqT)
 
+![Alt](https://repobeats.axiom.co/api/embed/ed795ba6ff2eacca7396d22d3d65653039c5b560.svg "Repobeats analytics image")
+
 ## NOTE:
 There is a special upgrade process for going from CV1.0B1 to CV1.0B2. Please read the [Upgrade Instructions Below](#upgrade).
 
